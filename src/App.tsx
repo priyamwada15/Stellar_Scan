@@ -138,12 +138,12 @@ export default function App() {
             <div className="space-y-8">
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="font-headline text-phosphor text-sm uppercase tracking-widest">Username</p>
-                  <p className="text-[10px] text-phosphor/40 uppercase">Current Identity: {username}</p>
+                  <p className="font-headline text-phosphor text-sm uppercase tracking-widest mb-2">Username</p>
+                  <p className="text-[10px] text-phosphor/40 uppercase">{username}</p>
                 </div>
                 <button 
                   onClick={() => setUsername(generateRandomUsername())}
-                  className="px-4 py-2 border border-phosphor/30 text-phosphor font-headline text-[10px] uppercase hover:bg-phosphor/10 transition-all"
+                  className="w-32 py-2 border border-phosphor/30 text-phosphor font-headline text-[10px] uppercase hover:bg-phosphor/10 transition-all"
                 >
                   Regenerate
                 </button>
@@ -151,7 +151,7 @@ export default function App() {
 
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="font-headline text-phosphor text-sm uppercase tracking-widest text-red-500">Clear History</p>
+                  <p className="font-headline text-phosphor text-sm uppercase tracking-widest text-red-500 mb-2">Clear History</p>
                   <p className="text-[10px] text-phosphor/40 uppercase">Erase all temporal logs</p>
                 </div>
                 <button 
@@ -161,7 +161,7 @@ export default function App() {
                       setShowSettings(false);
                     }
                   }}
-                  className="px-4 py-2 border border-red-500/30 text-red-500 font-headline text-[10px] uppercase hover:bg-red-500/10 transition-all"
+                  className="w-32 py-2 border border-red-500/30 text-red-500 font-headline text-[10px] uppercase hover:bg-red-500/10 transition-all"
                 >
                   Confirm Erase
                 </button>
