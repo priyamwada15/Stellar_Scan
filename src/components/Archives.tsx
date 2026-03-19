@@ -25,9 +25,9 @@ export const Archives: React.FC<{ items: Constellation[]; onSelect: (c: Constell
 
   return (
     <main className="pt-24 pb-32 px-6 max-w-7xl mx-auto">
-      <section className="mb-12 border-l-4 border-phosphor pl-6">
-        <p className="font-headline text-phosphor text-xs tracking-widest uppercase mb-2">Temporal Archives / History</p>
-        <h2 className="font-headline text-5xl md:text-7xl font-extrabold text-phosphor uppercase tracking-tighter leading-none">
+      <section className="mb-8 md:mb-12 border-l-4 border-phosphor pl-4 md:pl-6">
+        <p className="font-headline text-phosphor text-[10px] md:text-xs tracking-widest uppercase mb-2">Temporal Archives / History</p>
+        <h2 className="font-headline text-4xl md:text-7xl font-extrabold text-phosphor uppercase tracking-tighter leading-none">
           Search <span className="text-phosphor/60">History</span>
         </h2>
         <p className="mt-4 max-w-2xl text-phosphor/70 font-body leading-relaxed">

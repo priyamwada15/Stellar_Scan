@@ -25,10 +25,10 @@ export const Header: React.FC<{ username: string; onSettingsClick?: () => void }
 
 export const Footer: React.FC<{ activeTab: string; onTabChange: (tab: string) => void }> = ({ activeTab, onTabChange }) => {
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-void/95 border-t border-phosphor/30 bg-gradient-to-t from-phosphor/5 to-transparent">
+    <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-2 bg-void/95 border-t border-phosphor/30 bg-gradient-to-t from-phosphor/5 to-transparent">
       <button 
         onClick={() => onTabChange('SCANNER')}
-        className={`flex flex-col items-center justify-center px-8 py-2 transition-all ${activeTab === 'SCANNER' ? 'bg-phosphor text-void scale-105 ring-1 ring-phosphor' : 'text-phosphor/50 hover:text-phosphor'}`}
+        className={`flex flex-col items-center justify-center px-4 sm:px-8 py-2 transition-all ${activeTab === 'SCANNER' ? 'bg-phosphor text-void scale-105 ring-1 ring-phosphor' : 'text-phosphor/50 hover:text-phosphor'}`}
       >
         <span className="material-symbols-outlined mb-1">radar</span>
         <span className="font-headline text-[10px] tracking-tighter uppercase font-bold">SCANNER</span>

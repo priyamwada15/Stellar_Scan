@@ -29,14 +29,14 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
     <main className="pt-24 pb-32 px-6 max-w-7xl mx-auto">
       {showExport && <ExportCard data={data} scanDate={currentScanDate} onClose={() => setShowExport(false)} />}
       
-      <div className="grid grid-cols-12 gap-8 relative">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 relative">
         {/* Left Column: Visualizer, Button & Metrics */}
-        <div className="col-span-12 md:col-span-7 flex flex-col gap-8">
+        <div className="col-span-12 md:col-span-7 flex flex-col gap-6 md:gap-8">
           {/* Visualizer */}
           <div className="aspect-square bg-void-dark relative overflow-hidden group border border-phosphor/10">
-            <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle, #00FF41 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
-            <div className="absolute inset-0 flex items-center justify-center p-12">
-              <div className="relative w-full h-full border border-phosphor/20 p-8">
+            <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle, #00FF41 1px, transparent 1px)', backgroundSize: '20px 20px md:30px 30px' }}></div>
+            <div className="absolute inset-0 flex items-center justify-center p-4 md:p-12">
+              <div className="relative w-full h-full border border-phosphor/20 p-4 md:p-8">
                 <div className="w-full h-full relative" onClick={() => setSelectedStarIndex(null)}>
                   {/* Connection Lines */}
                   <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -129,36 +129,36 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
           </button>
 
           {/* Metrics 2x2 Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-void-light p-4 border border-phosphor/10">
-              <div className="font-headline text-[10px] text-phosphor/40 uppercase mb-2">Signal Integrity</div>
-              <div className="font-headline text-2xl text-phosphor">98.4%</div>
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
+              <div className="font-headline text-[8px] md:text-[10px] text-phosphor/40 uppercase mb-1 md:mb-2">Signal Integrity</div>
+              <div className="font-headline text-lg md:text-2xl text-phosphor">98.4%</div>
             </div>
-            <div className="bg-void-light p-4 border border-phosphor/10">
-              <div className="font-headline text-[10px] text-phosphor/40 uppercase mb-2">Distance (LY)</div>
-              <div className="font-headline text-2xl text-phosphor">{data.distance}</div>
+            <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
+              <div className="font-headline text-[8px] md:text-[10px] text-phosphor/40 uppercase mb-1 md:mb-2">Distance (LY)</div>
+              <div className="font-headline text-lg md:text-2xl text-phosphor">{data.distance}</div>
             </div>
-            <div className="bg-void-light p-4 border border-phosphor/10">
-              <div className="font-headline text-[10px] text-phosphor/40 uppercase mb-2">Observation Window</div>
-              <div className="font-headline text-2xl text-phosphor">{data.observationWindow}</div>
+            <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
+              <div className="font-headline text-[8px] md:text-[10px] text-phosphor/40 uppercase mb-1 md:mb-2">Observation Window</div>
+              <div className="font-headline text-lg md:text-2xl text-phosphor">{data.observationWindow}</div>
             </div>
-            <div className="bg-void-light p-4 border border-phosphor/10">
-              <div className="font-headline text-[10px] text-phosphor/40 uppercase mb-2">Sky Sector</div>
-              <div className="font-headline text-2xl text-phosphor">{data.skySector}</div>
+            <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
+              <div className="font-headline text-[8px] md:text-[10px] text-phosphor/40 uppercase mb-1 md:mb-2">Sky Sector</div>
+              <div className="font-headline text-lg md:text-2xl text-phosphor">{data.skySector}</div>
             </div>
           </div>
         </div>
 
         {/* Right Column: Header & Profile */}
-        <div className="col-span-12 md:col-span-5 flex flex-col gap-8">
+        <div className="col-span-12 md:col-span-5 flex flex-col gap-6 md:gap-8">
           {/* Header Section */}
           <div>
             <div className="inline-block px-3 py-1 bg-void-light border-l-4 border-phosphor mb-4 animate-pulse">
-              <span className="font-headline text-phosphor text-xs tracking-[0.2em] uppercase glow-text">
+              <span className="font-headline text-phosphor text-[10px] md:text-xs tracking-[0.2em] uppercase glow-text">
                 Constellation Identified // EPOCH {currentScanDate}
               </span>
             </div>
-            <h2 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-phosphor glow-text leading-none uppercase">
+            <h2 className="font-headline text-4xl md:text-7xl font-extrabold tracking-tighter text-phosphor glow-text leading-none uppercase">
               {data.name}
             </h2>
           </div>
