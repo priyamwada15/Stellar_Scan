@@ -1,7 +1,25 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Constellation } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+const getApiKey = () => {
+  // Check standard Vite env variable first
+  const viteKey = (import.meta as any).env?.VITE_GEMINI_API_KEY;
+  if (viteKey) return viteKey;
+
+  // Check the "defined" process.env variable (from vite.config.ts)
+  const processKey = process.env.GEMINI_API_KEY;
+  if (processKey) return processKey;
+
+  return "";
+};
+
+const API_KEY = getApiKey();
+
+if (!API_KEY) {
+  console.error("CRITICAL_ERROR: GEMINI_API_KEY is missing from the build environment.");
+}
+
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 const constellationSchema = {
   type: Type.OBJECT,
@@ -55,17 +73,33 @@ const constellationSchema = {
 };
 
 export async function getConstellationData(query: string): Promise<Constellation> {
-  const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
-    contents: `Generate detailed astronomical data for the constellation or star: ${query}. 
-    Include realistic coordinates and a list of 5-10 main stars with their relative x,y positions (0-100) for a map visualization.
-    Crucially, provide "connections" as an array of index pairs (e.g., [[0,1], [1,2]]) to draw the constellation's stick-figure outline.
-    Also include a "mythology" section describing the origin story of the constellation.`,
-    config: {
-      responseMimeType: "application/json",
-      responseSchema: constellationSchema
-    }
-  });
+  console.log("INITIALIZING_TEMPORAL_QUERY:", query);
+  
+  if (!API_KEY) {
+    throw new Error("API_KEY_NOT_FOUND: Please set VITE_GEMINI_API_KEY in your environment.");
+  }
 
-  return JSON.parse(response.text);
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: `Generate detailed astronomical data for the constellation or star: ${query}. 
+      Include realistic coordinates and a list of 5-10 main stars with their relative x,y positions (0-100) for a map visualization.
+      Crucially, provide "connections" as an array of index pairs (e.g., [[0,1], [1,2]]) to draw the constellation's stick-figure outline.
+      Also include a "mythology" section describing the origin story of the constellation.`,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: constellationSchema
+      }
+    });
+
+    if (!response.text) {
+      throw new Error("EMPTY_RESPONSE_FROM_TEMPORAL_CORE");
+    }
+
+    console.log("QUERY_SUCCESSFUL: Data retrieved.");
+    return JSON.parse(response.text);
+  } catch (error: any) {
+    console.error("TEMPORAL_QUERY_FAILED:", error);
+    throw new Error(error.message || "CONNECTION_TO_TEMPORAL_CORE_LOST");
+  }
 }

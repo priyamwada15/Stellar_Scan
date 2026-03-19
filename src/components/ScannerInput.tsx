@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
 
-export const ScannerInput: React.FC<{ onScan: (date: string) => void }> = ({ onScan }) => {
-  const [date, setDate] = useState(() => {
-    const now = new Date();
-    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-  });
+export const ScannerInput: React.FC<{ 
+  onScan: (date: string) => void; 
+  error?: string | null;
+  date: string;
+  setDate: (date: string) => void;
+}> = ({ onScan, error, date, setDate }) => {
   const dateInputRef = useRef<HTMLInputElement>(null);
 
   const formatAndSetDate = (value: string) => {
@@ -12,8 +13,8 @@ export const ScannerInput: React.FC<{ onScan: (date: string) => void }> = ({ onS
     let formatted = '';
     if (digits.length > 0) {
       formatted += digits.substring(0, 4);
-      if (digits.length > 4) formatted += '-' + digits.substring(4, 6);
-      if (digits.length > 6) formatted += '-' + digits.substring(6, 8);
+      if (digits.length > 4) formatted += '.' + digits.substring(4, 6);
+      if (digits.length > 6) formatted += '.' + digits.substring(6, 8);
     }
     setDate(formatted.substring(0, 10));
   };
@@ -45,6 +46,12 @@ export const ScannerInput: React.FC<{ onScan: (date: string) => void }> = ({ onS
             </p>
 
             <div className="space-y-6">
+              {error && (
+                <div className="bg-red-500/10 border border-red-500/30 p-4 flex items-center gap-3 animate-shake">
+                  <span className="material-symbols-outlined text-red-500">error</span>
+                  <p className="font-headline text-[10px] text-red-500 uppercase tracking-widest">{error}</p>
+                </div>
+              )}
               {/* Date Input */}
               <div 
                 className="bg-void-dark p-6 font-headline relative group cursor-text"
@@ -66,13 +73,13 @@ export const ScannerInput: React.FC<{ onScan: (date: string) => void }> = ({ onS
                           autoFocus
                         />
                         <span className="text-phosphor underline decoration-2 underline-offset-8 inline-block">
-                          {date || 'YYYY-MM-DD'}
+                          {date || 'YYYY.MM.DD'}
                         </span>
                         <span className="w-4 h-8 bg-phosphor cursor-blink ml-1"></span>
                       </div>
                     </div>
                     <div className="mt-4 text-xs text-phosphor/40 font-headline tracking-widest">
-                      FORMAT: YYYY-MM-DD | STATUS: {date.length === 10 ? 'READY_FOR_SYNC' : 'AWAITING_INPUT'}
+                      FORMAT: YYYY.MM.DD | STATUS: {date.length === 10 ? 'READY_FOR_SYNC' : 'AWAITING_INPUT'}
                     </div>
                   </div>
                 </div>

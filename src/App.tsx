@@ -21,6 +21,7 @@ export default function App() {
     return saved ? JSON.parse(saved) : [];
   });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [showSettings, setShowSettings] = useState(false);
   const [crtEnabled, setCrtEnabled] = useState(true);
   const [username, setUsername] = useState(() => {
@@ -48,20 +49,38 @@ export default function App() {
 
   const handleScan = async (date: string) => {
     setLoading(true);
+    setError(null);
     setScreen('SCANNING');
     setScanDate(date);
+
+    // Create a timeout promise
+    const timeoutPromise = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error("TEMPORAL_SYNC_TIMEOUT: Connection to core lost.")), 15000)
+    );
+
     try {
-      const data = await getConstellationData(`Constellation visible on ${date}`);
+      // Ensure the scanning screen is visible for at least 1 second
+      const delayPromise = new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Race the API call against the timeout
+      const [data] = await Promise.all([
+        Promise.race([
+          getConstellationData(`Constellation visible on ${date}`),
+          timeoutPromise
+        ]) as Promise<Constellation>,
+        delayPromise
+      ]);
+
       setConstellation(data);
       setArchiveItems(prev => {
-        // Avoid duplicates by ID if possible, or just prepend
         const exists = prev.find(item => item.id === data.id);
         if (exists) return prev;
-        return [data, ...prev].slice(0, 50); // Keep last 50
+        return [data, ...prev].slice(0, 50);
       });
       setScreen('DETAIL');
-    } catch (error) {
-      console.error(error);
+    } catch (err: any) {
+      console.error(err);
+      setError(err.message || 'FAILED_TO_DECRYPT_TEMPORAL_DATA');
       setScreen('SCANNER_INPUT');
     } finally {
       setLoading(false);
@@ -82,7 +101,7 @@ export default function App() {
       case 'BOOT':
         return <BootScreen onComplete={() => setScreen('SCANNER_INPUT')} />;
       case 'SCANNER_INPUT':
-        return <ScannerInput onScan={handleScan} />;
+        return <ScannerInput date={scanDate} setDate={setScanDate} onScan={handleScan} error={error} />;
       case 'SCANNING':
         return (
           <div className="flex flex-col items-center justify-center h-screen bg-void">
