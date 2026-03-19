@@ -66,6 +66,7 @@ export const ScannerInput: React.FC<{
                         <input
                           ref={dateInputRef}
                           type="text"
+                          inputMode="numeric"
                           value={date}
                           onChange={(e) => formatAndSetDate(e.target.value)}
                           onKeyDown={handleKeyDown}
