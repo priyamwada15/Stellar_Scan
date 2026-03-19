@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Constellation } from '../types';
 import { ExportCard } from './ExportCard';
+import { formatVisibility } from '../utils';
 
 const MetricGrid: React.FC<{ data: Constellation }> = ({ data }) => (
   <>
@@ -191,7 +192,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
               </div>
               <div className="flex justify-between items-end gap-2">
                 <span className="font-headline text-[10px] uppercase text-phosphor/40">Visibility Range</span>
-                <span className="font-headline text-phosphor text-xs">{data.visibility}</span>
+                <span className="font-headline text-phosphor text-xs">{formatVisibility(data.visibility)}</span>
               </div>
               <div className="flex justify-between items-end gap-2">
                 <span className="font-headline text-[10px] uppercase text-phosphor/40">Stellar Count</span>

@@ -85,7 +85,8 @@ export async function getConstellationData(query: string): Promise<Constellation
       contents: `Generate detailed astronomical data for the constellation or star: ${query}. 
       Include realistic coordinates and a list of 5-10 main stars with their relative x,y positions (0-100) for a map visualization.
       Crucially, provide "connections" as an array of index pairs (e.g., [[0,1], [1,2]]) to draw the constellation's stick-figure outline.
-      Also include a "mythology" section describing the origin story of the constellation.`,
+      Also include a "mythology" section describing the origin story of the constellation.
+      The "visibility" field should be formatted as "LAT [val1]-LAT [val2]" (e.g., "LAT +90°-LAT -65°").`,
       config: {
         responseMimeType: "application/json",
         responseSchema: constellationSchema

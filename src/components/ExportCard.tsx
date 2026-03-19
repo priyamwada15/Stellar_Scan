@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { toPng } from 'html-to-image';
 import { Constellation } from '../types';
+import { formatVisibility } from '../utils';
 
 interface ExportCardProps {
   data: Constellation;
@@ -96,7 +97,7 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
               </div>
               <div className="bg-void-light p-2 border border-phosphor/10 rounded">
                 <div className="text-[8px] text-phosphor/40 uppercase mb-1">Visibility</div>
-                <div className="text-xs text-phosphor font-headline">{data.visibility || 'Optimal'}</div>
+                <div className="text-xs text-phosphor font-headline">{formatVisibility(data.visibility)}</div>
               </div>
               <div className="bg-void-light p-2 border border-phosphor/10 rounded">
                 <div className="text-[8px] text-phosphor/40 uppercase mb-1">Spectral Class</div>
