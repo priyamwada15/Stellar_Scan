@@ -1,0 +1,5 @@
+{
+  "name": "Stellar Scan",
+  "description": "A high-fidelity astronomical terminal for identifying and visualizing constellations with a Phosphor Noir aesthetic.",
+  "requestFramePermissions": []
+}

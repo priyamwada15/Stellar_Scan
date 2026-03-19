@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-phosphor: #00FF41;
+  --color-phosphor-dim: rgba(0, 255, 65, 0.4);
+  --color-void: #1f0e18;
+  --color-void-dark: #190913;
+  --color-void-light: #2c1a24;
+}
+
+@layer base {
+  body {
+    @apply bg-void text-phosphor font-body selection:bg-phosphor selection:text-void overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline uppercase tracking-tighter;
+  }
+}
+
+@layer components {
+  .crt-overlay {
+    @apply fixed inset-0 pointer-events-none z-[100];
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  }
+
+  .glow-text {
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+  }
+
+  .terminal-border {
+    @apply border border-phosphor/20;
+  }
+
+  .terminal-button {
+    @apply px-6 py-3 font-headline font-bold uppercase tracking-widest transition-all active:scale-95;
+  }
+
+  .terminal-button-primary {
+    @apply bg-phosphor text-void hover:brightness-110;
+  }
+
+  .terminal-button-outline {
+    @apply border border-phosphor text-phosphor hover:bg-phosphor/10;
+  }
+
+  .pixel-grid {
+    background-image: radial-gradient(circle, #00FF41 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.95; }
+  10% { opacity: 0.9; }
+  15% { opacity: 0.98; }
+  30% { opacity: 0.95; }
+  50% { opacity: 0.92; }
+  80% { opacity: 0.98; }
+  100% { opacity: 0.95; }
+}
+
+.flicker {
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
