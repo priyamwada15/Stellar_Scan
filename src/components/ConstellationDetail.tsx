@@ -52,8 +52,26 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
       {showExport && <ExportCard data={data} scanDate={currentScanDate} onClose={() => setShowExport(false)} />}
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
-        {/* Left Column: Visualizer, Export, and Metrics (Desktop) */}
-        <div className="lg:col-span-7 flex flex-col gap-6 order-2 lg:order-1">
+        {/* 1. Header Section - Top on mobile, Top-Right on desktop */}
+        <div className="lg:col-span-5 order-1 lg:order-2">
+          <div className="inline-block px-3 py-1 bg-void-light border-l-4 border-phosphor mb-4 animate-pulse">
+            <span className="font-headline text-phosphor text-[10px] md:text-xs tracking-[0.2em] uppercase glow-text">
+              Constellation Identified // EPOCH {currentScanDate}
+            </span>
+          </div>
+          <div className="mb-6">
+            <h2 className="font-headline text-4xl md:text-7xl font-extrabold tracking-tighter text-phosphor glow-text leading-none uppercase mb-2">
+              {data.name}
+            </h2>
+            <div className="flex items-center gap-2">
+              <span className="font-headline text-[10px] md:text-xs text-phosphor/40 uppercase tracking-widest">Target Designation:</span>
+              <span className="font-headline text-xs md:text-sm text-phosphor uppercase glow-text">{data.latinName}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 2. Visualizer Section - Second on mobile, Left Column on desktop */}
+        <div className="lg:col-span-7 lg:row-span-2 order-2 lg:order-1 flex flex-col gap-6">
           {/* Visualizer */}
           <div className="aspect-square bg-void-dark relative overflow-hidden group border border-phosphor/10">
             <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle, #00FF41 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
@@ -156,88 +174,67 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
           </div>
         </div>
 
-        {/* Right Column: Header and Profile Info */}
-        <div className="lg:col-span-5 flex flex-col gap-6 order-1 lg:order-2">
-          {/* Header Section */}
-          <div>
-            <div className="inline-block px-3 py-1 bg-void-light border-l-4 border-phosphor mb-4 animate-pulse">
-              <span className="font-headline text-phosphor text-[10px] md:text-xs tracking-[0.2em] uppercase glow-text">
-                Constellation Identified // EPOCH {currentScanDate}
-              </span>
-            </div>
-            <div className="mb-6">
-              <h2 className="font-headline text-4xl md:text-7xl font-extrabold tracking-tighter text-phosphor glow-text leading-none uppercase mb-2">
-                {data.name}
-              </h2>
-              <div className="flex items-center gap-2">
-                <span className="font-headline text-[10px] md:text-xs text-phosphor/40 uppercase tracking-widest">Target Designation:</span>
-                <span className="font-headline text-xs md:text-sm text-phosphor uppercase glow-text">{data.latinName}</span>
+        {/* 3. Profile Sections - Third on mobile, Bottom-Right on desktop */}
+        <div className="lg:col-span-5 order-3 lg:order-3 flex flex-col gap-4">
+          <div className="bg-void-light p-6 border-l border-phosphor/30">
+            <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
+              <span className="material-symbols-outlined text-sm">info</span>
+              Astronomical Profile
+            </h3>
+            <p className="font-body text-phosphor/60 leading-relaxed text-sm mb-6">
+              {data.description}
+            </p>
+            
+            <div className="space-y-3">
+              <div className="flex justify-between items-end gap-2">
+                <span className="font-headline text-[10px] uppercase text-phosphor/40">Classification</span>
+                <span className="font-headline text-phosphor text-xs">{data.type}</span>
+              </div>
+              <div className="flex justify-between items-end gap-2">
+                <span className="font-headline text-[10px] uppercase text-phosphor/40">Visibility Range</span>
+                <span className="font-headline text-phosphor text-xs">{formatVisibility(data.visibility)}</span>
+              </div>
+              <div className="flex justify-between items-end gap-2">
+                <span className="font-headline text-[10px] uppercase text-phosphor/40">Stellar Count</span>
+                <span className="font-headline text-phosphor text-xs">{data.stars.length} Main Stars</span>
               </div>
             </div>
           </div>
 
-          {/* Profile Sections */}
-          <div className="flex flex-col gap-4">
-            <div className="bg-void-light p-6 border-l border-phosphor/30">
-              <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm">info</span>
-                Astronomical Profile
-              </h3>
-              <p className="font-body text-phosphor/60 leading-relaxed text-sm mb-6">
-                {data.description}
-              </p>
-              
-              <div className="space-y-3">
-                <div className="flex justify-between items-end gap-2">
-                  <span className="font-headline text-[10px] uppercase text-phosphor/40">Classification</span>
-                  <span className="font-headline text-phosphor text-xs">{data.type}</span>
-                </div>
-                <div className="flex justify-between items-end gap-2">
-                  <span className="font-headline text-[10px] uppercase text-phosphor/40">Visibility Range</span>
-                  <span className="font-headline text-phosphor text-xs">{formatVisibility(data.visibility)}</span>
-                </div>
-                <div className="flex justify-between items-end gap-2">
-                  <span className="font-headline text-[10px] uppercase text-phosphor/40">Stellar Count</span>
-                  <span className="font-headline text-phosphor text-xs">{data.stars.length} Main Stars</span>
-                </div>
+          <div className="bg-void-light p-6 border-l border-phosphor/30">
+            <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
+              <span className="material-symbols-outlined text-sm">monitoring</span>
+              Observation Metrics
+            </h3>
+            <div className="space-y-3">
+              <div className="flex justify-between items-end gap-2">
+                <span className="font-headline text-[10px] uppercase text-phosphor/40">Luminosity index</span>
+                <span className="font-headline text-phosphor text-xs">{data.spectralData.luminosity}</span>
+              </div>
+              <div className="flex justify-between items-end gap-2">
+                <span className="font-headline text-[10px] uppercase text-phosphor/40">Nebula Density</span>
+                <span className="font-headline text-phosphor text-xs">{data.spectralData.nebulaDensity}</span>
+              </div>
+              <div className="flex justify-between items-end gap-2">
+                <span className="font-headline text-[10px] uppercase text-phosphor/40">Signal Drift</span>
+                <span className="font-headline text-phosphor text-xs">{data.spectralData.signalDrift}</span>
               </div>
             </div>
+          </div>
 
-            <div className="bg-void-light p-6 border-l border-phosphor/30">
-              <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm">monitoring</span>
-                Observation Metrics
-              </h3>
-              <div className="space-y-3">
-                <div className="flex justify-between items-end gap-2">
-                  <span className="font-headline text-[10px] uppercase text-phosphor/40">Luminosity index</span>
-                  <span className="font-headline text-phosphor text-xs">{data.spectralData.luminosity}</span>
-                </div>
-                <div className="flex justify-between items-end gap-2">
-                  <span className="font-headline text-[10px] uppercase text-phosphor/40">Nebula Density</span>
-                  <span className="font-headline text-phosphor text-xs">{data.spectralData.nebulaDensity}</span>
-                </div>
-                <div className="flex justify-between items-end gap-2">
-                  <span className="font-headline text-[10px] uppercase text-phosphor/40">Signal Drift</span>
-                  <span className="font-headline text-phosphor text-xs">{data.spectralData.signalDrift}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-void-light p-6 border-l border-phosphor/30">
-              <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm">history_edu</span>
-                Mythological Origin
-              </h3>
-              <p className="font-body text-phosphor/60 leading-relaxed text-sm">
-                {data.mythology}
-              </p>
-            </div>
+          <div className="bg-void-light p-6 border-l border-phosphor/30">
+            <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
+              <span className="material-symbols-outlined text-sm">history_edu</span>
+              Mythological Origin
+            </h3>
+            <p className="font-body text-phosphor/60 leading-relaxed text-sm">
+              {data.mythology}
+            </p>
           </div>
         </div>
 
         {/* Metrics Grid (Mobile Only) */}
-        <div className="lg:hidden order-3 grid grid-cols-2 gap-3">
+        <div className="lg:hidden order-4 grid grid-cols-2 gap-3">
           <MetricGrid data={data} />
         </div>
       </div>
