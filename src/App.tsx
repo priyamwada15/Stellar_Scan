@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Header, Footer } from './components/Layout';
 import { BootScreen } from './components/BootScreen';
 import { ScannerInput } from './components/ScannerInput';
@@ -120,6 +121,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen relative">
+      <Analytics />
       {crtEnabled && <div className="crt-overlay" />}
       {screen !== 'BOOT' && <Header username={username} onSettingsClick={() => setShowSettings(true)} />}
       {renderScreen()}
