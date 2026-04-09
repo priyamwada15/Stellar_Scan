@@ -1,0 +1,3528 @@
+{
+  "constellations": [
+    {
+      "id": "orion",
+      "name": "Orion",
+      "latinName": "Orion",
+      "type": "Equatorial",
+      "description": "One of the most recognizable constellations, depicting a hunter with a distinctive belt of three stars.",
+      "mythology": "In Greek mythology, Orion was a giant huntsman placed among the stars by Zeus. Son of Poseidon, he was the most handsome of men, killed by a scorpion sent by Gaia. This is why Orion and Scorpius are never in the sky at the same time.",
+      "ra": "5h 30m",
+      "dec": "+5\u00b0",
+      "magnitude": "0.1",
+      "distance": "1,344 ly (Betelgeuse)",
+      "visibility": "LAT +85\u00b0-LAT -75\u00b0",
+      "peakMonth": 1,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 50,
+          "y": 20,
+          "size": "lg",
+          "name": "Betelgeuse"
+        },
+        {
+          "x": 75,
+          "y": 35,
+          "size": "lg",
+          "name": "Bellatrix"
+        },
+        {
+          "x": 40,
+          "y": 50,
+          "size": "md",
+          "name": "Mintaka"
+        },
+        {
+          "x": 50,
+          "y": 52,
+          "size": "md",
+          "name": "Alnilam"
+        },
+        {
+          "x": 60,
+          "y": 54,
+          "size": "md",
+          "name": "Alnitak"
+        },
+        {
+          "x": 45,
+          "y": 75,
+          "size": "lg",
+          "name": "Rigel"
+        },
+        {
+          "x": 68,
+          "y": 70,
+          "size": "md",
+          "name": "Saiph"
+        },
+        {
+          "x": 50,
+          "y": 35,
+          "size": "sm",
+          "name": "Meissa"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "120,000 L\u2609",
+        "nebulaDensity": "HIGH",
+        "signalDrift": "0.002\u00b0/yr"
+      },
+      "observationWindow": "Nov-Mar",
+      "skySector": "EQUATORIAL-WEST"
+    },
+    {
+      "id": "taurus",
+      "name": "Taurus",
+      "latinName": "Taurus",
+      "type": "Zodiacal",
+      "description": "The Bull, featuring bright Aldebaran and the Pleiades star cluster. Contains the Crab Nebula supernova remnant.",
+      "mythology": "Taurus is Zeus in disguise, transformed into a magnificent white bull to approach Europa. He carried her across the sea to Crete, where she became queen, giving her name to the continent of Europe.",
+      "ra": "4h 42m",
+      "dec": "+14\u00b0",
+      "magnitude": "0.87",
+      "distance": "65 ly (Aldebaran)",
+      "visibility": "LAT +90\u00b0-LAT -65\u00b0",
+      "peakMonth": 1,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 55,
+          "y": 50,
+          "size": "lg",
+          "name": "Aldebaran"
+        },
+        {
+          "x": 25,
+          "y": 25,
+          "size": "md",
+          "name": "Pleiades"
+        },
+        {
+          "x": 40,
+          "y": 35,
+          "size": "sm",
+          "name": "Hyades"
+        },
+        {
+          "x": 70,
+          "y": 35,
+          "size": "md",
+          "name": "Elnath"
+        },
+        {
+          "x": 75,
+          "y": 55,
+          "size": "sm",
+          "name": "Zeta Tauri"
+        },
+        {
+          "x": 45,
+          "y": 65,
+          "size": "sm",
+          "name": "Ain"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "439 L\u2609",
+        "nebulaDensity": "HIGH",
+        "signalDrift": "0.003\u00b0/yr"
+      },
+      "observationWindow": "Nov-Mar",
+      "skySector": "NORTHERN-EQUATORIAL"
+    },
+    {
+      "id": "auriga",
+      "name": "Auriga",
+      "latinName": "Auriga",
+      "type": "Northern",
+      "description": "The Charioteer, featuring bright Capella. Contains three notable Messier nebulae.",
+      "mythology": "Auriga is Erichthonius, the legendary king of Athens who invented the four-horse chariot. Capella represents the goat Amalthea that suckled the infant Zeus.",
+      "ra": "6h 0m",
+      "dec": "+42\u00b0",
+      "magnitude": "0.08",
+      "distance": "42 ly (Capella)",
+      "visibility": "LAT +90\u00b0-LAT -34\u00b0",
+      "peakMonth": 1,
+      "peakDay": 20,
+      "stars": [
+        {
+          "x": 50,
+          "y": 25,
+          "size": "lg",
+          "name": "Capella"
+        },
+        {
+          "x": 70,
+          "y": 40,
+          "size": "md",
+          "name": "Menkalinan"
+        },
+        {
+          "x": 75,
+          "y": 60,
+          "size": "sm",
+          "name": "Mahasim"
+        },
+        {
+          "x": 55,
+          "y": 70,
+          "size": "md",
+          "name": "Almaaz"
+        },
+        {
+          "x": 35,
+          "y": 65,
+          "size": "sm",
+          "name": "Haedus I"
+        },
+        {
+          "x": 25,
+          "y": 50,
+          "size": "sm",
+          "name": "Haedus II"
+        },
+        {
+          "x": 30,
+          "y": 35,
+          "size": "sm",
+          "name": "Hassaleh"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "78 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.003\u00b0/yr"
+      },
+      "observationWindow": "Nov-Apr",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "lepus",
+      "name": "Lepus",
+      "latinName": "Lepus",
+      "type": "Southern",
+      "description": "The Hare, crouching beneath Orion. Contains the Crimson Star, one of the reddest stars known.",
+      "mythology": "Lepus is the hare hunted by Orion and his dogs. It was placed beneath Orion's feet to represent the eternal chase across the winter sky.",
+      "ra": "5h 33m",
+      "dec": "-19\u00b0",
+      "magnitude": "2.6",
+      "distance": "160 ly (Arneb)",
+      "visibility": "LAT +63\u00b0-LAT -90\u00b0",
+      "peakMonth": 1,
+      "peakDay": 25,
+      "stars": [
+        {
+          "x": 40,
+          "y": 35,
+          "size": "lg",
+          "name": "Arneb"
+        },
+        {
+          "x": 60,
+          "y": 40,
+          "size": "md",
+          "name": "Nihal"
+        },
+        {
+          "x": 65,
+          "y": 60,
+          "size": "sm",
+          "name": "Epsilon Leporis"
+        },
+        {
+          "x": 45,
+          "y": 65,
+          "size": "sm",
+          "name": "Mu Leporis"
+        },
+        {
+          "x": 25,
+          "y": 55,
+          "size": "sm",
+          "name": "Kappa Leporis"
+        },
+        {
+          "x": 30,
+          "y": 70,
+          "size": "sm",
+          "name": "Lambda Leporis"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "11,500 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.004\u00b0/yr"
+      },
+      "observationWindow": "Dec-Feb",
+      "skySector": "SOUTHERN"
+    },
+    {
+      "id": "canis-major",
+      "name": "Canis Major",
+      "latinName": "Canis Major",
+      "type": "Equatorial",
+      "description": "The Greater Dog, home to Sirius, the brightest star in the night sky.",
+      "mythology": "Canis Major is one of Orion's hunting dogs. Sirius was sacred to ancient Egyptians as its heliacal rising marked the flooding of the Nile and the start of their new year.",
+      "ra": "6h 45m",
+      "dec": "-22\u00b0",
+      "magnitude": "-1.46",
+      "distance": "8.6 ly (Sirius)",
+      "visibility": "LAT +60\u00b0-LAT -90\u00b0",
+      "peakMonth": 2,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 45,
+          "y": 30,
+          "size": "lg",
+          "name": "Sirius"
+        },
+        {
+          "x": 60,
+          "y": 50,
+          "size": "md",
+          "name": "Adhara"
+        },
+        {
+          "x": 30,
+          "y": 50,
+          "size": "md",
+          "name": "Wezen"
+        },
+        {
+          "x": 50,
+          "y": 65,
+          "size": "sm",
+          "name": "Aludra"
+        },
+        {
+          "x": 70,
+          "y": 35,
+          "size": "sm",
+          "name": "Mirzam"
+        },
+        {
+          "x": 25,
+          "y": 35,
+          "size": "sm",
+          "name": "Muliphein"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "25.4 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.008\u00b0/yr"
+      },
+      "observationWindow": "Dec-Mar",
+      "skySector": "EQUATORIAL-SOUTH"
+    },
+    {
+      "id": "canis-minor",
+      "name": "Canis Minor",
+      "latinName": "Canis Minor",
+      "type": "Equatorial",
+      "description": "The Little Dog, with just two prominent stars. Procyon is one of the brightest stars in the sky.",
+      "mythology": "Canis Minor is Orion's second hunting dog. Procyon means 'before the dog' in Greek, as it rises just before Sirius. In Egyptian mythology both were associated with the flooding of the Nile.",
+      "ra": "7h 30m",
+      "dec": "+6\u00b0",
+      "magnitude": "0.4",
+      "distance": "11.5 ly (Procyon)",
+      "visibility": "LAT +89\u00b0-LAT -77\u00b0",
+      "peakMonth": 2,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 45,
+          "y": 40,
+          "size": "lg",
+          "name": "Procyon"
+        },
+        {
+          "x": 60,
+          "y": 55,
+          "size": "md",
+          "name": "Gomeisa"
+        },
+        {
+          "x": 35,
+          "y": 58,
+          "size": "sm",
+          "name": "Epsilon CMi"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "6.9 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.012\u00b0/yr"
+      },
+      "observationWindow": "Jan-Apr",
+      "skySector": "EQUATORIAL"
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "latinName": "Gemini",
+      "type": "Zodiacal",
+      "description": "The Twins, marked by bright stars Castor and Pollux. One of the zodiac constellations rich in deep-sky objects.",
+      "mythology": "Castor and Pollux were twins, the Dioscuri. Pollux was immortal, son of Zeus, while Castor was mortal. When Castor died, Pollux asked Zeus to share his immortality. Zeus placed them together in the stars, where they remain inseparable.",
+      "ra": "7h 0m",
+      "dec": "+22\u00b0",
+      "magnitude": "1.1",
+      "distance": "34 ly (Pollux)",
+      "visibility": "LAT +90\u00b0-LAT -60\u00b0",
+      "peakMonth": 2,
+      "peakDay": 25,
+      "stars": [
+        {
+          "x": 30,
+          "y": 20,
+          "size": "lg",
+          "name": "Castor"
+        },
+        {
+          "x": 50,
+          "y": 20,
+          "size": "lg",
+          "name": "Pollux"
+        },
+        {
+          "x": 25,
+          "y": 45,
+          "size": "md",
+          "name": "Alhena"
+        },
+        {
+          "x": 45,
+          "y": 45,
+          "size": "md",
+          "name": "Wasat"
+        },
+        {
+          "x": 20,
+          "y": 65,
+          "size": "sm",
+          "name": "Mebsuda"
+        },
+        {
+          "x": 40,
+          "y": 70,
+          "size": "sm",
+          "name": "Mekbuda"
+        },
+        {
+          "x": 60,
+          "y": 75,
+          "size": "md",
+          "name": "Propus"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "32 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.004\u00b0/yr"
+      },
+      "observationWindow": "Dec-Apr",
+      "skySector": "NORTHERN-EQUATORIAL"
+    },
+    {
+      "id": "monoceros",
+      "name": "Monoceros",
+      "latinName": "Monoceros",
+      "type": "Equatorial",
+      "description": "The Unicorn, a faint constellation in the center of the Winter Triangle. Contains the beautiful Rosette Nebula.",
+      "mythology": "Monoceros was introduced by Dutch cartographer Petrus Plancius in 1612, possibly inspired by the unicorn mentioned in the Old Testament. The unicorn was a symbol of purity in medieval European tradition.",
+      "ra": "7h 9m",
+      "dec": "-3\u00b0",
+      "magnitude": "3.9",
+      "distance": "146 ly",
+      "visibility": "LAT +78\u00b0-LAT -78\u00b0",
+      "peakMonth": 2,
+      "peakDay": 20,
+      "stars": [
+        {
+          "x": 50,
+          "y": 35,
+          "size": "md",
+          "name": "Beta Monocerotis"
+        },
+        {
+          "x": 30,
+          "y": 50,
+          "size": "sm",
+          "name": "Alpha Monocerotis"
+        },
+        {
+          "x": 65,
+          "y": 55,
+          "size": "sm",
+          "name": "Gamma Monocerotis"
+        },
+        {
+          "x": 45,
+          "y": 65,
+          "size": "sm",
+          "name": "Delta Monocerotis"
+        },
+        {
+          "x": 20,
+          "y": 35,
+          "size": "sm",
+          "name": "Zeta Monocerotis"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "315 L\u2609",
+        "nebulaDensity": "HIGH",
+        "signalDrift": "0.005\u00b0/yr"
+      },
+      "observationWindow": "Jan-Mar",
+      "skySector": "EQUATORIAL"
+    },
+    {
+      "id": "cancer",
+      "name": "Cancer",
+      "latinName": "Cancer",
+      "type": "Zodiacal",
+      "description": "The Crab, the faintest zodiac constellation. Home to the Beehive Cluster, one of the nearest open clusters to Earth.",
+      "mythology": "Hera sent Cancer the Crab to distract Heracles during his battle with the Hydra. The crab pinched his foot but was quickly crushed. As reward for its loyalty, Hera placed it among the stars.",
+      "ra": "8h 30m",
+      "dec": "+20\u00b0",
+      "magnitude": "3.5",
+      "distance": "290 ly (Beehive Cluster)",
+      "visibility": "LAT +90\u00b0-LAT -57\u00b0",
+      "peakMonth": 3,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 50,
+          "y": 30,
+          "size": "md",
+          "name": "Acubens"
+        },
+        {
+          "x": 35,
+          "y": 45,
+          "size": "sm",
+          "name": "Asellus Borealis"
+        },
+        {
+          "x": 55,
+          "y": 45,
+          "size": "sm",
+          "name": "Asellus Australis"
+        },
+        {
+          "x": 50,
+          "y": 50,
+          "size": "md",
+          "name": "Beehive Cluster"
+        },
+        {
+          "x": 30,
+          "y": 65,
+          "size": "sm",
+          "name": "Al Tarf"
+        },
+        {
+          "x": 70,
+          "y": 65,
+          "size": "sm",
+          "name": "Iota Cancri"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "54 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.005\u00b0/yr"
+      },
+      "observationWindow": "Jan-May",
+      "skySector": "NORTHERN-EQUATORIAL"
+    },
+    {
+      "id": "hydra",
+      "name": "Hydra",
+      "latinName": "Hydra",
+      "type": "Equatorial",
+      "description": "The Water Snake, the largest of all 88 constellations. Alphard is its lone bright star.",
+      "mythology": "Hydra is the many-headed water serpent slain by Heracles as his second labor. For every head cut off, two grew back. Heracles solved this by cauterizing each stump with fire.",
+      "ra": "11h 30m",
+      "dec": "-14\u00b0",
+      "magnitude": "1.99",
+      "distance": "177 ly (Alphard)",
+      "visibility": "LAT +54\u00b0-LAT -83\u00b0",
+      "peakMonth": 3,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 50,
+          "y": 45,
+          "size": "lg",
+          "name": "Alphard"
+        },
+        {
+          "x": 30,
+          "y": 35,
+          "size": "sm",
+          "name": "Zeta Hydrae"
+        },
+        {
+          "x": 20,
+          "y": 30,
+          "size": "sm",
+          "name": "Epsilon Hydrae"
+        },
+        {
+          "x": 65,
+          "y": 40,
+          "size": "sm",
+          "name": "Gamma Hydrae"
+        },
+        {
+          "x": 75,
+          "y": 55,
+          "size": "sm",
+          "name": "Nu Hydrae"
+        },
+        {
+          "x": 40,
+          "y": 60,
+          "size": "sm",
+          "name": "Pi Hydrae"
+        },
+        {
+          "x": 15,
+          "y": 42,
+          "size": "sm",
+          "name": "Delta Hydrae"
+        }
+      ],
+      "connections": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "780 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.004\u00b0/yr"
+      },
+      "observationWindow": "Feb-Jul",
+      "skySector": "SOUTHERN-EQUATORIAL"
+    },
+    {
+      "id": "leo",
+      "name": "Leo",
+      "latinName": "Leo",
+      "type": "Zodiacal",
+      "description": "The Lion, one of the most recognizable zodiac constellations. Features the bright star Regulus and the distinctive sickle asterism.",
+      "mythology": "Leo represents the Nemean Lion, killed by Heracles as his first labor. The lion's hide was impervious to weapons, so Heracles strangled it with bare hands and used its own claws to skin it. Zeus honored its strength by placing it in the stars.",
+      "ra": "10h 30m",
+      "dec": "+15\u00b0",
+      "magnitude": "1.35",
+      "distance": "77 ly (Regulus)",
+      "visibility": "LAT +90\u00b0-LAT -65\u00b0",
+      "peakMonth": 4,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 40,
+          "y": 55,
+          "size": "lg",
+          "name": "Regulus"
+        },
+        {
+          "x": 55,
+          "y": 30,
+          "size": "lg",
+          "name": "Denebola"
+        },
+        {
+          "x": 30,
+          "y": 40,
+          "size": "md",
+          "name": "Algieba"
+        },
+        {
+          "x": 25,
+          "y": 30,
+          "size": "sm",
+          "name": "Adhafera"
+        },
+        {
+          "x": 20,
+          "y": 22,
+          "size": "sm",
+          "name": "Rasalas"
+        },
+        {
+          "x": 45,
+          "y": 40,
+          "size": "md",
+          "name": "Zosma"
+        },
+        {
+          "x": 60,
+          "y": 50,
+          "size": "sm",
+          "name": "Chertan"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "288 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.006\u00b0/yr"
+      },
+      "observationWindow": "Feb-Jun",
+      "skySector": "NORTHERN-EQUATORIAL"
+    },
+    {
+      "id": "ursa-major",
+      "name": "Ursa Major",
+      "latinName": "Ursa Major",
+      "type": "Northern",
+      "description": "The Great Bear, home to the Big Dipper. One of the most recognized constellations, circumpolar at mid-latitudes.",
+      "mythology": "Zeus fell in love with the nymph Callisto and Hera transformed her into a bear in jealousy. When her son Arcas nearly killed her while hunting, Zeus placed them both in the stars. Hera convinced Poseidon never to let them sink below the horizon, which is why they are circumpolar.",
+      "ra": "11h 0m",
+      "dec": "+55\u00b0",
+      "magnitude": "1.77",
+      "distance": "83 ly (Alioth)",
+      "visibility": "LAT +90\u00b0-LAT -30\u00b0",
+      "peakMonth": 4,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 20,
+          "y": 40,
+          "size": "md",
+          "name": "Dubhe"
+        },
+        {
+          "x": 30,
+          "y": 45,
+          "size": "md",
+          "name": "Merak"
+        },
+        {
+          "x": 45,
+          "y": 40,
+          "size": "md",
+          "name": "Phecda"
+        },
+        {
+          "x": 50,
+          "y": 35,
+          "size": "md",
+          "name": "Megrez"
+        },
+        {
+          "x": 60,
+          "y": 30,
+          "size": "lg",
+          "name": "Alioth"
+        },
+        {
+          "x": 70,
+          "y": 25,
+          "size": "md",
+          "name": "Mizar"
+        },
+        {
+          "x": 80,
+          "y": 20,
+          "size": "md",
+          "name": "Alkaid"
+        },
+        {
+          "x": 25,
+          "y": 65,
+          "size": "sm",
+          "name": "Talitha"
+        },
+        {
+          "x": 40,
+          "y": 70,
+          "size": "sm",
+          "name": "Tania Australis"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "102 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.001\u00b0/yr"
+      },
+      "observationWindow": "Year-round",
+      "skySector": "NORTHERN-CIRCUMPOLAR"
+    },
+    {
+      "id": "corvus",
+      "name": "Corvus",
+      "latinName": "Corvus",
+      "type": "Southern",
+      "description": "The Crow, a small but distinctive quadrilateral near Virgo. Contains the interacting Antennae Galaxies.",
+      "mythology": "Apollo sent a crow to fetch water. The crow was distracted by a fig tree and returned late with a water snake as excuse. Apollo placed all three in the sky, the crow forever unable to drink from the nearby cup.",
+      "ra": "12h 15m",
+      "dec": "-18\u00b0",
+      "magnitude": "2.6",
+      "distance": "165 ly (Gienah)",
+      "visibility": "LAT +60\u00b0-LAT -90\u00b0",
+      "peakMonth": 4,
+      "peakDay": 25,
+      "stars": [
+        {
+          "x": 30,
+          "y": 35,
+          "size": "md",
+          "name": "Alchiba"
+        },
+        {
+          "x": 55,
+          "y": 30,
+          "size": "lg",
+          "name": "Gienah"
+        },
+        {
+          "x": 65,
+          "y": 55,
+          "size": "md",
+          "name": "Delta Corvi"
+        },
+        {
+          "x": 35,
+          "y": 60,
+          "size": "md",
+          "name": "Algorab"
+        },
+        {
+          "x": 50,
+          "y": 70,
+          "size": "sm",
+          "name": "Epsilon Corvi"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "162 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.005\u00b0/yr"
+      },
+      "observationWindow": "Mar-Jun",
+      "skySector": "SOUTHERN"
+    },
+    {
+      "id": "virgo",
+      "name": "Virgo",
+      "latinName": "Virgo",
+      "type": "Zodiacal",
+      "description": "The Maiden, the largest zodiac constellation. Spica is its brightest star. Contains the Virgo Cluster of galaxies.",
+      "mythology": "Virgo is Demeter, goddess of the harvest, or her daughter Persephone. When Persephone descends to the underworld each autumn, Demeter's grief causes winter. Spica, held in the maiden's hand, represents a sheaf of wheat.",
+      "ra": "13h 30m",
+      "dec": "-4\u00b0",
+      "magnitude": "0.97",
+      "distance": "250 ly (Spica)",
+      "visibility": "LAT +80\u00b0-LAT -80\u00b0",
+      "peakMonth": 5,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 60,
+          "y": 70,
+          "size": "lg",
+          "name": "Spica"
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "size": "md",
+          "name": "Porrima"
+        },
+        {
+          "x": 25,
+          "y": 30,
+          "size": "md",
+          "name": "Vindemiatrix"
+        },
+        {
+          "x": 55,
+          "y": 25,
+          "size": "sm",
+          "name": "Auva"
+        },
+        {
+          "x": 70,
+          "y": 45,
+          "size": "sm",
+          "name": "Heze"
+        },
+        {
+          "x": 30,
+          "y": 55,
+          "size": "sm",
+          "name": "Zaniah"
+        },
+        {
+          "x": 75,
+          "y": 60,
+          "size": "sm",
+          "name": "Syrma"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          4
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "12,100 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.003\u00b0/yr"
+      },
+      "observationWindow": "Mar-Jul",
+      "skySector": "EQUATORIAL"
+    },
+    {
+      "id": "centaurus",
+      "name": "Centaurus",
+      "latinName": "Centaurus",
+      "type": "Southern",
+      "description": "The Centaur, containing Alpha Centauri, the nearest star system to the Sun. Omega Centauri is the finest globular cluster in the sky.",
+      "mythology": "Centaurus is Chiron, the wisest of the centaurs and tutor to Achilles. Accidentally wounded by Heracles's poisoned arrow, he suffered eternally as an immortal until Zeus granted him release among the stars.",
+      "ra": "13h 0m",
+      "dec": "-47\u00b0",
+      "magnitude": "-0.27",
+      "distance": "4.37 ly (Alpha Centauri)",
+      "visibility": "LAT +25\u00b0-LAT -90\u00b0",
+      "peakMonth": 5,
+      "peakDay": 10,
+      "stars": [
+        {
+          "x": 70,
+          "y": 60,
+          "size": "lg",
+          "name": "Alpha Centauri"
+        },
+        {
+          "x": 55,
+          "y": 55,
+          "size": "lg",
+          "name": "Hadar"
+        },
+        {
+          "x": 40,
+          "y": 40,
+          "size": "md",
+          "name": "Menkent"
+        },
+        {
+          "x": 30,
+          "y": 30,
+          "size": "md",
+          "name": "Muhlifain"
+        },
+        {
+          "x": 20,
+          "y": 50,
+          "size": "sm",
+          "name": "Epsilon Centauri"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "size": "sm",
+          "name": "Eta Centauri"
+        },
+        {
+          "x": 60,
+          "y": 35,
+          "size": "sm",
+          "name": "Zeta Centauri"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "1.519 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.020\u00b0/yr"
+      },
+      "observationWindow": "Mar-Aug",
+      "skySector": "SOUTHERN"
+    },
+    {
+      "id": "crux",
+      "name": "Crux",
+      "latinName": "Crux",
+      "type": "Southern",
+      "description": "The Southern Cross, the smallest constellation and one of the most distinctive. Acrux points toward the south celestial pole.",
+      "mythology": "Crux was known to ancient Greeks but sank below the European horizon over millennia. Portuguese explorers rediscovered it in the 15th century and saw it as a divine cross guiding their voyages into the southern seas.",
+      "ra": "12h 30m",
+      "dec": "-60\u00b0",
+      "magnitude": "0.8",
+      "distance": "320 ly (Acrux)",
+      "visibility": "LAT +20\u00b0-LAT -90\u00b0",
+      "peakMonth": 5,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 50,
+          "y": 70,
+          "size": "lg",
+          "name": "Acrux"
+        },
+        {
+          "x": 50,
+          "y": 25,
+          "size": "lg",
+          "name": "Gacrux"
+        },
+        {
+          "x": 25,
+          "y": 48,
+          "size": "md",
+          "name": "Delta Crucis"
+        },
+        {
+          "x": 75,
+          "y": 48,
+          "size": "lg",
+          "name": "Mimosa"
+        },
+        {
+          "x": 60,
+          "y": 60,
+          "size": "sm",
+          "name": "Epsilon Crucis"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "25,000 L\u2609",
+        "nebulaDensity": "HIGH",
+        "signalDrift": "0.003\u00b0/yr"
+      },
+      "observationWindow": "Feb-Aug",
+      "skySector": "SOUTHERN-CIRCUMPOLAR"
+    },
+    {
+      "id": "bootes",
+      "name": "Bo\u00f6tes",
+      "latinName": "Bo\u00f6tes",
+      "type": "Northern",
+      "description": "The Herdsman. Arcturus is its alpha star, the brightest in the northern hemisphere.",
+      "mythology": "Bo\u00f6tes is Arcas driving the Great Bear around the pole, or Icarius, an Athenian farmer taught winemaking by Dionysus. When shepherds who drank his wine thought they were poisoned and killed him, Dionysus placed him among the stars.",
+      "ra": "14h 42m",
+      "dec": "+27\u00b0",
+      "magnitude": "-0.04",
+      "distance": "37 ly (Arcturus)",
+      "visibility": "LAT +90\u00b0-LAT -50\u00b0",
+      "peakMonth": 6,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 50,
+          "y": 65,
+          "size": "lg",
+          "name": "Arcturus"
+        },
+        {
+          "x": 35,
+          "y": 45,
+          "size": "md",
+          "name": "Izar"
+        },
+        {
+          "x": 60,
+          "y": 45,
+          "size": "md",
+          "name": "Eta Bootis"
+        },
+        {
+          "x": 25,
+          "y": 30,
+          "size": "sm",
+          "name": "Seginus"
+        },
+        {
+          "x": 65,
+          "y": 30,
+          "size": "sm",
+          "name": "Delta Bootis"
+        },
+        {
+          "x": 50,
+          "y": 20,
+          "size": "sm",
+          "name": "Nekkar"
+        },
+        {
+          "x": 30,
+          "y": 60,
+          "size": "sm",
+          "name": "Zeta Bootis"
+        },
+        {
+          "x": 70,
+          "y": 60,
+          "size": "sm",
+          "name": "Rho Bootis"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "215 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.008\u00b0/yr"
+      },
+      "observationWindow": "Mar-Aug",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "libra",
+      "name": "Libra",
+      "latinName": "Libra",
+      "type": "Zodiacal",
+      "description": "The Scales, the only zodiac constellation representing an inanimate object. Originally part of Scorpius.",
+      "mythology": "Libra represents the scales of justice held by Astraea, goddess of justice associated with Virgo. The star names Zubenelgenubi and Zubeneschamali are Arabic for 'southern claw' and 'northern claw', remnants of when they belonged to Scorpius.",
+      "ra": "15h 15m",
+      "dec": "-15\u00b0",
+      "magnitude": "2.6",
+      "distance": "160 ly",
+      "visibility": "LAT +65\u00b0-LAT -90\u00b0",
+      "peakMonth": 6,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 35,
+          "y": 40,
+          "size": "md",
+          "name": "Zubenelgenubi"
+        },
+        {
+          "x": 60,
+          "y": 30,
+          "size": "md",
+          "name": "Zubeneschamali"
+        },
+        {
+          "x": 50,
+          "y": 60,
+          "size": "sm",
+          "name": "Zubenelakrab"
+        },
+        {
+          "x": 70,
+          "y": 55,
+          "size": "sm",
+          "name": "Brachium"
+        },
+        {
+          "x": 25,
+          "y": 65,
+          "size": "sm",
+          "name": "Zubenelhakrabi"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "130 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.007\u00b0/yr"
+      },
+      "observationWindow": "Apr-Aug",
+      "skySector": "SOUTHERN-EQUATORIAL"
+    },
+    {
+      "id": "corona-borealis",
+      "name": "Corona Borealis",
+      "latinName": "Corona Borealis",
+      "type": "Northern",
+      "description": "The Northern Crown, a distinctive semicircle of stars. Alphecca is its brightest star.",
+      "mythology": "Corona Borealis is the crown of Ariadne, who helped Theseus slay the Minotaur. Abandoned by Theseus, she was found by Dionysus who made her his wife. At their wedding he gave her a golden crown, which Zeus placed among the stars.",
+      "ra": "15h 50m",
+      "dec": "+30\u00b0",
+      "magnitude": "2.2",
+      "distance": "75 ly (Alphecca)",
+      "visibility": "LAT +90\u00b0-LAT -50\u00b0",
+      "peakMonth": 6,
+      "peakDay": 20,
+      "stars": [
+        {
+          "x": 50,
+          "y": 40,
+          "size": "lg",
+          "name": "Alphecca"
+        },
+        {
+          "x": 35,
+          "y": 35,
+          "size": "sm",
+          "name": "Theta CrB"
+        },
+        {
+          "x": 65,
+          "y": 35,
+          "size": "sm",
+          "name": "Beta CrB"
+        },
+        {
+          "x": 25,
+          "y": 50,
+          "size": "sm",
+          "name": "Gamma CrB"
+        },
+        {
+          "x": 75,
+          "y": 50,
+          "size": "sm",
+          "name": "Delta CrB"
+        },
+        {
+          "x": 20,
+          "y": 62,
+          "size": "sm",
+          "name": "Eta CrB"
+        },
+        {
+          "x": 80,
+          "y": 62,
+          "size": "sm",
+          "name": "Epsilon CrB"
+        }
+      ],
+      "connections": [
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "54 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.007\u00b0/yr"
+      },
+      "observationWindow": "Apr-Sep",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "ursa-minor",
+      "name": "Ursa Minor",
+      "latinName": "Ursa Minor",
+      "type": "Northern",
+      "description": "The Little Bear, containing Polaris, the North Star. Circumpolar and always visible from the northern hemisphere.",
+      "mythology": "Ursa Minor is Arcas, the son of Callisto, placed in the sky by Zeus alongside his mother. Polaris at the tip of its tail has guided navigators for millennia. Ancient Greeks called it Cynosura, the guiding star.",
+      "ra": "15h 0m",
+      "dec": "+75\u00b0",
+      "magnitude": "2.0",
+      "distance": "433 ly (Polaris)",
+      "visibility": "LAT +90\u00b0-LAT -10\u00b0",
+      "peakMonth": 6,
+      "peakDay": 25,
+      "stars": [
+        {
+          "x": 50,
+          "y": 20,
+          "size": "lg",
+          "name": "Polaris"
+        },
+        {
+          "x": 45,
+          "y": 35,
+          "size": "sm",
+          "name": "Yildun"
+        },
+        {
+          "x": 40,
+          "y": 50,
+          "size": "sm",
+          "name": "Epsilon UMi"
+        },
+        {
+          "x": 35,
+          "y": 62,
+          "size": "sm",
+          "name": "Zeta UMi"
+        },
+        {
+          "x": 30,
+          "y": 72,
+          "size": "md",
+          "name": "Eta UMi"
+        },
+        {
+          "x": 20,
+          "y": 78,
+          "size": "md",
+          "name": "Kochab"
+        },
+        {
+          "x": 25,
+          "y": 65,
+          "size": "md",
+          "name": "Pherkad"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          4
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "2,500 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.000\u00b0/yr"
+      },
+      "observationWindow": "Year-round",
+      "skySector": "NORTHERN-CIRCUMPOLAR"
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "latinName": "Hercules",
+      "type": "Northern",
+      "description": "The Kneeler, the fifth largest constellation. Home to M13, the finest globular cluster in the northern sky.",
+      "mythology": "Heracles was the greatest Greek hero, son of Zeus. Hera drove him mad and he killed his family. As penance the Oracle assigned him twelve labors. He completed them all, earning immortality and a place among the stars.",
+      "ra": "17h 0m",
+      "dec": "+28\u00b0",
+      "magnitude": "2.8",
+      "distance": "370 ly (Kornephoros)",
+      "visibility": "LAT +90\u00b0-LAT -50\u00b0",
+      "peakMonth": 7,
+      "peakDay": 10,
+      "stars": [
+        {
+          "x": 50,
+          "y": 35,
+          "size": "lg",
+          "name": "Kornephoros"
+        },
+        {
+          "x": 40,
+          "y": 50,
+          "size": "md",
+          "name": "Zeta Herculis"
+        },
+        {
+          "x": 60,
+          "y": 50,
+          "size": "md",
+          "name": "Pi Herculis"
+        },
+        {
+          "x": 45,
+          "y": 65,
+          "size": "sm",
+          "name": "Eta Herculis"
+        },
+        {
+          "x": 55,
+          "y": 65,
+          "size": "sm",
+          "name": "Sigma Herculis"
+        },
+        {
+          "x": 30,
+          "y": 35,
+          "size": "sm",
+          "name": "Delta Herculis"
+        },
+        {
+          "x": 70,
+          "y": 35,
+          "size": "sm",
+          "name": "Alpha Herculis"
+        },
+        {
+          "x": 50,
+          "y": 20,
+          "size": "sm",
+          "name": "Lambda Herculis"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "73 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.006\u00b0/yr"
+      },
+      "observationWindow": "May-Oct",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "ophiuchus",
+      "name": "Ophiuchus",
+      "latinName": "Ophiuchus",
+      "type": "Equatorial",
+      "description": "The Serpent Bearer, the 13th ecliptic constellation. Contains more globular clusters than any other constellation.",
+      "mythology": "Ophiuchus is Asclepius, god of medicine, so skilled he could resurrect the dead. Hades was alarmed and Zeus struck him down. Apollo convinced Zeus to honor him among the stars. His image with a serpent became the basis for the caduceus, symbol of medicine.",
+      "ra": "17h 23m",
+      "dec": "-7\u00b0",
+      "magnitude": "2.1",
+      "distance": "458 ly (Rasalhague)",
+      "visibility": "LAT +80\u00b0-LAT -80\u00b0",
+      "peakMonth": 7,
+      "peakDay": 20,
+      "stars": [
+        {
+          "x": 50,
+          "y": 20,
+          "size": "lg",
+          "name": "Rasalhague"
+        },
+        {
+          "x": 35,
+          "y": 40,
+          "size": "md",
+          "name": "Cebalrai"
+        },
+        {
+          "x": 62,
+          "y": 40,
+          "size": "md",
+          "name": "Yed Prior"
+        },
+        {
+          "x": 38,
+          "y": 60,
+          "size": "sm",
+          "name": "Yed Posterior"
+        },
+        {
+          "x": 55,
+          "y": 65,
+          "size": "sm",
+          "name": "Eta Ophiuchi"
+        },
+        {
+          "x": 25,
+          "y": 55,
+          "size": "sm",
+          "name": "Zeta Ophiuchi"
+        },
+        {
+          "x": 65,
+          "y": 75,
+          "size": "sm",
+          "name": "Theta Ophiuchi"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "2,100 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.003\u00b0/yr"
+      },
+      "observationWindow": "Jun-Aug",
+      "skySector": "EQUATORIAL"
+    },
+    {
+      "id": "scorpius",
+      "name": "Scorpius",
+      "latinName": "Scorpius",
+      "type": "Zodiacal",
+      "description": "The Scorpion, one of the most dramatic constellations. Features the red supergiant Antares at its heart.",
+      "mythology": "Scorpius is the scorpion sent by Gaia to kill Orion. Zeus placed both in the sky on opposite sides, so when Scorpius rises in the east, Orion flees below the western horizon. Antares means 'rival of Mars' and glows with a deep reddish hue.",
+      "ra": "16h 53m",
+      "dec": "-30\u00b0",
+      "magnitude": "0.96",
+      "distance": "550 ly (Antares)",
+      "visibility": "LAT +40\u00b0-LAT -90\u00b0",
+      "peakMonth": 7,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 45,
+          "y": 30,
+          "size": "lg",
+          "name": "Antares"
+        },
+        {
+          "x": 30,
+          "y": 25,
+          "size": "md",
+          "name": "Graffias"
+        },
+        {
+          "x": 60,
+          "y": 25,
+          "size": "md",
+          "name": "Dschubba"
+        },
+        {
+          "x": 40,
+          "y": 50,
+          "size": "md",
+          "name": "Sigma Scorpii"
+        },
+        {
+          "x": 50,
+          "y": 60,
+          "size": "sm",
+          "name": "Sargas"
+        },
+        {
+          "x": 35,
+          "y": 70,
+          "size": "sm",
+          "name": "Shaula"
+        },
+        {
+          "x": 40,
+          "y": 80,
+          "size": "sm",
+          "name": "Lesath"
+        },
+        {
+          "x": 65,
+          "y": 45,
+          "size": "sm",
+          "name": "Alniyat"
+        }
+      ],
+      "connections": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "57,500 L\u2609",
+        "nebulaDensity": "HIGH",
+        "signalDrift": "0.001\u00b0/yr"
+      },
+      "observationWindow": "May-Sep",
+      "skySector": "SOUTHERN"
+    },
+    {
+      "id": "lyra",
+      "name": "Lyra",
+      "latinName": "Lyra",
+      "type": "Northern",
+      "description": "The Lyre, small but brilliant. Vega is the fifth brightest star and future north pole star. Contains the Ring Nebula.",
+      "mythology": "Lyra is the lyre of Orpheus, the greatest musician in Greek mythology. His music moved even Hades to allow his dead wife Eurydice to return. After his death, Zeus placed his lyre in the sky still singing.",
+      "ra": "18h 50m",
+      "dec": "+36\u00b0",
+      "magnitude": "0.03",
+      "distance": "25 ly (Vega)",
+      "visibility": "LAT +90\u00b0-LAT -40\u00b0",
+      "peakMonth": 8,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 50,
+          "y": 25,
+          "size": "lg",
+          "name": "Vega"
+        },
+        {
+          "x": 35,
+          "y": 55,
+          "size": "md",
+          "name": "Sheliak"
+        },
+        {
+          "x": 55,
+          "y": 55,
+          "size": "md",
+          "name": "Sulafat"
+        },
+        {
+          "x": 30,
+          "y": 70,
+          "size": "sm",
+          "name": "Delta Lyrae"
+        },
+        {
+          "x": 60,
+          "y": 70,
+          "size": "sm",
+          "name": "Zeta Lyrae"
+        },
+        {
+          "x": 45,
+          "y": 75,
+          "size": "sm",
+          "name": "Epsilon Lyrae"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "37 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.005\u00b0/yr"
+      },
+      "observationWindow": "Jun-Nov",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "sagittarius",
+      "name": "Sagittarius",
+      "latinName": "Sagittarius",
+      "type": "Zodiacal",
+      "description": "The Archer, pointing toward the center of the Milky Way. Contains more Messier objects than any other constellation.",
+      "mythology": "Sagittarius is a centaur drawing a bow aimed at Scorpius. His arrow points directly at Antares, the heart of the scorpion. The direction he aims also points toward the galactic center, the densest region of the Milky Way.",
+      "ra": "19h 0m",
+      "dec": "-29\u00b0",
+      "magnitude": "1.85",
+      "distance": "228 ly (Kaus Australis)",
+      "visibility": "LAT +55\u00b0-LAT -90\u00b0",
+      "peakMonth": 8,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 50,
+          "y": 40,
+          "size": "lg",
+          "name": "Kaus Australis"
+        },
+        {
+          "x": 40,
+          "y": 30,
+          "size": "md",
+          "name": "Nunki"
+        },
+        {
+          "x": 60,
+          "y": 30,
+          "size": "md",
+          "name": "Ascella"
+        },
+        {
+          "x": 35,
+          "y": 55,
+          "size": "md",
+          "name": "Kaus Media"
+        },
+        {
+          "x": 30,
+          "y": 68,
+          "size": "sm",
+          "name": "Kaus Borealis"
+        },
+        {
+          "x": 65,
+          "y": 55,
+          "size": "sm",
+          "name": "Phi Sagittarii"
+        },
+        {
+          "x": 20,
+          "y": 45,
+          "size": "sm",
+          "name": "Alnasl"
+        },
+        {
+          "x": 55,
+          "y": 65,
+          "size": "sm",
+          "name": "Tau Sagittarii"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "375 L\u2609",
+        "nebulaDensity": "VERY HIGH",
+        "signalDrift": "0.004\u00b0/yr"
+      },
+      "observationWindow": "Jun-Oct",
+      "skySector": "SOUTHERN"
+    },
+    {
+      "id": "aquila",
+      "name": "Aquila",
+      "latinName": "Aquila",
+      "type": "Equatorial",
+      "description": "The Eagle, straddling the celestial equator. Altair is one of the closest bright stars to Earth and a Summer Triangle vertex.",
+      "mythology": "Aquila is the eagle of Zeus, who carried his thunderbolts. It also carried the young Ganymede to Olympus to become cupbearer to the gods. The eagle's position straddling the Milky Way represents its eternal flight.",
+      "ra": "19h 40m",
+      "dec": "+3\u00b0",
+      "magnitude": "0.77",
+      "distance": "17 ly (Altair)",
+      "visibility": "LAT +85\u00b0-LAT -75\u00b0",
+      "peakMonth": 9,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 50,
+          "y": 40,
+          "size": "lg",
+          "name": "Altair"
+        },
+        {
+          "x": 40,
+          "y": 35,
+          "size": "md",
+          "name": "Tarazed"
+        },
+        {
+          "x": 60,
+          "y": 35,
+          "size": "md",
+          "name": "Alshain"
+        },
+        {
+          "x": 50,
+          "y": 60,
+          "size": "sm",
+          "name": "Delta Aquilae"
+        },
+        {
+          "x": 35,
+          "y": 65,
+          "size": "sm",
+          "name": "Zeta Aquilae"
+        },
+        {
+          "x": 65,
+          "y": 25,
+          "size": "sm",
+          "name": "Lambda Aquilae"
+        },
+        {
+          "x": 30,
+          "y": 50,
+          "size": "sm",
+          "name": "Eta Aquilae"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          6,
+          4
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "10.6 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.009\u00b0/yr"
+      },
+      "observationWindow": "Jul-Nov",
+      "skySector": "EQUATORIAL"
+    },
+    {
+      "id": "cygnus",
+      "name": "Cygnus",
+      "latinName": "Cygnus",
+      "type": "Northern",
+      "description": "The Swan, featuring the Northern Cross. Deneb is one of the most luminous stars known.",
+      "mythology": "Cygnus is Zeus in swan form, who seduced Leda, producing Castor and Pollux and Helen of Troy. Others identify it with Orpheus transformed into a swan after death, placed near his lyre in the sky.",
+      "ra": "20h 30m",
+      "dec": "+42\u00b0",
+      "magnitude": "1.25",
+      "distance": "2,600 ly (Deneb)",
+      "visibility": "LAT +90\u00b0-LAT -35\u00b0",
+      "peakMonth": 9,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 50,
+          "y": 15,
+          "size": "lg",
+          "name": "Deneb"
+        },
+        {
+          "x": 50,
+          "y": 40,
+          "size": "md",
+          "name": "Sadr"
+        },
+        {
+          "x": 50,
+          "y": 70,
+          "size": "lg",
+          "name": "Albireo"
+        },
+        {
+          "x": 25,
+          "y": 40,
+          "size": "md",
+          "name": "Gienah"
+        },
+        {
+          "x": 75,
+          "y": 40,
+          "size": "md",
+          "name": "Delta Cygni"
+        },
+        {
+          "x": 20,
+          "y": 55,
+          "size": "sm",
+          "name": "Zeta Cygni"
+        },
+        {
+          "x": 80,
+          "y": 55,
+          "size": "sm",
+          "name": "Epsilon Cygni"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "196,000 L\u2609",
+        "nebulaDensity": "HIGH",
+        "signalDrift": "0.001\u00b0/yr"
+      },
+      "observationWindow": "Jun-Dec",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "delphinus",
+      "name": "Delphinus",
+      "latinName": "Delphinus",
+      "type": "Northern",
+      "description": "The Dolphin, a small but charming constellation with a distinctive diamond shape called Job's Coffin.",
+      "mythology": "Delphinus is the dolphin that persuaded Amphitrite to marry Poseidon, who rewarded it with a place in the stars. In another version it rescued the poet Arion from drowning sailors, carrying him safely to shore on its back.",
+      "ra": "20h 42m",
+      "dec": "+13\u00b0",
+      "magnitude": "3.6",
+      "distance": "101 ly (Rotanev)",
+      "visibility": "LAT +90\u00b0-LAT -69\u00b0",
+      "peakMonth": 9,
+      "peakDay": 20,
+      "stars": [
+        {
+          "x": 50,
+          "y": 30,
+          "size": "md",
+          "name": "Sualocin"
+        },
+        {
+          "x": 65,
+          "y": 45,
+          "size": "md",
+          "name": "Rotanev"
+        },
+        {
+          "x": 55,
+          "y": 60,
+          "size": "sm",
+          "name": "Epsilon Delphini"
+        },
+        {
+          "x": 35,
+          "y": 50,
+          "size": "sm",
+          "name": "Delta Delphini"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "size": "sm",
+          "name": "Gamma Delphini"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "70 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.006\u00b0/yr"
+      },
+      "observationWindow": "Jul-Nov",
+      "skySector": "NORTHERN-EQUATORIAL"
+    },
+    {
+      "id": "capricornus",
+      "name": "Capricornus",
+      "latinName": "Capricornus",
+      "type": "Zodiacal",
+      "description": "The Sea Goat, an ancient zodiac constellation with the head of a goat and tail of a fish.",
+      "mythology": "Capricornus is Pan, who transformed into a goat-fish to escape the monster Typhon by leaping into the Nile. Zeus commemorated the clever escape by placing Pan in the sky.",
+      "ra": "21h 0m",
+      "dec": "-20\u00b0",
+      "magnitude": "2.85",
+      "distance": "100 ly",
+      "visibility": "LAT +60\u00b0-LAT -90\u00b0",
+      "peakMonth": 9,
+      "peakDay": 10,
+      "stars": [
+        {
+          "x": 25,
+          "y": 35,
+          "size": "md",
+          "name": "Algedi"
+        },
+        {
+          "x": 40,
+          "y": 30,
+          "size": "md",
+          "name": "Dabih"
+        },
+        {
+          "x": 70,
+          "y": 35,
+          "size": "sm",
+          "name": "Nashira"
+        },
+        {
+          "x": 75,
+          "y": 45,
+          "size": "md",
+          "name": "Deneb Algedi"
+        },
+        {
+          "x": 55,
+          "y": 65,
+          "size": "sm",
+          "name": "Omega Capricorni"
+        },
+        {
+          "x": 35,
+          "y": 70,
+          "size": "sm",
+          "name": "Zeta Capricorni"
+        },
+        {
+          "x": 20,
+          "y": 55,
+          "size": "sm",
+          "name": "Psi Capricorni"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "8.5 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.009\u00b0/yr"
+      },
+      "observationWindow": "Jul-Nov",
+      "skySector": "SOUTHERN-EQUATORIAL"
+    },
+    {
+      "id": "pegasus",
+      "name": "Pegasus",
+      "latinName": "Pegasus",
+      "type": "Northern",
+      "description": "The Winged Horse, featuring the Great Square of Pegasus. One of the largest constellations.",
+      "mythology": "Pegasus sprang from Medusa's neck when Perseus beheaded her, fathered by Poseidon. Tamed by Bellerophon, they slew the Chimaera together. When Bellerophon tried to ride Pegasus to Olympus, Zeus sent a gadfly that threw him off, but placed the horse in the stars.",
+      "ra": "22h 40m",
+      "dec": "+20\u00b0",
+      "magnitude": "2.4",
+      "distance": "333 ly (Enif)",
+      "visibility": "LAT +90\u00b0-LAT -60\u00b0",
+      "peakMonth": 10,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 60,
+          "y": 40,
+          "size": "lg",
+          "name": "Markab"
+        },
+        {
+          "x": 35,
+          "y": 40,
+          "size": "lg",
+          "name": "Scheat"
+        },
+        {
+          "x": 35,
+          "y": 65,
+          "size": "lg",
+          "name": "Algenib"
+        },
+        {
+          "x": 60,
+          "y": 65,
+          "size": "lg",
+          "name": "Sirrah"
+        },
+        {
+          "x": 20,
+          "y": 30,
+          "size": "md",
+          "name": "Matar"
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "size": "md",
+          "name": "Homam"
+        },
+        {
+          "x": 85,
+          "y": 45,
+          "size": "lg",
+          "name": "Enif"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "5,000 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.003\u00b0/yr"
+      },
+      "observationWindow": "Aug-Jan",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "aquarius",
+      "name": "Aquarius",
+      "latinName": "Aquarius",
+      "type": "Zodiacal",
+      "description": "The Water Bearer, one of the oldest constellations. Contains the Helix Nebula, the nearest planetary nebula to Earth.",
+      "mythology": "Aquarius is Ganymede, the beautiful Trojan youth Zeus abducted as an eagle to serve as cupbearer to the gods. Some identify the figure with Deucalion, who survived the great flood, the water he pours representing the deluge.",
+      "ra": "22h 20m",
+      "dec": "-10\u00b0",
+      "magnitude": "2.9",
+      "distance": "610 ly (Sadalsuud)",
+      "visibility": "LAT +65\u00b0-LAT -87\u00b0",
+      "peakMonth": 10,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 40,
+          "y": 25,
+          "size": "lg",
+          "name": "Sadalsuud"
+        },
+        {
+          "x": 55,
+          "y": 35,
+          "size": "md",
+          "name": "Sadalmelik"
+        },
+        {
+          "x": 30,
+          "y": 45,
+          "size": "sm",
+          "name": "Sadachbia"
+        },
+        {
+          "x": 60,
+          "y": 55,
+          "size": "sm",
+          "name": "Skat"
+        },
+        {
+          "x": 45,
+          "y": 65,
+          "size": "sm",
+          "name": "Eta Aquarii"
+        },
+        {
+          "x": 70,
+          "y": 40,
+          "size": "sm",
+          "name": "Ancha"
+        },
+        {
+          "x": 25,
+          "y": 65,
+          "size": "sm",
+          "name": "Albali"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "2,200 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.005\u00b0/yr"
+      },
+      "observationWindow": "Aug-Dec",
+      "skySector": "EQUATORIAL"
+    },
+    {
+      "id": "piscis-austrinus",
+      "name": "Piscis Austrinus",
+      "latinName": "Piscis Austrinus",
+      "type": "Southern",
+      "description": "The Southern Fish, home to Fomalhaut, one of the brightest stars with a confirmed debris disk.",
+      "mythology": "Piscis Austrinus is the large fish that drinks the water poured by Aquarius. Fomalhaut was one of the four Royal Stars of ancient Persia, serving as guardian of the southern sky.",
+      "ra": "22h 10m",
+      "dec": "-33\u00b0",
+      "magnitude": "1.16",
+      "distance": "25 ly (Fomalhaut)",
+      "visibility": "LAT +55\u00b0-LAT -90\u00b0",
+      "peakMonth": 10,
+      "peakDay": 10,
+      "stars": [
+        {
+          "x": 50,
+          "y": 45,
+          "size": "lg",
+          "name": "Fomalhaut"
+        },
+        {
+          "x": 35,
+          "y": 35,
+          "size": "sm",
+          "name": "Epsilon PsA"
+        },
+        {
+          "x": 65,
+          "y": 35,
+          "size": "sm",
+          "name": "Delta PsA"
+        },
+        {
+          "x": 30,
+          "y": 55,
+          "size": "sm",
+          "name": "Mu PsA"
+        },
+        {
+          "x": 68,
+          "y": 58,
+          "size": "sm",
+          "name": "Beta PsA"
+        },
+        {
+          "x": 50,
+          "y": 65,
+          "size": "sm",
+          "name": "Gamma PsA"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "16.6 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.011\u00b0/yr"
+      },
+      "observationWindow": "Aug-Nov",
+      "skySector": "SOUTHERN"
+    },
+    {
+      "id": "pisces",
+      "name": "Pisces",
+      "latinName": "Pisces",
+      "type": "Zodiacal",
+      "description": "The Fish, a large but faint zodiac constellation. The vernal equinox currently lies within Pisces.",
+      "mythology": "Pisces is Aphrodite and Eros transformed into fish to escape the monster Typhon, tied together by a cord. The cord is represented by the star Al Rischa. They swim in opposite directions, reflecting the tension of their escape.",
+      "ra": "1h 0m",
+      "dec": "+15\u00b0",
+      "magnitude": "3.7",
+      "distance": "130 ly",
+      "visibility": "LAT +90\u00b0-LAT -65\u00b0",
+      "peakMonth": 11,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 35,
+          "y": 50,
+          "size": "md",
+          "name": "Al Rischa"
+        },
+        {
+          "x": 20,
+          "y": 35,
+          "size": "sm",
+          "name": "Eta Piscium"
+        },
+        {
+          "x": 55,
+          "y": 30,
+          "size": "sm",
+          "name": "Omega Piscium"
+        },
+        {
+          "x": 65,
+          "y": 45,
+          "size": "sm",
+          "name": "Iota Piscium"
+        },
+        {
+          "x": 25,
+          "y": 65,
+          "size": "sm",
+          "name": "Gamma Piscium"
+        },
+        {
+          "x": 70,
+          "y": 65,
+          "size": "sm",
+          "name": "Fumalsamakah"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "size": "sm",
+          "name": "Tau Piscium"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "40 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.006\u00b0/yr"
+      },
+      "observationWindow": "Sep-Jan",
+      "skySector": "NORTHERN-EQUATORIAL"
+    },
+    {
+      "id": "andromeda",
+      "name": "Andromeda",
+      "latinName": "Andromeda",
+      "type": "Northern",
+      "description": "The Princess, home to the Andromeda Galaxy, the most distant object visible to the naked eye at 2.5 million light-years.",
+      "mythology": "Andromeda was chained to a rock as sacrifice to the sea monster Cetus to appease Poseidon, angered by her mother Cassiopeia's vanity. Perseus rescued her using Medusa's severed head to turn the monster to stone. They married and were placed in the stars together.",
+      "ra": "1h 0m",
+      "dec": "+40\u00b0",
+      "magnitude": "2.1",
+      "distance": "97 ly (Mirach)",
+      "visibility": "LAT +90\u00b0-LAT -40\u00b0",
+      "peakMonth": 11,
+      "peakDay": 10,
+      "stars": [
+        {
+          "x": 25,
+          "y": 50,
+          "size": "lg",
+          "name": "Sirrah"
+        },
+        {
+          "x": 40,
+          "y": 45,
+          "size": "lg",
+          "name": "Mirach"
+        },
+        {
+          "x": 60,
+          "y": 35,
+          "size": "md",
+          "name": "Almach"
+        },
+        {
+          "x": 50,
+          "y": 55,
+          "size": "sm",
+          "name": "Delta Andromedae"
+        },
+        {
+          "x": 70,
+          "y": 50,
+          "size": "sm",
+          "name": "Mu Andromedae"
+        },
+        {
+          "x": 35,
+          "y": 30,
+          "size": "sm",
+          "name": "Upsilon Andromedae"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "203 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.004\u00b0/yr"
+      },
+      "observationWindow": "Sep-Feb",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "cassiopeia",
+      "name": "Cassiopeia",
+      "latinName": "Cassiopeia",
+      "type": "Northern",
+      "description": "The Queen, a distinctive W-shape circumpolar constellation. Site of a famous 1572 supernova.",
+      "mythology": "Cassiopeia was the vain queen of Ethiopia who boasted she was more beautiful than the sea nymphs. Poseidon, furious, sent the sea monster Cetus to ravage the coast, and Andromeda had to be sacrificed until Perseus rescued her.",
+      "ra": "1h 0m",
+      "dec": "+62\u00b0",
+      "magnitude": "2.2",
+      "distance": "230 ly (Schedar)",
+      "visibility": "LAT +90\u00b0-LAT -20\u00b0",
+      "peakMonth": 11,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 15,
+          "y": 50,
+          "size": "md",
+          "name": "Caph"
+        },
+        {
+          "x": 30,
+          "y": 35,
+          "size": "lg",
+          "name": "Schedar"
+        },
+        {
+          "x": 50,
+          "y": 50,
+          "size": "md",
+          "name": "Gamma Cassiopeiae"
+        },
+        {
+          "x": 68,
+          "y": 35,
+          "size": "md",
+          "name": "Ruchbah"
+        },
+        {
+          "x": 82,
+          "y": 50,
+          "size": "md",
+          "name": "Segin"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "676 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.002\u00b0/yr"
+      },
+      "observationWindow": "Year-round",
+      "skySector": "NORTHERN-CIRCUMPOLAR"
+    },
+    {
+      "id": "perseus",
+      "name": "Perseus",
+      "latinName": "Perseus",
+      "type": "Northern",
+      "description": "The Hero, featuring the variable star Algol and the famous Double Cluster.",
+      "mythology": "Perseus was the son of Zeus, tasked with slaying Medusa whose gaze turned men to stone. Armed with a mirrored shield, he beheaded her, then used her head to turn the sea monster Cetus to stone and rescue Andromeda.",
+      "ra": "3h 30m",
+      "dec": "+45\u00b0",
+      "magnitude": "1.8",
+      "distance": "520 ly (Mirfak)",
+      "visibility": "LAT +90\u00b0-LAT -35\u00b0",
+      "peakMonth": 12,
+      "peakDay": 15,
+      "stars": [
+        {
+          "x": 50,
+          "y": 30,
+          "size": "lg",
+          "name": "Mirfak"
+        },
+        {
+          "x": 35,
+          "y": 55,
+          "size": "md",
+          "name": "Algol"
+        },
+        {
+          "x": 60,
+          "y": 50,
+          "size": "sm",
+          "name": "Zeta Persei"
+        },
+        {
+          "x": 70,
+          "y": 35,
+          "size": "sm",
+          "name": "Epsilon Persei"
+        },
+        {
+          "x": 30,
+          "y": 40,
+          "size": "sm",
+          "name": "Gamma Persei"
+        },
+        {
+          "x": 45,
+          "y": 65,
+          "size": "sm",
+          "name": "Gorgonea Tertia"
+        },
+        {
+          "x": 25,
+          "y": 70,
+          "size": "sm",
+          "name": "Rho Persei"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "5,000 L\u2609",
+        "nebulaDensity": "MEDIUM",
+        "signalDrift": "0.004\u00b0/yr"
+      },
+      "observationWindow": "Oct-Mar",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "aries",
+      "name": "Aries",
+      "latinName": "Aries",
+      "type": "Zodiacal",
+      "description": "The Ram, historically important as the vernal equinox was located here 2,000 years ago.",
+      "mythology": "Aries is the ram with the golden fleece sent by Hermes to rescue Phrixus and Helle. Only Phrixus survived; he sacrificed the ram and hung its golden fleece in a sacred grove, the prize later sought by Jason and the Argonauts.",
+      "ra": "2h 40m",
+      "dec": "+20\u00b0",
+      "magnitude": "2.0",
+      "distance": "66 ly (Hamal)",
+      "visibility": "LAT +90\u00b0-LAT -60\u00b0",
+      "peakMonth": 12,
+      "peakDay": 1,
+      "stars": [
+        {
+          "x": 40,
+          "y": 35,
+          "size": "lg",
+          "name": "Hamal"
+        },
+        {
+          "x": 55,
+          "y": 40,
+          "size": "md",
+          "name": "Sheratan"
+        },
+        {
+          "x": 65,
+          "y": 45,
+          "size": "sm",
+          "name": "Mesarthim"
+        },
+        {
+          "x": 25,
+          "y": 55,
+          "size": "sm",
+          "name": "Botein"
+        },
+        {
+          "x": 30,
+          "y": 42,
+          "size": "sm",
+          "name": "41 Arietis"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "96 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.007\u00b0/yr"
+      },
+      "observationWindow": "Oct-Feb",
+      "skySector": "NORTHERN"
+    },
+    {
+      "id": "eridanus",
+      "name": "Eridanus",
+      "latinName": "Eridanus",
+      "type": "Southern",
+      "description": "The River, the sixth largest constellation. Winds from near Orion to Achernar near the south celestial pole.",
+      "mythology": "Eridanus is the celestial river into which Phaethon fell after losing control of the Sun chariot. Zeus struck Phaethon with a thunderbolt to stop the Earth from burning, and he fell blazing into the river.",
+      "ra": "3h 15m",
+      "dec": "-29\u00b0",
+      "magnitude": "0.46",
+      "distance": "139 ly (Achernar)",
+      "visibility": "LAT +32\u00b0-LAT -90\u00b0",
+      "peakMonth": 12,
+      "peakDay": 10,
+      "stars": [
+        {
+          "x": 50,
+          "y": 80,
+          "size": "lg",
+          "name": "Achernar"
+        },
+        {
+          "x": 40,
+          "y": 65,
+          "size": "md",
+          "name": "Acamar"
+        },
+        {
+          "x": 55,
+          "y": 50,
+          "size": "sm",
+          "name": "Zaurak"
+        },
+        {
+          "x": 65,
+          "y": 35,
+          "size": "sm",
+          "name": "Epsilon Eridani"
+        },
+        {
+          "x": 45,
+          "y": 35,
+          "size": "sm",
+          "name": "Delta Eridani"
+        },
+        {
+          "x": 30,
+          "y": 50,
+          "size": "sm",
+          "name": "Eta Eridani"
+        },
+        {
+          "x": 70,
+          "y": 20,
+          "size": "sm",
+          "name": "Ran"
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "spectralData": {
+        "luminosity": "3,150 L\u2609",
+        "nebulaDensity": "LOW",
+        "signalDrift": "0.005\u00b0/yr"
+      },
+      "observationWindow": "Oct-Feb",
+      "skySector": "SOUTHERN"
+    }
+  ]
+}
