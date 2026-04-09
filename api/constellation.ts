@@ -1,8 +1,13 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Redis } from "@upstash/redis";
 
-const GEMINI_API_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+const GEMINI_MODELS = [
+  "gemini-1.5-flash",
+  "gemini-2.0-flash-lite",
+  "gemini-1.5-pro",
+];
+const MAX_RETRIES = 3;
+const RETRY_DELAY_MS = 1500;
 
 const constellationSchema = {
   type: "OBJECT",
@@ -33,10 +38,7 @@ const constellationSchema = {
     },
     connections: {
       type: "ARRAY",
-      items: {
-        type: "ARRAY",
-        items: { type: "NUMBER" },
-      },
+      items: { type: "ARRAY", items: { type: "NUMBER" } },
     },
     spectralData: {
       type: "OBJECT",
@@ -55,6 +57,13 @@ const constellationSchema = {
   ],
 };
 
+const PROMPT = (query: string) =>
+  `Generate detailed astronomical data for the constellation or star: ${query}.
+Include realistic coordinates and a list of 5-10 main stars with their relative x,y positions (0-100) for a map visualization.
+Provide "connections" as an array of index pairs (e.g., [[0,1], [1,2]]) to draw the constellation's stick-figure outline.
+Include a "mythology" section describing the origin story.
+The "visibility" field should be formatted as "LAT [val1]-LAT [val2]" (e.g., "LAT +90°-LAT -65°").`;
+
 function normalizeDateKey(query: string): string | null {
   const match = query.match(/(\d{4})[.\-\/](\d{2})[.\-\/](\d{2})/);
   if (!match) return null;
@@ -66,6 +75,70 @@ function getRedis(): Redis | null {
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !token) return null;
   return new Redis({ url, token });
+}
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Try a single model with retry + backoff
+async function tryModel(apiKey: string, model: string, query: string): Promise<any> {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    console.log(`Trying ${model} — attempt ${attempt}/${MAX_RETRIES}`);
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: PROMPT(query) }] }],
+        generationConfig: {
+          responseMimeType: "application/json",
+          responseSchema: constellationSchema,
+        },
+      }),
+    });
+
+    // Retryable errors: 503 (overloaded), 429 (rate limit), 500 (transient)
+    if ([429, 500, 503].includes(response.status)) {
+      const delay = RETRY_DELAY_MS * attempt;
+      console.warn(`${model} returned ${response.status} — retrying in ${delay}ms`);
+      await sleep(delay);
+      continue;
+    }
+
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(`${model} error ${response.status}: ${JSON.stringify(body)}`);
+    }
+
+    const result = await response.json();
+    const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!text) throw new Error(`${model} returned empty response`);
+
+    return JSON.parse(text);
+  }
+
+  throw new Error(`${model} failed after ${MAX_RETRIES} attempts`);
+}
+
+// Try each model in order, falling back on failure
+async function callGeminiWithFallback(apiKey: string, query: string): Promise<any> {
+  let lastError: Error = new Error("No models available");
+
+  for (const model of GEMINI_MODELS) {
+    try {
+      const data = await tryModel(apiKey, model, query);
+      console.log(`SUCCESS with ${model}`);
+      return data;
+    } catch (err: any) {
+      console.warn(`${model} failed: ${err.message}`);
+      lastError = err;
+    }
+  }
+
+  throw lastError;
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -89,7 +162,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const cacheKey = normalizeDateKey(query);
   const redis = getRedis();
 
-  // Check cache first
+  // Cache check
   if (cacheKey && redis) {
     try {
       const cached = await redis.get(cacheKey);
@@ -97,54 +170,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         console.log(`CACHE_HIT: ${cacheKey}`);
         return res.status(200).json(cached);
       }
-      console.log(`CACHE_MISS: ${cacheKey} — calling Gemini`);
+      console.log(`CACHE_MISS: ${cacheKey}`);
     } catch (err) {
       console.warn("CACHE_READ_ERROR:", err);
     }
   }
 
-  // Call Gemini
+  // Call Gemini with retries + model fallback
   try {
-    const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [
-              {
-                text: `Generate detailed astronomical data for the constellation or star: ${query}. 
-Include realistic coordinates and a list of 5-10 main stars with their relative x,y positions (0-100) for a map visualization.
-Provide "connections" as an array of index pairs (e.g., [[0,1], [1,2]]) to draw the constellation's stick-figure outline.
-Include a "mythology" section describing the origin story.
-The "visibility" field should be formatted as "LAT [val1]-LAT [val2]" (e.g., "LAT +90°-LAT -65°").`,
-              },
-            ],
-          },
-        ],
-        generationConfig: {
-          responseMimeType: "application/json",
-          responseSchema: constellationSchema,
-        },
-      }),
-    });
+    const data = await callGeminiWithFallback(apiKey, query);
 
-    if (!response.ok) {
-      const errBody = await response.json().catch(() => ({}));
-      console.error("Gemini API error:", errBody);
-      return res.status(response.status).json({ error: JSON.stringify(errBody) });
-    }
-
-    const result = await response.json();
-    const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-    if (!text) {
-      return res.status(500).json({ error: "EMPTY_RESPONSE_FROM_TEMPORAL_CORE" });
-    }
-
-    const data = JSON.parse(text);
-
-    // Write to cache (non-fatal)
+    // Write to cache
     if (cacheKey && redis) {
       try {
         await redis.set(cacheKey, data);
@@ -156,9 +192,9 @@ The "visibility" field should be formatted as "LAT [val1]-LAT [val2]" (e.g., "LA
 
     return res.status(200).json(data);
   } catch (error: any) {
-    console.error("TEMPORAL_QUERY_FAILED:", error);
-    return res.status(500).json({
-      error: error.message || "CONNECTION_TO_TEMPORAL_CORE_LOST",
+    console.error("ALL_MODELS_FAILED:", error.message);
+    return res.status(503).json({
+      error: "TEMPORAL_SYNC_TIMEOUT: Connection to core lost.",
     });
   }
 }
