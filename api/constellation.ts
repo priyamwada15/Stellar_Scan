@@ -105,7 +105,7 @@ export default async function handler(req: Request): Promise<Response> {
     const ai = new GoogleGenAI({ apiKey });
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-1.5-flash",
       contents: `Generate detailed astronomical data for the constellation or star: ${query}. 
       Include realistic coordinates and a list of 5-10 main stars with their relative x,y positions (0-100) for a map visualization.
       Crucially, provide "connections" as an array of index pairs (e.g., [[0,1], [1,2]]) to draw the constellation's stick-figure outline.
