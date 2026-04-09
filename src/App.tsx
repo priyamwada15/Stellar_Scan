@@ -30,6 +30,8 @@ export default function App() {
     return generateRandomUsername();
   });
 
+  const [showConfirmErase, setShowConfirmErase] = useState(false);
+
   useEffect(() => {
     localStorage.setItem('phosphor_username', username);
   }, [username]);
@@ -154,17 +156,33 @@ export default function App() {
                   <p className="font-headline text-phosphor text-sm uppercase tracking-widest text-red-500 mb-2">Clear History</p>
                   <p className="text-[10px] text-phosphor/40 uppercase">Erase all temporal logs</p>
                 </div>
-                <button 
-                  onClick={() => {
-                    if (window.confirm('Erase all temporal data logs? This action cannot be undone.')) {
-                      setArchiveItems([]);
-                      setShowSettings(false);
-                    }
-                  }}
-                  className="w-32 py-2 border border-red-500/30 text-red-500 font-headline text-[10px] uppercase hover:bg-red-500/10 transition-all"
-                >
-                  Confirm Erase
-                </button>
+                {!showConfirmErase ? (
+                  <button 
+                    onClick={() => setShowConfirmErase(true)}
+                    className="w-32 py-2 border border-red-500/30 text-red-500 font-headline text-[10px] uppercase hover:bg-red-500/10 transition-all"
+                  >
+                    Erase
+                  </button>
+                ) : (
+                  <div className="flex gap-2">
+                    <button 
+                      onClick={() => {
+                        setArchiveItems([]);
+                        setShowConfirmErase(false);
+                        setShowSettings(false);
+                      }}
+                      className="px-3 py-2 bg-red-500 text-void font-headline text-[10px] uppercase hover:brightness-110 transition-all"
+                    >
+                      Confirm
+                    </button>
+                    <button 
+                      onClick={() => setShowConfirmErase(false)}
+                      className="px-3 py-2 border border-phosphor/30 text-phosphor font-headline text-[10px] uppercase hover:bg-phosphor/10 transition-all"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 

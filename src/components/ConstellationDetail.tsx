@@ -71,7 +71,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
         </div>
 
         {/* 2. Visualizer Section - Second on mobile, Left Column on desktop */}
-        <div className="lg:col-span-7 lg:row-span-2 order-2 lg:order-1 flex flex-col gap-6">
+        <div className="lg:col-span-7 lg:row-span-3 order-2 lg:order-1 flex flex-col gap-6">
           {/* Visualizer */}
           <div className="aspect-square bg-void-dark relative overflow-hidden group border border-phosphor/10">
             <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle, #00FF41 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
@@ -159,10 +159,10 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
             </div>
           </div>
 
-          {/* Export Button */}
+          {/* Export Button - Third on mobile */}
           <button 
             onClick={() => setShowExport(true)}
-            className="w-full px-6 py-3 border border-phosphor/40 text-phosphor font-headline text-xs uppercase hover:bg-phosphor/10 transition-all flex items-center justify-center gap-2 group"
+            className="w-full px-6 py-3 border border-phosphor/40 text-phosphor font-headline text-xs uppercase hover:bg-phosphor/10 transition-all flex items-center justify-center gap-2 group order-3 lg:order-none"
           >
             <span className="material-symbols-outlined text-sm group-hover:scale-110 transition-transform">download</span>
             Export to Card
@@ -174,8 +174,8 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
           </div>
         </div>
 
-        {/* 3. Profile Sections - Third on mobile, Bottom-Right on desktop */}
-        <div className="lg:col-span-5 order-3 lg:order-3 flex flex-col gap-4">
+        {/* 3. Profile Sections - Reordered for mobile */}
+        <div className="lg:col-span-5 order-4 lg:order-3 flex flex-col gap-4">
           <div className="bg-void-light p-6 border-l border-phosphor/30">
             <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
               <span className="material-symbols-outlined text-sm">info</span>
@@ -200,7 +200,9 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
               </div>
             </div>
           </div>
+        </div>
 
+        <div className="lg:col-span-5 order-5 lg:order-4 flex flex-col gap-4">
           <div className="bg-void-light p-6 border-l border-phosphor/30">
             <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
               <span className="material-symbols-outlined text-sm">monitoring</span>
@@ -221,7 +223,9 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
               </div>
             </div>
           </div>
+        </div>
 
+        <div className="lg:col-span-5 order-6 lg:order-5 flex flex-col gap-4">
           <div className="bg-void-light p-6 border-l border-phosphor/30">
             <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
               <span className="material-symbols-outlined text-sm">history_edu</span>
@@ -234,7 +238,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
         </div>
 
         {/* Metrics Grid (Mobile Only) */}
-        <div className="lg:hidden order-4 grid grid-cols-2 gap-3">
+        <div className="lg:hidden order-7 grid grid-cols-2 gap-3">
           <MetricGrid data={data} />
         </div>
       </div>

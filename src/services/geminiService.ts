@@ -1,25 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Constellation } from "../types";
 
-const getApiKey = () => {
-  // Check standard Vite env variable first
-  const viteKey = (import.meta as any).env?.VITE_GEMINI_API_KEY;
-  if (viteKey) return viteKey;
-
-  // Check the "defined" process.env variable (from vite.config.ts)
-  const processKey = process.env.GEMINI_API_KEY;
-  if (processKey) return processKey;
-
-  return "";
-};
-
-const API_KEY = getApiKey();
-
-if (!API_KEY) {
-  console.error("CRITICAL_ERROR: GEMINI_API_KEY is missing from the build environment.");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
 
 const constellationSchema = {
   type: Type.OBJECT,
@@ -53,8 +35,6 @@ const constellationSchema = {
       items: {
         type: Type.ARRAY,
         items: { type: Type.NUMBER },
-        minItems: 2,
-        maxItems: 2
       },
       description: "Pairs of star indices to connect with lines to form the constellation outline."
     },
@@ -75,8 +55,9 @@ const constellationSchema = {
 export async function getConstellationData(query: string): Promise<Constellation> {
   console.log("INITIALIZING_TEMPORAL_QUERY:", query);
   
-  if (!API_KEY) {
-    throw new Error("API_KEY_NOT_FOUND: Please set VITE_GEMINI_API_KEY in your environment.");
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("API_KEY_NOT_FOUND: Please set GEMINI_API_KEY in your environment.");
   }
 
   try {
@@ -89,16 +70,18 @@ export async function getConstellationData(query: string): Promise<Constellation
       The "visibility" field should be formatted as "LAT [val1]-LAT [val2]" (e.g., "LAT +90°-LAT -65°").`,
       config: {
         responseMimeType: "application/json",
-        responseSchema: constellationSchema
-      }
+        responseSchema: constellationSchema,
+      },
     });
 
-    if (!response.text) {
+    const text = response.text;
+
+    if (!text) {
       throw new Error("EMPTY_RESPONSE_FROM_TEMPORAL_CORE");
     }
 
     console.log("QUERY_SUCCESSFUL: Data retrieved.");
-    return JSON.parse(response.text);
+    return JSON.parse(text);
   } catch (error: any) {
     console.error("TEMPORAL_QUERY_FAILED:", error);
     throw new Error(error.message || "CONNECTION_TO_TEMPORAL_CORE_LOST");

@@ -65,7 +65,7 @@ export const ScannerInput: React.FC<{
                       <div className="relative flex items-center min-w-0">
                         <input
                           ref={dateInputRef}
-                          type="text"
+                          type="tel"
                           inputMode="numeric"
                           value={date}
                           onChange={(e) => formatAndSetDate(e.target.value)}
