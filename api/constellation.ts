@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { Redis } from "@upstash/redis";
 
 const GEMINI_API_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
@@ -54,6 +55,19 @@ const constellationSchema = {
   ],
 };
 
+function normalizeDateKey(query: string): string | null {
+  const match = query.match(/(\d{4})[.\-\/](\d{2})[.\-\/](\d{2})/);
+  if (!match) return null;
+  return `constellation:${match[1]}.${match[2]}.${match[3]}`;
+}
+
+function getRedis(): Redis | null {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  return new Redis({ url, token });
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -72,6 +86,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: "INVALID_REQUEST: query field required." });
   }
 
+  const cacheKey = normalizeDateKey(query);
+  const redis = getRedis();
+
+  // Check cache first
+  if (cacheKey && redis) {
+    try {
+      const cached = await redis.get(cacheKey);
+      if (cached) {
+        console.log(`CACHE_HIT: ${cacheKey}`);
+        return res.status(200).json(cached);
+      }
+      console.log(`CACHE_MISS: ${cacheKey} — calling Gemini`);
+    } catch (err) {
+      console.warn("CACHE_READ_ERROR:", err);
+    }
+  }
+
+  // Call Gemini
   try {
     const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
       method: "POST",
@@ -111,6 +143,17 @@ The "visibility" field should be formatted as "LAT [val1]-LAT [val2]" (e.g., "LA
     }
 
     const data = JSON.parse(text);
+
+    // Write to cache (non-fatal)
+    if (cacheKey && redis) {
+      try {
+        await redis.set(cacheKey, data);
+        console.log(`CACHE_WRITE: ${cacheKey}`);
+      } catch (err) {
+        console.warn("CACHE_WRITE_ERROR:", err);
+      }
+    }
+
     return res.status(200).json(data);
   } catch (error: any) {
     console.error("TEMPORAL_QUERY_FAILED:", error);
