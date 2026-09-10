@@ -72,7 +72,7 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
           >
             <div
               ref={cardRef}
-              className="relative w-full bg-void-dark border-2 border-phosphor/40 shadow-[0_0_50px_rgba(0,255,65,0.2)] flex flex-col p-6"
+              className="relative w-full bg-void-dark border-[3px] border-double border-phosphor/25 shadow-[0_0_50px_rgba(0,255,65,0.2)] flex flex-col p-6"
               style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Iridescent Sheen Overlay */}
@@ -80,6 +80,16 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
 
               {/* Card Content */}
               <div className="relative z-10 flex flex-col" style={{ transformStyle: 'preserve-3d' }}>
+                {/* Title bar */}
+                <div className="flex items-center justify-between px-1 pb-2 mb-3 border-b border-phosphor/25">
+                  <span aria-hidden="true" className="w-3 h-3 border border-phosphor/25 flex items-center justify-center text-[8px] leading-none text-phosphor/70">
+                    &#8598;
+                  </span>
+                  <span className="font-body text-label uppercase tracking-widest text-phosphor/70">Export Card</span>
+                  <span aria-hidden="true" className="w-3 h-3 border border-phosphor/25 flex items-center justify-center text-[8px] leading-none text-phosphor/70">
+                    ?
+                  </span>
+                </div>
                 {/* Header */}
                 <div className="flex justify-between items-start mb-4">
                   <div>
