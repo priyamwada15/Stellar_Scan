@@ -1,4 +1,5 @@
 import React from 'react';
+import { Waveform } from './Waveform';
 
 export const Header: React.FC<{ username: string; onSettingsClick?: () => void }> = ({ username, onSettingsClick }) => {
   return (
@@ -8,6 +9,7 @@ export const Header: React.FC<{ username: string; onSettingsClick?: () => void }
           STELLAR SCAN
         </h1>
       </div>
+      <Waveform width={120} height={28} className="hidden md:block opacity-70" />
       <div className="flex items-center gap-6">
         <span className="font-body uppercase tracking-widest text-body-sm text-phosphor hidden sm:inline">
           LOGGED_IN: {username}

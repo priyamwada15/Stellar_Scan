@@ -5,6 +5,7 @@ import { TwinklingStars } from './TwinklingStars';
 import { formatVisibility } from '../utils';
 import { WindowPanel } from './WindowPanel';
 import { Meter } from './Meter';
+import { DitherField } from './DitherField';
 
 const MetricGrid: React.FC<{ data: Constellation }> = ({ data }) => (
   <>
@@ -76,7 +77,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
         <div className="lg:col-span-7 lg:row-span-3 order-2 lg:order-1 flex flex-col gap-6">
           {/* Visualizer */}
           <div className="aspect-square bg-void-dark relative overflow-hidden group border border-phosphor/10">
-            <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle, #00FF41 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+            <DitherField size={480} cell={8} className="opacity-60" />
             <TwinklingStars count={70} />
             <div className="absolute inset-0 flex items-center justify-center p-4 md:p-12">
               <div className="relative w-full h-full border border-phosphor/20 p-4 md:p-8">
