@@ -34,15 +34,13 @@ export const Footer: React.FC<{ activeTab: string; onTabChange: (tab: string) =>
           <button
             key={tab}
             onClick={() => onTabChange(tab)}
-            className={`font-body text-label tracking-widest uppercase transition-colors flex items-center gap-1.5 pb-1 border-b ${
+            className={`font-body text-label tracking-widest uppercase transition-colors px-3 py-1 ${
               isActive
-                ? 'text-phosphor glow-text border-phosphor'
-                : 'text-phosphor/40 border-transparent hover:text-phosphor/70'
+                ? 'bg-phosphor text-void'
+                : 'text-phosphor/40 hover:text-phosphor/70'
             }`}
           >
-            <span className={isActive ? 'text-phosphor' : 'text-phosphor/30'}>&gt;</span>
-            {tab}
-            {isActive && <span className="w-1.5 h-3 bg-phosphor cursor-blink ml-0.5"></span>}
+            {isActive ? `> ${tab}` : tab}
           </button>
         );
       })}
