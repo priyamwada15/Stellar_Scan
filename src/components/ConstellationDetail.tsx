@@ -3,12 +3,13 @@ import { Constellation } from '../types';
 import { ExportCard } from './ExportCard';
 import { TwinklingStars } from './TwinklingStars';
 import { formatVisibility } from '../utils';
+import { WindowPanel } from './WindowPanel';
+import { Meter } from './Meter';
 
 const MetricGrid: React.FC<{ data: Constellation }> = ({ data }) => (
   <>
-    <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
-      <div className="font-body text-label text-phosphor/40 uppercase mb-1 md:mb-2">Signal Integrity</div>
-      <div className="font-body text-heading text-phosphor">98.4%</div>
+    <div className="bg-void-light p-3 md:p-4 border border-phosphor/10 col-span-2">
+      <Meter label="Signal Integrity" value="98.4%" percent={98.4} />
     </div>
     <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
       <div className="font-body text-label text-phosphor/40 uppercase mb-1 md:mb-2">Distance (LY)</div>
@@ -125,33 +126,36 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
 
                 {/* Star Data Overlay */}
                 {selectedStar && (
-                  <div className="absolute top-4 right-4 w-48 bg-void-dark/90 border border-phosphor p-3 backdrop-blur-sm animate-in fade-in slide-in-from-right-4 duration-300 z-20">
-                    <div className="flex justify-between items-start mb-2 border-b border-phosphor/20 pb-1">
-                      <span className="font-headline text-label text-phosphor uppercase">Star Data</span>
-                      <button onClick={() => setSelectedStarIndex(null)} className="text-phosphor hover:text-white font-body text-label font-bold">
+                  <div className="absolute top-4 right-4 w-52 z-20 animate-in fade-in slide-in-from-right-4 duration-300">
+                    <WindowPanel title="Star Data" className="bg-void-dark/90 backdrop-blur-sm">
+                      <button
+                        onClick={() => setSelectedStarIndex(null)}
+                        className="absolute top-1 right-8 text-phosphor hover:text-white font-body text-label font-bold"
+                        aria-label="Close star data"
+                      >
                         [X]
                       </button>
-                    </div>
-                    <div className="space-y-2">
-                      <div>
-                        <div className="text-label uppercase text-phosphor/40">Designation</div>
-                        <div className="text-body-sm text-phosphor font-body">{selectedStar.name || `STAR_${data.name.slice(0,3)}_${selectedStarIndex}`}</div>
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="space-y-2">
                         <div>
-                          <div className="text-label uppercase text-phosphor/40">Magnitude</div>
-                          <div className="text-body-sm text-phosphor font-body">{(Math.random() * 5 + 1).toFixed(2)}</div>
+                          <div className="text-label uppercase text-phosphor/40">Designation</div>
+                          <div className="text-body-sm text-phosphor font-body">{selectedStar.name || `STAR_${data.name.slice(0,3)}_${selectedStarIndex}`}</div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <div className="text-label uppercase text-phosphor/40">Magnitude</div>
+                            <div className="text-body-sm text-phosphor font-body">{(Math.random() * 5 + 1).toFixed(2)}</div>
+                          </div>
+                          <div>
+                            <div className="text-label uppercase text-phosphor/40">Class</div>
+                            <div className="text-body-sm text-phosphor font-body">{['O', 'B', 'A', 'F', 'G', 'K', 'M'][selectedStarIndex % 7]}</div>
+                          </div>
                         </div>
                         <div>
-                          <div className="text-label uppercase text-phosphor/40">Class</div>
-                          <div className="text-body-sm text-phosphor font-body">{['O', 'B', 'A', 'F', 'G', 'K', 'M'][selectedStarIndex % 7]}</div>
+                          <div className="text-label uppercase text-phosphor/40">Coordinates</div>
+                          <div className="text-label text-phosphor font-mono">RA: {starToRA(selectedStar.x)} / DEC: {starToDec(selectedStar.y)}</div>
                         </div>
                       </div>
-                      <div>
-                        <div className="text-label uppercase text-phosphor/40">Coordinates</div>
-                        <div className="text-label text-phosphor font-mono">RA: {starToRA(selectedStar.x)} / DEC: {starToDec(selectedStar.y)}</div>
-                      </div>
-                    </div>
+                    </WindowPanel>
                   </div>
                 )}
 
@@ -177,10 +181,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
 
         {/* 3. Profile Sections - Reordered for mobile */}
         <div className="lg:col-span-5 order-4 lg:order-3 flex flex-col gap-4">
-          <div className="bg-void-light p-6">
-            <h3 className="font-headline text-heading text-phosphor font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-              Astronomical Profile
-            </h3>
+          <WindowPanel title="Astronomical Profile">
             <p className="font-body text-body-sm text-phosphor/60 leading-relaxed mb-6">
               {data.description}
             </p>
@@ -199,14 +200,11 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
                 <span className="font-body text-body-sm text-phosphor">{data.stars.length} Main Stars</span>
               </div>
             </div>
-          </div>
+          </WindowPanel>
         </div>
 
         <div className="lg:col-span-5 order-5 lg:order-4 flex flex-col gap-4">
-          <div className="bg-void-light p-6">
-            <h3 className="font-headline text-heading text-phosphor font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-              Observation Metrics
-            </h3>
+          <WindowPanel title="Observation Metrics">
             <div className="space-y-3">
               <div className="flex justify-between items-end gap-2">
                 <span className="font-body text-label uppercase text-phosphor/40">Luminosity index</span>
@@ -221,18 +219,15 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
                 <span className="font-body text-body-sm text-phosphor">{data.spectralData.signalDrift}</span>
               </div>
             </div>
-          </div>
+          </WindowPanel>
         </div>
 
         <div className="lg:col-span-5 order-6 lg:order-5 flex flex-col gap-4">
-          <div className="bg-void-light p-6">
-            <h3 className="font-headline text-heading text-phosphor font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-              Mythological Origin
-            </h3>
+          <WindowPanel title="Mythological Origin">
             <p className="font-body text-body-sm text-phosphor/60 leading-relaxed">
               {data.mythology}
             </p>
-          </div>
+          </WindowPanel>
         </div>
 
         {/* Metrics Grid (Mobile Only) */}
