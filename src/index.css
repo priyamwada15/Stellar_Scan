@@ -1,15 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --font-headline: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-headline: "VT323", monospace;
+  --font-body: "JetBrains Mono", monospace;
   --font-mono: "JetBrains Mono", monospace;
+
+  /* Type scale — semantic roles. Every text size in the app should reference
+     one of these rather than an arbitrary text-[Npx] or ad-hoc text-* value. */
+  --text-display: 3.5rem;     /* 56px — page hero titles (Search History, Initialize Scanner, constellation name) */
+  --text-title: 1.5rem;       /* 24px — app title, modal titles, major status headings */
+  --text-heading: 1.25rem;    /* 20px — section headers within a page (Astronomical Profile, etc.) */
+  --text-body: 0.875rem;      /* 14px — primary paragraph text */
+  --text-body-sm: 0.75rem;    /* 12px — secondary text, data values, button labels */
+  --text-label: 0.625rem;     /* 10px — uppercase labels, captions, breadcrumbs, meta text */
 
   --color-phosphor: #00FF41;
   --color-phosphor-dim: rgba(0, 255, 65, 0.4);
   --color-void: #1f0e18;
   --color-void-dark: #190913;
   --color-void-light: #2c1a24;
+  --color-danger: #ef4444;
 }
 
 @layer base {
@@ -42,16 +52,37 @@
     @apply border border-phosphor/20;
   }
 
-  .terminal-button {
-    @apply px-6 py-3 font-headline font-bold uppercase tracking-widest transition-all active:scale-95;
+  /* Button system — every button/button-like control in the app should compose
+     .btn (or .btn-compact) with exactly one fill variant below. Padding/width
+     stay per-instance since they legitimately vary by context. */
+  .btn {
+    @apply font-body uppercase tracking-widest transition-all;
+    font-size: var(--text-body-sm);
   }
 
-  .terminal-button-primary {
-    @apply bg-phosphor text-void hover:brightness-110;
+  .btn-compact {
+    @apply font-body uppercase tracking-widest transition-all;
+    font-size: var(--text-label);
   }
 
-  .terminal-button-outline {
-    @apply border border-phosphor text-phosphor hover:bg-phosphor/10;
+  .btn-primary {
+    @apply bg-phosphor text-void font-bold hover:brightness-110 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply text-phosphor hover:bg-phosphor/10 active:scale-95;
+  }
+
+  .btn-disabled {
+    @apply bg-phosphor/20 text-phosphor/40 cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-void font-bold hover:brightness-110 active:scale-95;
+  }
+
+  .btn-danger-outline {
+    @apply border border-danger/30 text-danger hover:bg-danger/10 active:scale-95;
   }
 
   .pixel-grid {
@@ -82,4 +113,9 @@
 
 .cursor-blink {
   animation: blink 1s step-end infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: var(--twinkle-min); }
+  50% { opacity: var(--twinkle-max); }
 }

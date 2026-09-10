@@ -12,7 +12,7 @@ export const PixelLoader: React.FC = () => {
         {pixels.map((_, i) => (
           <motion.div
             key={i}
-            className="bg-phosphor rounded-[1px]"
+            className="bg-phosphor"
             initial={{ opacity: 0.05 }}
             animate={{
               opacity: [0.05, 0.4, 0.9, 0.2, 0.05],

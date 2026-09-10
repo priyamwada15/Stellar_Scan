@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import { Constellation } from '../types';
 import { ExportCard } from './ExportCard';
+import { TwinklingStars } from './TwinklingStars';
 import { formatVisibility } from '../utils';
 
 const MetricGrid: React.FC<{ data: Constellation }> = ({ data }) => (
   <>
     <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
-      <div className="font-headline text-[8px] md:text-[10px] text-phosphor/40 uppercase mb-1 md:mb-2">Signal Integrity</div>
-      <div className="font-headline text-lg md:text-2xl text-phosphor">98.4%</div>
+      <div className="font-body text-label text-phosphor/40 uppercase mb-1 md:mb-2">Signal Integrity</div>
+      <div className="font-body text-heading text-phosphor">98.4%</div>
     </div>
     <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
-      <div className="font-headline text-[8px] md:text-[10px] text-phosphor/40 uppercase mb-1 md:mb-2">Distance (LY)</div>
-      <div className="font-headline text-lg md:text-2xl text-phosphor">{data.distance}</div>
+      <div className="font-body text-label text-phosphor/40 uppercase mb-1 md:mb-2">Distance (LY)</div>
+      <div className="font-body text-heading text-phosphor">{data.distance}</div>
     </div>
     <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
-      <div className="font-headline text-[8px] md:text-[10px] text-phosphor/40 uppercase mb-1 md:mb-2">Observation Window</div>
-      <div className="font-headline text-lg md:text-2xl text-phosphor">{data.observationWindow}</div>
+      <div className="font-body text-label text-phosphor/40 uppercase mb-1 md:mb-2">Observation Window</div>
+      <div className="font-body text-heading text-phosphor">{data.observationWindow}</div>
     </div>
     <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
-      <div className="font-headline text-[8px] md:text-[10px] text-phosphor/40 uppercase mb-1 md:mb-2">Sky Sector</div>
-      <div className="font-headline text-lg md:text-2xl text-phosphor">{data.skySector}</div>
+      <div className="font-body text-label text-phosphor/40 uppercase mb-1 md:mb-2">Sky Sector</div>
+      <div className="font-body text-heading text-phosphor">{data.skySector}</div>
     </div>
   </>
 );
@@ -27,7 +28,7 @@ const MetricGrid: React.FC<{ data: Constellation }> = ({ data }) => (
 export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: string }> = ({ data, scanDate }) => {
   const [showExport, setShowExport] = useState(false);
   const [selectedStarIndex, setSelectedStarIndex] = useState<number | null>(null);
-  
+
   const currentScanDate = scanDate || (() => {
     const now = new Date();
     return `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
@@ -50,22 +51,22 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
   return (
     <main className="pt-24 pb-32 px-6 max-w-7xl mx-auto">
       {showExport && <ExportCard data={data} scanDate={currentScanDate} onClose={() => setShowExport(false)} />}
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
         {/* 1. Header Section - Top on mobile, Top-Right on desktop */}
         <div className="lg:col-span-5 order-1 lg:order-2">
-          <div className="inline-block px-3 py-1 bg-void-light border-l-4 border-phosphor mb-4 animate-pulse">
-            <span className="font-headline text-phosphor text-[10px] md:text-xs tracking-[0.2em] uppercase glow-text">
+          <div className="inline-block px-3 py-1 bg-void-light mb-4 animate-pulse">
+            <span className="font-body text-label text-phosphor tracking-[0.2em] uppercase glow-text">
               Constellation Identified // EPOCH {currentScanDate}
             </span>
           </div>
           <div className="mb-6">
-            <h2 className="font-headline text-4xl md:text-7xl font-extrabold tracking-tighter text-phosphor glow-text leading-none uppercase mb-2">
+            <h2 className="font-headline text-display font-extrabold tracking-tighter text-phosphor glow-text leading-none uppercase mb-2">
               {data.name}
             </h2>
             <div className="flex items-center gap-2">
-              <span className="font-headline text-[10px] md:text-xs text-phosphor/40 uppercase tracking-widest">Target Designation:</span>
-              <span className="font-headline text-xs md:text-sm text-phosphor uppercase glow-text">{data.latinName}</span>
+              <span className="font-body text-label text-phosphor/40 uppercase tracking-widest">Target Designation:</span>
+              <span className="font-body text-body-sm text-phosphor uppercase glow-text">{data.latinName}</span>
             </div>
           </div>
         </div>
@@ -75,6 +76,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
           {/* Visualizer */}
           <div className="aspect-square bg-void-dark relative overflow-hidden group border border-phosphor/10">
             <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'radial-gradient(circle, #00FF41 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+            <TwinklingStars count={70} />
             <div className="absolute inset-0 flex items-center justify-center p-4 md:p-12">
               <div className="relative w-full h-full border border-phosphor/20 p-4 md:p-8">
                 <div className="w-full h-full relative" onClick={() => setSelectedStarIndex(null)}>
@@ -101,7 +103,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
 
                   {/* Stars */}
                   {data.stars.map((star, i) => (
-                    <div 
+                    <div
                       key={i}
                       onClick={(e) => {
                         e.stopPropagation();
@@ -113,7 +115,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
                       style={{ top: `${star.y}%`, left: `${star.x}%`, transform: 'translate(-50%, -50%)' }}
                     >
                       {star.name && (
-                        <span className={`absolute top-4 left-0 text-[8px] font-mono whitespace-nowrap transition-opacity ${selectedStarIndex === i ? 'opacity-100 font-bold' : 'opacity-40'}`}>
+                        <span className={`absolute top-4 left-0 text-label font-mono whitespace-nowrap transition-opacity ${selectedStarIndex === i ? 'opacity-100 font-bold' : 'opacity-40'}`}>
                           {star.name}
                         </span>
                       )}
@@ -125,46 +127,45 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
                 {selectedStar && (
                   <div className="absolute top-4 right-4 w-48 bg-void-dark/90 border border-phosphor p-3 backdrop-blur-sm animate-in fade-in slide-in-from-right-4 duration-300 z-20">
                     <div className="flex justify-between items-start mb-2 border-b border-phosphor/20 pb-1">
-                      <span className="font-headline text-[10px] text-phosphor uppercase">Star Data</span>
-                      <button onClick={() => setSelectedStarIndex(null)} className="text-phosphor hover:text-white">
-                        <span className="material-symbols-outlined text-xs">close</span>
+                      <span className="font-headline text-label text-phosphor uppercase">Star Data</span>
+                      <button onClick={() => setSelectedStarIndex(null)} className="text-phosphor hover:text-white font-body text-label font-bold">
+                        [X]
                       </button>
                     </div>
                     <div className="space-y-2">
                       <div>
-                        <div className="text-[8px] uppercase text-phosphor/40">Designation</div>
-                        <div className="text-xs text-phosphor font-headline">{selectedStar.name || `STAR_${data.name.slice(0,3)}_${selectedStarIndex}`}</div>
+                        <div className="text-label uppercase text-phosphor/40">Designation</div>
+                        <div className="text-body-sm text-phosphor font-body">{selectedStar.name || `STAR_${data.name.slice(0,3)}_${selectedStarIndex}`}</div>
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <div className="text-[8px] uppercase text-phosphor/40">Magnitude</div>
-                          <div className="text-xs text-phosphor font-headline">{(Math.random() * 5 + 1).toFixed(2)}</div>
+                          <div className="text-label uppercase text-phosphor/40">Magnitude</div>
+                          <div className="text-body-sm text-phosphor font-body">{(Math.random() * 5 + 1).toFixed(2)}</div>
                         </div>
                         <div>
-                          <div className="text-[8px] uppercase text-phosphor/40">Class</div>
-                          <div className="text-xs text-phosphor font-headline">{['O', 'B', 'A', 'F', 'G', 'K', 'M'][selectedStarIndex % 7]}</div>
+                          <div className="text-label uppercase text-phosphor/40">Class</div>
+                          <div className="text-body-sm text-phosphor font-body">{['O', 'B', 'A', 'F', 'G', 'K', 'M'][selectedStarIndex % 7]}</div>
                         </div>
                       </div>
                       <div>
-                        <div className="text-[8px] uppercase text-phosphor/40">Coordinates</div>
-                        <div className="text-[10px] text-phosphor font-mono">RA: {starToRA(selectedStar.x)} / DEC: {starToDec(selectedStar.y)}</div>
+                        <div className="text-label uppercase text-phosphor/40">Coordinates</div>
+                        <div className="text-label text-phosphor font-mono">RA: {starToRA(selectedStar.x)} / DEC: {starToDec(selectedStar.y)}</div>
                       </div>
                     </div>
                   </div>
                 )}
 
-                <div className="absolute top-2 left-2 font-headline text-[10px] text-phosphor/50">Y_AXIS_V.992</div>
-                <div className="absolute bottom-2 right-2 font-headline text-[10px] text-phosphor/50">X_AXIS_H.104</div>
+                <div className="absolute top-2 left-2 font-body text-label text-phosphor/50">Y_AXIS_V.992</div>
+                <div className="absolute bottom-2 right-2 font-body text-label text-phosphor/50">X_AXIS_H.104</div>
               </div>
             </div>
           </div>
 
           {/* Export Button - Third on mobile */}
-          <button 
+          <button
             onClick={() => setShowExport(true)}
-            className="w-full px-6 py-3 border border-phosphor/40 text-phosphor font-headline text-xs uppercase hover:bg-phosphor/10 transition-all flex items-center justify-center gap-2 group order-3 lg:order-none"
+            className="btn btn-outline w-full px-6 py-3 flex items-center justify-center gap-2 group order-3 lg:order-none"
           >
-            <span className="material-symbols-outlined text-sm group-hover:scale-110 transition-transform">download</span>
             Export to Card
           </button>
 
@@ -176,62 +177,59 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
 
         {/* 3. Profile Sections - Reordered for mobile */}
         <div className="lg:col-span-5 order-4 lg:order-3 flex flex-col gap-4">
-          <div className="bg-void-light p-6 border-l border-phosphor/30">
-            <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-              <span className="material-symbols-outlined text-sm">info</span>
+          <div className="bg-void-light p-6">
+            <h3 className="font-headline text-heading text-phosphor font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
               Astronomical Profile
             </h3>
-            <p className="font-body text-phosphor/60 leading-relaxed text-sm mb-6">
+            <p className="font-body text-body-sm text-phosphor/60 leading-relaxed mb-6">
               {data.description}
             </p>
-            
+
             <div className="space-y-3">
               <div className="flex justify-between items-end gap-2">
-                <span className="font-headline text-[10px] uppercase text-phosphor/40">Classification</span>
-                <span className="font-headline text-phosphor text-xs">{data.type}</span>
+                <span className="font-body text-label uppercase text-phosphor/40">Classification</span>
+                <span className="font-body text-body-sm text-phosphor">{data.type}</span>
               </div>
               <div className="flex justify-between items-end gap-2">
-                <span className="font-headline text-[10px] uppercase text-phosphor/40">Visibility Range</span>
-                <span className="font-headline text-phosphor text-xs">{formatVisibility(data.visibility)}</span>
+                <span className="font-body text-label uppercase text-phosphor/40">Visibility Range</span>
+                <span className="font-body text-body-sm text-phosphor">{formatVisibility(data.visibility)}</span>
               </div>
               <div className="flex justify-between items-end gap-2">
-                <span className="font-headline text-[10px] uppercase text-phosphor/40">Stellar Count</span>
-                <span className="font-headline text-phosphor text-xs">{data.stars.length} Main Stars</span>
+                <span className="font-body text-label uppercase text-phosphor/40">Stellar Count</span>
+                <span className="font-body text-body-sm text-phosphor">{data.stars.length} Main Stars</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="lg:col-span-5 order-5 lg:order-4 flex flex-col gap-4">
-          <div className="bg-void-light p-6 border-l border-phosphor/30">
-            <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-              <span className="material-symbols-outlined text-sm">monitoring</span>
+          <div className="bg-void-light p-6">
+            <h3 className="font-headline text-heading text-phosphor font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
               Observation Metrics
             </h3>
             <div className="space-y-3">
               <div className="flex justify-between items-end gap-2">
-                <span className="font-headline text-[10px] uppercase text-phosphor/40">Luminosity index</span>
-                <span className="font-headline text-phosphor text-xs">{data.spectralData.luminosity}</span>
+                <span className="font-body text-label uppercase text-phosphor/40">Luminosity index</span>
+                <span className="font-body text-body-sm text-phosphor">{data.spectralData.luminosity}</span>
               </div>
               <div className="flex justify-between items-end gap-2">
-                <span className="font-headline text-[10px] uppercase text-phosphor/40">Nebula Density</span>
-                <span className="font-headline text-phosphor text-xs">{data.spectralData.nebulaDensity}</span>
+                <span className="font-body text-label uppercase text-phosphor/40">Nebula Density</span>
+                <span className="font-body text-body-sm text-phosphor">{data.spectralData.nebulaDensity}</span>
               </div>
               <div className="flex justify-between items-end gap-2">
-                <span className="font-headline text-[10px] uppercase text-phosphor/40">Signal Drift</span>
-                <span className="font-headline text-phosphor text-xs">{data.spectralData.signalDrift}</span>
+                <span className="font-body text-label uppercase text-phosphor/40">Signal Drift</span>
+                <span className="font-body text-body-sm text-phosphor">{data.spectralData.signalDrift}</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="lg:col-span-5 order-6 lg:order-5 flex flex-col gap-4">
-          <div className="bg-void-light p-6 border-l border-phosphor/30">
-            <h3 className="font-headline text-phosphor text-xl font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
-              <span className="material-symbols-outlined text-sm">history_edu</span>
+          <div className="bg-void-light p-6">
+            <h3 className="font-headline text-heading text-phosphor font-bold uppercase mb-4 tracking-tighter flex items-center gap-2">
               Mythological Origin
             </h3>
-            <p className="font-body text-phosphor/60 leading-relaxed text-sm">
+            <p className="font-body text-body-sm text-phosphor/60 leading-relaxed">
               {data.mythology}
             </p>
           </div>

@@ -2,13 +2,13 @@ import { Constellation } from "../types";
 
 const API_URL = "/api/constellation";
 
-export async function getConstellationData(query: string): Promise<Constellation> {
-  console.log("INITIALIZING_TEMPORAL_QUERY:", query);
+export async function getConstellationData(date: string, lat: number, lon: number): Promise<Constellation> {
+  console.log("INITIALIZING_TEMPORAL_QUERY:", date, lat, lon);
 
   const response = await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query }),
+    body: JSON.stringify({ date, lat, lon }),
   });
 
   if (!response.ok) {

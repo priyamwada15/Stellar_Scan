@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { Agentation } from 'agentation';
 import { Header, Footer } from './components/Layout';
 import { BootScreen } from './components/BootScreen';
 import { ScannerInput } from './components/ScannerInput';
 import { ConstellationDetail } from './components/ConstellationDetail';
 import { Archives } from './components/Archives';
 import { PixelLoader } from './components/PixelLoader';
-import { AppScreen, Constellation } from './types';
+import { AppScreen, Constellation, ScanLocation } from './types';
 import { getConstellationData } from './services/geminiService';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
     const now = new Date();
     return `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
   });
+  const [scanLocation, setScanLocation] = useState<ScanLocation | null>(null);
   const [archiveItems, setArchiveItems] = useState<Constellation[]>(() => {
     const saved = localStorage.getItem('phosphor_history');
     return saved ? JSON.parse(saved) : [];
@@ -51,24 +53,25 @@ export default function App() {
   }, [archiveItems]);
 
   const handleScan = async (date: string) => {
+    if (!scanLocation) return;
     setLoading(true);
     setError(null);
     setScreen('SCANNING');
     setScanDate(date);
 
     // Create a timeout promise
-    const timeoutPromise = new Promise((_, reject) => 
+    const timeoutPromise = new Promise((_, reject) =>
       setTimeout(() => reject(new Error("TEMPORAL_SYNC_TIMEOUT: Connection to core lost.")), 15000)
     );
 
     try {
       // Ensure the scanning screen is visible for at least 1 second
       const delayPromise = new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       // Race the API call against the timeout
       const [data] = await Promise.all([
         Promise.race([
-          getConstellationData(`Constellation visible on ${date}`),
+          getConstellationData(date, scanLocation.lat, scanLocation.lon),
           timeoutPromise
         ]) as Promise<Constellation>,
         delayPromise
@@ -104,12 +107,21 @@ export default function App() {
       case 'BOOT':
         return <BootScreen onComplete={() => setScreen('SCANNER_INPUT')} />;
       case 'SCANNER_INPUT':
-        return <ScannerInput date={scanDate} setDate={setScanDate} onScan={handleScan} error={error} />;
+        return (
+          <ScannerInput
+            date={scanDate}
+            setDate={setScanDate}
+            location={scanLocation}
+            setLocation={setScanLocation}
+            onScan={handleScan}
+            error={error}
+          />
+        );
       case 'SCANNING':
         return (
           <div className="flex flex-col items-center justify-center h-screen bg-void">
             <PixelLoader />
-            <h2 className="font-headline text-2xl text-phosphor glow-text animate-pulse">DECRYPTING_TEMPORAL_DATA...</h2>
+            <h2 className="font-headline text-title text-phosphor glow-text animate-pulse">DECRYPTING_TEMPORAL_DATA...</h2>
           </div>
         );
       case 'DETAIL':
@@ -124,6 +136,7 @@ export default function App() {
   return (
     <div className="min-h-screen relative">
       <Analytics />
+      {import.meta.env.DEV && <Agentation />}
       {crtEnabled && <div className="crt-overlay" />}
       {screen !== 'BOOT' && <Header username={username} onSettingsClick={() => setShowSettings(true)} />}
       {renderScreen()}
@@ -135,19 +148,19 @@ export default function App() {
           <div className="absolute inset-0 bg-void/80 backdrop-blur-md" onClick={() => setShowSettings(false)}></div>
           <div className="relative bg-void-light border border-phosphor/30 p-8 max-w-md w-full shadow-[0_0_30px_rgba(0,255,65,0.1)]">
             <div className="flex justify-between items-center mb-8 border-b border-phosphor/20 pb-4">
-              <h2 className="font-headline text-2xl text-phosphor uppercase tracking-tighter">System Settings</h2>
-              <button onClick={() => setShowSettings(false)} className="material-symbols-outlined text-phosphor hover:bg-phosphor/10 p-1">close</button>
+              <h2 className="font-headline text-title text-phosphor uppercase tracking-tighter">System Settings</h2>
+              <button onClick={() => setShowSettings(false)} className="btn-compact btn-outline px-2 py-1">[X]</button>
             </div>
-            
+
             <div className="space-y-8">
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="font-headline text-phosphor text-sm uppercase tracking-widest mb-2">Username</p>
-                  <p className="text-[10px] text-phosphor/40 uppercase">{username}</p>
+                  <p className="font-body text-phosphor text-body-sm uppercase tracking-widest mb-2">Username</p>
+                  <p className="text-label text-phosphor/40 uppercase">{username}</p>
                 </div>
-                <button 
+                <button
                   onClick={() => setUsername(generateRandomUsername())}
-                  className="w-32 py-2 border border-phosphor/30 text-phosphor font-headline text-[10px] uppercase hover:bg-phosphor/10 transition-all"
+                  className="btn-compact btn-outline w-32 py-2"
                 >
                   Regenerate
                 </button>
@@ -155,31 +168,31 @@ export default function App() {
 
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="font-headline text-phosphor text-sm uppercase tracking-widest text-red-500 mb-2">Clear History</p>
-                  <p className="text-[10px] text-phosphor/40 uppercase">Erase all temporal logs</p>
+                  <p className="font-body text-danger text-body-sm uppercase tracking-widest mb-2">Clear History</p>
+                  <p className="text-label text-phosphor/40 uppercase">Erase all temporal logs</p>
                 </div>
                 {!showConfirmErase ? (
-                  <button 
+                  <button
                     onClick={() => setShowConfirmErase(true)}
-                    className="w-32 py-2 border border-red-500/30 text-red-500 font-headline text-[10px] uppercase hover:bg-red-500/10 transition-all"
+                    className="btn-compact btn-danger-outline w-32 py-2"
                   >
                     Erase
                   </button>
                 ) : (
                   <div className="flex gap-2">
-                    <button 
+                    <button
                       onClick={() => {
                         setArchiveItems([]);
                         setShowConfirmErase(false);
                         setShowSettings(false);
                       }}
-                      className="px-3 py-2 bg-red-500 text-void font-headline text-[10px] uppercase hover:brightness-110 transition-all"
+                      className="btn-compact btn-danger px-3 py-2"
                     >
                       Confirm
                     </button>
-                    <button 
+                    <button
                       onClick={() => setShowConfirmErase(false)}
-                      className="px-3 py-2 border border-phosphor/30 text-phosphor font-headline text-[10px] uppercase hover:bg-phosphor/10 transition-all"
+                      className="btn-compact btn-outline px-3 py-2"
                     >
                       Cancel
                     </button>
@@ -189,7 +202,7 @@ export default function App() {
             </div>
 
             <div className="mt-12 pt-4 border-t border-phosphor/10 text-center">
-              <p className="font-headline text-[10px] text-phosphor/30 uppercase tracking-[0.2em]">Stellar Scan // V.8.4.2</p>
+              <p className="font-body text-label text-phosphor/30 uppercase tracking-[0.2em]">Stellar Scan // V.8.4.2</p>
             </div>
           </div>
         </div>

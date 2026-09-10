@@ -30,3 +30,11 @@ export interface Constellation {
 }
 
 export type AppScreen = 'BOOT' | 'SCANNER_INPUT' | 'SCANNING' | 'DETAIL' | 'ARCHIVES';
+
+export interface ScanLocation {
+  name: string;
+  admin1?: string;
+  country?: string;
+  lat: number;
+  lon: number;
+}
