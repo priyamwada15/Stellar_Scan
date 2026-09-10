@@ -53,16 +53,13 @@
     @apply border border-phosphor/20;
   }
 
-  /* Button system — every button/button-like control in the app should compose
-     .btn (or .btn-compact) with exactly one fill variant below. Padding/width
-     stay per-instance since they legitimately vary by context. */
   .btn {
-    @apply font-body uppercase tracking-widest transition-all;
+    @apply font-body uppercase tracking-widest transition-all border border-phosphor/25;
     font-size: var(--text-body-sm);
   }
 
   .btn-compact {
-    @apply font-body uppercase tracking-widest transition-all;
+    @apply font-body uppercase tracking-widest transition-all border border-phosphor/25;
     font-size: var(--text-label);
   }
 
@@ -71,19 +68,30 @@
   }
 
   .btn-outline {
-    @apply text-phosphor hover:bg-phosphor/10 active:scale-95;
+    @apply text-phosphor/70 hover:bg-phosphor/10 hover:text-phosphor active:scale-95;
   }
 
   .btn-disabled {
-    @apply bg-phosphor/20 text-phosphor/40 cursor-not-allowed;
+    @apply bg-phosphor/20 text-phosphor/40 cursor-not-allowed border-phosphor/10;
   }
 
   .btn-danger {
-    @apply bg-danger text-void font-bold hover:brightness-110 active:scale-95;
+    @apply bg-danger text-void font-bold hover:brightness-110 active:scale-95 border-danger;
   }
 
   .btn-danger-outline {
-    @apply border border-danger/30 text-danger hover:bg-danger/10 active:scale-95;
+    @apply border-danger/30 text-danger hover:bg-danger/10 active:scale-95;
+  }
+
+  /* Row of buttons that should read as one bracket toolbar strip (bordered
+     cells sharing edges, no double-border seam) — opt-in via this container,
+     not the default for every button group. */
+  .btn-toolbar {
+    @apply flex;
+  }
+  .btn-toolbar > .btn + .btn,
+  .btn-toolbar > .btn-compact + .btn-compact {
+    @apply border-l-0;
   }
 
   .pixel-grid {
