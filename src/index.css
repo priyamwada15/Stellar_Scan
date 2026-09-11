@@ -154,6 +154,11 @@
   animation: flicker 0.15s infinite;
 }
 
+@keyframes crt-bezel-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
