@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { Agentation } from 'agentation';
 import { Header, Footer } from './components/Layout';
+import { CrtBezel } from './components/CrtBezel';
 import { BootScreen } from './components/BootScreen';
 import { ScannerInput } from './components/ScannerInput';
 import { ConstellationDetail } from './components/ConstellationDetail';
@@ -133,15 +134,27 @@ export default function App() {
     }
   };
 
+  const app = (
+    <>
+      {screen !== 'BOOT' && <Header username={username} onSettingsClick={() => setShowSettings(true)} />}
+      {renderScreen()}
+      {screen !== 'BOOT' && <Footer activeTab={activeTab} onTabChange={handleTabChange} />}
+    </>
+  );
+
   return (
     <div className="min-h-screen relative">
       <Analytics />
       {import.meta.env.DEV && <Agentation />}
-      {crtEnabled && <div className="crt-overlay" />}
-      {screen !== 'BOOT' && <Header username={username} onSettingsClick={() => setShowSettings(true)} />}
-      {renderScreen()}
-      {screen !== 'BOOT' && <Footer activeTab={activeTab} onTabChange={handleTabChange} />}
-      
+      {screen === 'DETAIL' && crtEnabled ? (
+        <CrtBezel>{app}</CrtBezel>
+      ) : (
+        <>
+          {crtEnabled && <div className="crt-overlay" />}
+          {app}
+        </>
+      )}
+
       {/* Settings Modal */}
       {showSettings && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
