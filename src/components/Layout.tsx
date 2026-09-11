@@ -11,9 +11,6 @@ export const Header: React.FC<{ username: string; onSettingsClick?: () => void }
       </div>
       <Waveform width={120} height={28} className="hidden md:block opacity-70" />
       <div className="flex items-center gap-6">
-        <span className="font-body uppercase tracking-widest text-body-sm text-phosphor hidden sm:inline">
-          LOGGED_IN: {username}
-        </span>
         <span
           onClick={onSettingsClick}
           className="btn-compact btn-outline px-2 py-1 cursor-pointer"

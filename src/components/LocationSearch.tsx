@@ -105,11 +105,6 @@ export const LocationSearch: React.FC<{
                 />
               )}
             </div>
-            <div className="mt-3 md:mt-4 text-label text-phosphor/55 font-body tracking-widest">
-              {location
-                ? `LAT ${location.lat.toFixed(2)} / LON ${location.lon.toFixed(2)} | STATUS: LOCKED`
-                : 'A CITY YOU TYPE, NOTHING DETECTED AUTOMATICALLY | STATUS: AWAITING_INPUT'}
-            </div>
           </div>
         </div>
       </div>
