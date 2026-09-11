@@ -138,20 +138,14 @@ export default function App() {
     <div className="min-h-screen relative">
       <Analytics />
       {import.meta.env.DEV && <Agentation />}
-      {/* Header/Footer are `position: fixed` and MUST stay outside <CrtBezel>.
-          The bezel applies a clip-path (which clips fixed descendants and
-          removes the clipped region from hit-testing) and its bloom layers
-          apply a CSS `filter` (which makes the filtered element the containing
-          block for fixed descendants). Either one breaks fixed chrome. */}
+      {/* CrtBezel is a fixed, viewport-covering decorative overlay — it takes
+          no children and never wraps the app's real content, so it can't
+          break `position: fixed` descendants (Header/Footer) the way an
+          ancestor clip-path/filter would. The real content scrolls under it
+          like a genuine screen. */}
+      {crtEnabled && <CrtBezel />}
       {screen !== 'BOOT' && <Header username={username} onSettingsClick={() => setShowSettings(true)} />}
-      {screen === 'DETAIL' && crtEnabled ? (
-        <CrtBezel>{renderScreen()}</CrtBezel>
-      ) : (
-        <>
-          {crtEnabled && <div className="crt-overlay" />}
-          {renderScreen()}
-        </>
-      )}
+      {renderScreen()}
       {screen !== 'BOOT' && <Footer activeTab={activeTab} onTabChange={handleTabChange} />}
 
       {/* Settings Modal */}

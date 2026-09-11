@@ -20,6 +20,7 @@ export const LocationSearch: React.FC<{
   const [results, setResults] = useState<GeocodeResult[]>([]);
   const [searching, setSearching] = useState(false);
   const [open, setOpen] = useState(false);
+  const [focused, setFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -72,7 +73,17 @@ export const LocationSearch: React.FC<{
     <div ref={containerRef} className="relative">
       <div
         className="font-body relative group cursor-text"
-        onClick={() => { if (!location) { inputRef.current?.focus(); setOpen(true); } }}
+        tabIndex={location ? 0 : -1}
+        onClick={(e) => {
+          if (!location) { inputRef.current?.focus(); setOpen(true); }
+          else { e.currentTarget.focus(); }
+        }}
+        onKeyDown={(e) => {
+          if (location && (e.key === 'Backspace' || e.key === 'Delete')) {
+            e.preventDefault();
+            clearLocation();
+          }
+        }}
       >
         <div className="flex items-start gap-3 md:gap-4">
           <span className="text-phosphor font-bold text-heading">&gt;</span>
@@ -80,29 +91,29 @@ export const LocationSearch: React.FC<{
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-x-3 text-heading uppercase tracking-tighter">
               <span className="text-phosphor/55 whitespace-nowrap">SET_TARGET_LOCATION</span>
               {location ? (
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-phosphor underline decoration-2 underline-offset-4 md:underline-offset-8 truncate">
-                    {location.name}{location.country ? `, ${location.country}` : ''}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={(e) => { e.stopPropagation(); clearLocation(); }}
-                    className="btn-compact btn-outline px-2 py-0.5 flex-shrink-0 normal-case tracking-normal"
-                  >
-                    Change
-                  </button>
-                </div>
+                <span className="text-phosphor underline decoration-2 underline-offset-4 md:underline-offset-8 truncate">
+                  {location.name}{location.country ? `, ${location.country}` : ''}
+                </span>
               ) : (
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={query}
-                  onChange={(e) => { setQuery(e.target.value); setOpen(true); }}
-                  onFocus={() => setOpen(true)}
-                  placeholder="TYPE_A_CITY_NAME"
-                  className="bg-transparent border-none outline-none text-phosphor placeholder:text-phosphor/30 w-full min-w-0"
-                  autoComplete="off"
-                />
+                <div className="relative flex items-center min-w-0 flex-grow">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={query}
+                    onChange={(e) => { setQuery(e.target.value.toUpperCase()); setOpen(true); }}
+                    onFocus={() => { setOpen(true); setFocused(true); }}
+                    onBlur={() => setFocused(false)}
+                    className="absolute inset-0 opacity-0 cursor-text w-full z-10"
+                    autoComplete="off"
+                  />
+                  <span className="text-phosphor inline-block truncate">{query}</span>
+                  <span
+                    className={`w-3 h-6 md:w-4 md:h-8 bg-phosphor ml-1 flex-shrink-0 ${focused ? 'cursor-blink' : 'opacity-0'}`}
+                  ></span>
+                  {!query && (
+                    <span className="text-phosphor/30 inline-block truncate ml-1">TYPE_A_CITY_NAME</span>
+                  )}
+                </div>
               )}
             </div>
           </div>

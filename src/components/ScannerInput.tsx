@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ScanLocation } from '../types';
 import { LocationSearch } from './LocationSearch';
 
@@ -11,7 +11,20 @@ export const ScannerInput: React.FC<{
   setLocation: (location: ScanLocation | null) => void;
 }> = ({ onScan, error, date, setDate, location, setLocation }) => {
   const dateInputRef = useRef<HTMLInputElement>(null);
+  const [dateFocused, setDateFocused] = useState(false);
   const ready = date.length === 10 && location !== null;
+
+  // Pin the caret to the end after every reformat, and again on focus. The
+  // invisible overlaid input has no visible caret of its own to anchor the
+  // user's expectations, and without this, focusing (or some browsers'
+  // default select-all-on-focus for a pre-filled input) can leave the whole
+  // value selected — so the next Backspace clears everything at once instead
+  // of removing one character.
+  useEffect(() => {
+    if (dateInputRef.current && document.activeElement === dateInputRef.current) {
+      dateInputRef.current.setSelectionRange(date.length, date.length);
+    }
+  }, [date]);
 
   const formatAndSetDate = (value: string) => {
     const digits = value.replace(/\D/g, '');
@@ -22,6 +35,13 @@ export const ScannerInput: React.FC<{
       if (digits.length > 6) formatted += '.' + digits.substring(6, 8);
     }
     setDate(formatted.substring(0, 10));
+  };
+
+  const handleDateFocus = () => {
+    setDateFocused(true);
+    requestAnimationFrame(() => {
+      dateInputRef.current?.setSelectionRange(date.length, date.length);
+    });
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -76,13 +96,22 @@ export const ScannerInput: React.FC<{
                             value={date}
                             onChange={(e) => formatAndSetDate(e.target.value)}
                             onKeyDown={handleKeyDown}
+                            onFocus={handleDateFocus}
+                            onBlur={() => setDateFocused(false)}
                             className="absolute inset-0 opacity-0 cursor-text w-full z-10"
                             autoFocus
                           />
                           <span className="text-phosphor underline decoration-2 underline-offset-4 md:underline-offset-8 inline-block truncate">
-                            {date || 'YYYY.MM.DD'}
+                            {date}
                           </span>
-                          <span className="w-3 h-6 md:w-4 md:h-8 bg-phosphor cursor-blink ml-1 flex-shrink-0"></span>
+                          <span
+                            className={`w-3 h-6 md:w-4 md:h-8 bg-phosphor ml-1 flex-shrink-0 ${dateFocused ? 'cursor-blink' : 'opacity-0'}`}
+                          ></span>
+                          {!date && (
+                            <span className="text-phosphor/30 underline decoration-2 underline-offset-4 md:underline-offset-8 inline-block truncate ml-1">
+                              YYYY.MM.DD
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
