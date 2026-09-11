@@ -28,7 +28,7 @@ export const Archives: React.FC<{ items: Constellation[]; onSelect: (c: Constell
       <section className="mb-8 md:mb-12 pl-4 md:pl-6">
         <p className="font-body text-phosphor text-label tracking-widest uppercase mb-2">Temporal Archives / History</p>
         <h2 className="font-headline text-display font-extrabold text-phosphor uppercase tracking-tighter leading-none">
-          Search <span className="text-phosphor/60">History</span>
+          Search <span className="text-phosphor/75">History</span>
         </h2>
         <p className="mt-4 max-w-2xl text-phosphor/70 font-body text-body leading-relaxed">
           Every scan here matched a date and location against real sky positions to find the dominant constellation. Revisit past results below.
@@ -50,7 +50,7 @@ export const Archives: React.FC<{ items: Constellation[]; onSelect: (c: Constell
 
       {items.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 border border-dashed border-phosphor/20">
-          <p className="font-body text-body-sm text-phosphor/40 uppercase tracking-widest">[ No scan history detected ]</p>
+          <p className="font-body text-body-sm text-phosphor/55 uppercase tracking-widest">[ No scan history detected ]</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-px bg-phosphor/10 overflow-hidden">
@@ -68,21 +68,21 @@ export const Archives: React.FC<{ items: Constellation[]; onSelect: (c: Constell
               onClick={() => onSelect(item)}
               className="grid grid-cols-1 md:grid-cols-12 bg-void px-6 py-6 items-center hover:bg-void-light transition-colors cursor-pointer"
             >
-              <div className="col-span-1 font-body text-body-sm text-phosphor/40 mb-2 md:mb-0">{String(i + 1).padStart(3, '0')}</div>
+              <div className="col-span-1 font-body text-body-sm text-phosphor/55 mb-2 md:mb-0">{String(i + 1).padStart(3, '0')}</div>
               <div className="col-span-4 flex items-center gap-4">
                 <div className="w-12 h-12 bg-void-light border border-phosphor/20 flex items-center justify-center">
                   <span className="font-body text-label text-phosphor tracking-widest">{getTypeCode(item.type)}</span>
                 </div>
                 <div>
                   <h3 className="font-body text-heading text-phosphor font-bold tracking-tight uppercase">{item.name}</h3>
-                  <p className="font-body text-label text-phosphor/60">{item.latinName}</p>
+                  <p className="font-body text-label text-phosphor/75">{item.latinName}</p>
                 </div>
               </div>
               <div className="col-span-3 mt-4 md:mt-0">
                 <span className="font-body text-body-sm text-phosphor">{item.stars[0]?.name || 'Unknown'}</span>
               </div>
-              <div className="col-span-2 font-body text-body-sm text-phosphor/60 mt-2 md:mt-0">{item.skySector || 'N/A'}</div>
-              <div className="col-span-2 font-body text-body-sm text-phosphor/60 mt-2 md:mt-0">{item.visibility || 'Optimal'}</div>
+              <div className="col-span-2 font-body text-body-sm text-phosphor/75 mt-2 md:mt-0">{item.skySector || 'N/A'}</div>
+              <div className="col-span-2 font-body text-body-sm text-phosphor/75 mt-2 md:mt-0">{item.visibility || 'Optimal'}</div>
             </div>
           ))}
         </div>

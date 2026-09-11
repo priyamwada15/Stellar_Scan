@@ -25,21 +25,31 @@ const TYPE_TOKENS = [
 ];
 
 const COLOR_TOKENS = [
-  { name: 'Phosphor', token: '--color-phosphor', className: 'bg-phosphor', hex: '#00FF41', usage: 'The accent/text color — nearly everything on screen' },
-  { name: 'Void', token: '--color-void', className: 'bg-void', hex: '#1F0E18', usage: 'Base page background' },
-  { name: 'Void Dark', token: '--color-void-dark', className: 'bg-void-dark', hex: '#190913', usage: 'Recessed/sunken surfaces — input fields, visualizer backgrounds' },
-  { name: 'Void Light', token: '--color-void-light', className: 'bg-void-light', hex: '#2C1A24', usage: 'Raised surfaces — cards, panels, modal backgrounds' },
+  { name: 'Phosphor', token: '--color-phosphor', className: 'bg-phosphor', hex: '#2ECC58', usage: 'The accent/text color — nearly everything on screen' },
+  { name: 'Accent', token: '--color-accent', className: 'bg-accent', hex: '#35E6FF', usage: 'Cyan readout accent — numeric values inside hatched meters' },
+  { name: 'Void', token: '--color-void', className: 'bg-void', hex: '#0d0d0d', usage: 'Base page background' },
+  { name: 'Void Dark', token: '--color-void-dark', className: 'bg-void-dark', hex: '#020302', usage: 'Recessed/sunken surfaces — input fields, visualizer backgrounds' },
+  { name: 'Void Light', token: '--color-void-light', className: 'bg-void-light', hex: '#0B0D09', usage: 'Raised surfaces — cards, panels, modal backgrounds' },
   { name: 'Danger', token: '--color-danger', className: 'bg-danger', hex: '#EF4444', usage: 'Destructive actions only — errors, Clear History, Erase' },
 ];
 
+// /55 and /75 replaced the older /40 and /60 steps: against the current
+// phosphor-on-void palette those two failed WCAG AA for normal-size text.
 const OPACITY_STEPS = [
   { value: 10, className: 'text-phosphor/10' },
   { value: 20, className: 'text-phosphor/20' },
   { value: 30, className: 'text-phosphor/30' },
-  { value: 40, className: 'text-phosphor/40' },
   { value: 50, className: 'text-phosphor/50' },
-  { value: 60, className: 'text-phosphor/60' },
+  { value: 55, className: 'text-phosphor/55' },
   { value: 70, className: 'text-phosphor/70' },
+  { value: 75, className: 'text-phosphor/75' },
+];
+
+const NEW_COMPONENTS = [
+  { name: 'WindowPanel', file: 'src/components/WindowPanel.tsx', usage: 'Panel shell with a window-chrome title bar and corner glyphs — the default container for detail-screen sections.' },
+  { name: 'Meter', file: 'src/components/Meter.tsx', usage: 'Horizontal hatched bar gauge with a cyan numeric readout — used for observation metrics.' },
+  { name: 'DitherField', file: 'src/components/DitherField.tsx', usage: 'Procedural dithered pixel texture with a light direction — gives flat surfaces a printed/CRT grain.' },
+  { name: 'Waveform', file: 'src/components/Waveform.tsx', usage: 'Pixel-block telemetry strip — decorative "signal alive" readout in the header.' },
 ];
 
 const BUTTON_VARIANTS: { label: string; classes: string; code: string }[] = [
@@ -74,25 +84,25 @@ export const DesignSystem: React.FC = () => {
       <Section title="Fonts">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div className="bg-void-light p-6 border border-phosphor/10">
-            <div className="font-body text-label text-phosphor/40 uppercase mb-2">font-headline</div>
+            <div className="font-body text-label text-phosphor/55 uppercase mb-2">font-headline</div>
             <div className="font-headline text-heading text-phosphor mb-3">VT323</div>
-            <p className="font-body text-body-sm text-phosphor/60 leading-relaxed">
+            <p className="font-body text-body-sm text-phosphor/75 leading-relaxed">
               Titles and headers <span className="text-phosphor">only</span>: page titles, section headers, modal titles.
               Never for body content, labels, values, or buttons.
             </p>
           </div>
           <div className="bg-void-light p-6 border border-phosphor/10">
-            <div className="font-body text-label text-phosphor/40 uppercase mb-2">font-body</div>
+            <div className="font-body text-label text-phosphor/55 uppercase mb-2">font-body</div>
             <div className="font-body text-heading text-phosphor mb-3">JetBrains Mono</div>
-            <p className="font-body text-body-sm text-phosphor/60 leading-relaxed">
+            <p className="font-body text-body-sm text-phosphor/75 leading-relaxed">
               Everything that isn't a title: paragraphs, labels, values, buttons, nav, breadcrumbs, badges.
               This is the default — <Code>body</Code> inherits it globally.
             </p>
           </div>
           <div className="bg-void-light p-6 border border-phosphor/10">
-            <div className="font-body text-label text-phosphor/40 uppercase mb-2">font-mono</div>
+            <div className="font-body text-label text-phosphor/55 uppercase mb-2">font-mono</div>
             <div className="font-mono text-heading text-phosphor mb-3">JetBrains Mono</div>
-            <p className="font-body text-body-sm text-phosphor/60 leading-relaxed">
+            <p className="font-body text-body-sm text-phosphor/75 leading-relaxed">
               Reserved for raw technical readouts: boot log lines, star RA/DEC coordinates. Currently the
               same typeface as <Code>font-body</Code> — kept as a separate token since the two roles are
               conceptually distinct and may diverge again later.
@@ -103,7 +113,7 @@ export const DesignSystem: React.FC = () => {
 
       {/* Type Scale */}
       <Section title="Type Scale">
-        <p className="font-body text-body-sm text-phosphor/60 mb-6 max-w-2xl leading-relaxed">
+        <p className="font-body text-body-sm text-phosphor/75 mb-6 max-w-2xl leading-relaxed">
           Six semantic sizes. Every piece of text in the app resolves to one of these — no arbitrary{' '}
           <Code>text-[10px]</Code> or ad-hoc <Code>text-sm</Code> values. The sliders in the Type Scale panel
           (top right, dev only) tweak these live.
@@ -142,7 +152,7 @@ export const DesignSystem: React.FC = () => {
           ))}
         </div>
 
-        <p className="font-body text-body-sm text-phosphor/60 mb-3">
+        <p className="font-body text-body-sm text-phosphor/75 mb-3">
           Muted text uses opacity modifiers on <Code>phosphor</Code> rather than separate color tokens:
         </p>
         <div className="flex flex-wrap gap-3">
@@ -157,7 +167,7 @@ export const DesignSystem: React.FC = () => {
 
       {/* Buttons */}
       <Section title="Buttons">
-        <p className="font-body text-body-sm text-phosphor/60 mb-6 max-w-2xl leading-relaxed">
+        <p className="font-body text-body-sm text-phosphor/75 mb-6 max-w-2xl leading-relaxed">
           Every button composes exactly one size class (<Code>btn</Code> or <Code>btn-compact</Code>) with
           exactly one fill variant. Padding/width stay per-instance.
         </p>
@@ -175,9 +185,10 @@ export const DesignSystem: React.FC = () => {
 
       {/* Radius */}
       <Section title="Radius &amp; Shape">
-        <p className="font-body text-body-sm text-phosphor/60 mb-6 max-w-2xl leading-relaxed">
-          Every container, card, and button is a hard right angle — <Code>0px</Code> radius, no exceptions.
-          The only curves in the app are things that are actually circles by nature (star points, status dots).
+        <p className="font-body text-body-sm text-phosphor/75 mb-6 max-w-2xl leading-relaxed">
+          Every container, card, and button is a hard right angle — <Code>0px</Code> radius. The only curves
+          in the app are things that are actually circles by nature (star points, status dots), plus one
+          documented exception: the CRT bezel housing (see Ground Rules below).
         </p>
         <div className="flex flex-wrap items-center gap-8">
           <div className="flex flex-col items-center gap-2">
@@ -185,10 +196,34 @@ export const DesignSystem: React.FC = () => {
             <Code>0px radius</Code>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-phosphor shadow-[0_0_10px_#00FF41]" />
+            <div className="w-6 h-6 rounded-full bg-phosphor shadow-[0_0_10px_#2ECC58]" />
             <Code>rounded-full (circles only)</Code>
           </div>
         </div>
+      </Section>
+
+      {/* CRT terminal components */}
+      <Section title="CRT Terminal Components">
+        <p className="font-body text-body-sm text-phosphor/75 mb-6 max-w-2xl leading-relaxed">
+          Shared building blocks introduced by the CRT-terminal restyle. Reach for these before hand-rolling
+          a new panel, gauge, or texture.
+        </p>
+        <div className="flex flex-col gap-px bg-phosphor/10 mb-6">
+          {NEW_COMPONENTS.map((c) => (
+            <div key={c.name} className="bg-void-light p-4 grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-6">
+              <div>
+                <div className="font-body text-body-sm text-phosphor uppercase tracking-widest">{c.name}</div>
+                <Code>{c.file}</Code>
+              </div>
+              <p className="font-body text-label text-phosphor/75 leading-snug">{c.usage}</p>
+            </div>
+          ))}
+        </div>
+        <p className="font-body text-body-sm text-phosphor/75 max-w-2xl leading-relaxed">
+          <Code>.btn-toolbar</Code> (<Code>src/index.css</Code>) — opt-in container that collapses the shared
+          edges of a row of <Code>.btn</Code>/<Code>.btn-compact</Code> siblings so they read as one bracket
+          toolbar strip instead of separate buttons. Not the default for every button group.
+        </p>
       </Section>
 
       {/* Rules */}
@@ -199,6 +234,8 @@ export const DesignSystem: React.FC = () => {
           <li className="flex gap-3"><span className="text-phosphor">›</span> Every button composes <Code>.btn</Code>/<Code>.btn-compact</Code> with a single fill variant — no one-off button styling.</li>
           <li className="flex gap-3"><span className="text-phosphor">›</span> Destructive actions use the <Code>danger</Code> color token, never a raw Tailwind color like <Code>red-500</Code>.</li>
           <li className="flex gap-3"><span className="text-phosphor">›</span> No border-radius except on elements that are genuinely circular.</li>
+          <li className="flex gap-3"><span className="text-phosphor">›</span> <strong className="text-phosphor font-normal">Approved exception (radius):</strong> <Code>CrtBezel.tsx</Code> uses <Code>rounded-[34px]</Code> on its outer shell — it depicts a physical monitor housing, not a UI container.</li>
+          <li className="flex gap-3"><span className="text-phosphor">›</span> <strong className="text-phosphor font-normal">Approved exception (type scale):</strong> <Code>WindowPanel.tsx</Code> and <Code>ExportCard.tsx</Code> use <Code>text-[8px]</Code> for the purely decorative corner glyphs in window chrome. Decorative glyphs only — never for readable copy.</li>
           <li className="flex gap-3"><span className="text-phosphor">›</span> This page is unlinked from the app's navigation by design — it's a reference for whoever's building the UI, not a user-facing feature.</li>
         </ul>
       </Section>

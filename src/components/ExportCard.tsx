@@ -72,7 +72,7 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
           >
             <div
               ref={cardRef}
-              className="relative w-full bg-void-dark border-[3px] border-double border-phosphor/25 shadow-[0_0_50px_rgba(0,255,65,0.2)] flex flex-col p-6"
+              className="relative w-full bg-void-dark border-[3px] border-double border-phosphor/25 shadow-[0_0_50px_rgba(46,204,88,0.2)] flex flex-col p-6"
               style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Iridescent Sheen Overlay */}
@@ -94,7 +94,7 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="font-headline font-black text-phosphor glow-text uppercase leading-none" style={{ fontSize: `${fontSizes.title}px` }}>{data.name}</h3>
-                    <p className="font-headline text-phosphor/60 uppercase tracking-widest" style={{ fontSize: `${fontSizes.subtitle}px` }}>{data.latinName}</p>
+                    <p className="font-headline text-phosphor/75 uppercase tracking-widest" style={{ fontSize: `${fontSizes.subtitle}px` }}>{data.latinName}</p>
                   </div>
                   <div className="px-2 py-1 border border-phosphor/30 font-body text-phosphor uppercase" style={{ fontSize: `${fontSizes.sectorTag}px` }}>
                     SECTOR: {data.skySector || 'N/A'}
@@ -127,7 +127,7 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
                   >
                     <div
                       className="w-full h-full relative"
-                      style={{ filter: 'drop-shadow(0 26px 20px rgba(0,0,0,0.65)) drop-shadow(0 0 22px rgba(0,255,65,0.45))' }}
+                      style={{ filter: 'drop-shadow(0 26px 20px rgba(0,0,0,0.65)) drop-shadow(0 0 22px rgba(46,204,88,0.45))' }}
                     >
                       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                         {data.connections?.map(([startIdx, endIdx], i) => {
@@ -141,7 +141,7 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
                               y1={`${start.y}%`}
                               x2={`${end.x}%`}
                               y2={`${end.y}%`}
-                              stroke="#00FF41"
+                              stroke="#2ECC58"
                               strokeWidth="1"
                               strokeOpacity="0.4"
                             />
@@ -151,7 +151,7 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
                       {data.stars.map((star, i) => (
                         <div
                           key={i}
-                          className="absolute bg-phosphor shadow-[0_0_8px_#00FF41] rounded-full w-1.5 h-1.5"
+                          className="absolute bg-phosphor shadow-[0_0_8px_#2ECC58] rounded-full w-1.5 h-1.5"
                           style={{ top: `${star.y}%`, left: `${star.x}%`, transform: 'translate(-50%, -50%)' }}
                         />
                       ))}
@@ -162,19 +162,19 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   <div className="bg-void-light p-2 border border-phosphor/10">
-                    <div className="text-phosphor/40 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Epoch</div>
+                    <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Epoch</div>
                     <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>{scanDate}</div>
                   </div>
                   <div className="bg-void-light p-2 border border-phosphor/10">
-                    <div className="text-phosphor/40 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Distance</div>
+                    <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Distance</div>
                     <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>{data.distance}</div>
                   </div>
                   <div className="bg-void-light p-2 border border-phosphor/10">
-                    <div className="text-phosphor/40 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Visibility</div>
+                    <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Visibility</div>
                     <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>{formatVisibility(data.visibility)}</div>
                   </div>
                   <div className="bg-void-light p-2 border border-phosphor/10">
-                    <div className="text-phosphor/40 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Spectral Class</div>
+                    <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Spectral Class</div>
                     <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>{data.type}</div>
                   </div>
                 </div>

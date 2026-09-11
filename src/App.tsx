@@ -134,32 +134,31 @@ export default function App() {
     }
   };
 
-  const app = (
-    <>
-      {screen !== 'BOOT' && <Header username={username} onSettingsClick={() => setShowSettings(true)} />}
-      {renderScreen()}
-      {screen !== 'BOOT' && <Footer activeTab={activeTab} onTabChange={handleTabChange} />}
-    </>
-  );
-
   return (
     <div className="min-h-screen relative">
       <Analytics />
       {import.meta.env.DEV && <Agentation />}
+      {/* Header/Footer are `position: fixed` and MUST stay outside <CrtBezel>.
+          The bezel applies a clip-path (which clips fixed descendants and
+          removes the clipped region from hit-testing) and its bloom layers
+          apply a CSS `filter` (which makes the filtered element the containing
+          block for fixed descendants). Either one breaks fixed chrome. */}
+      {screen !== 'BOOT' && <Header username={username} onSettingsClick={() => setShowSettings(true)} />}
       {screen === 'DETAIL' && crtEnabled ? (
-        <CrtBezel>{app}</CrtBezel>
+        <CrtBezel>{renderScreen()}</CrtBezel>
       ) : (
         <>
           {crtEnabled && <div className="crt-overlay" />}
-          {app}
+          {renderScreen()}
         </>
       )}
+      {screen !== 'BOOT' && <Footer activeTab={activeTab} onTabChange={handleTabChange} />}
 
       {/* Settings Modal */}
       {showSettings && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
           <div className="absolute inset-0 bg-void/80 backdrop-blur-md" onClick={() => setShowSettings(false)}></div>
-          <div className="relative bg-void-light border border-phosphor/30 p-8 max-w-md w-full shadow-[0_0_30px_rgba(0,255,65,0.1)]">
+          <div className="relative bg-void-light border border-phosphor/30 p-8 max-w-md w-full shadow-[0_0_30px_rgba(46,204,88,0.1)]">
             <div className="flex justify-between items-center mb-8 border-b border-phosphor/20 pb-4">
               <h2 className="font-headline text-title text-phosphor uppercase tracking-tighter">System Settings</h2>
               <button onClick={() => setShowSettings(false)} className="btn-compact btn-outline px-2 py-1">[X]</button>
@@ -169,7 +168,7 @@ export default function App() {
               <div className="flex justify-between items-center">
                 <div>
                   <p className="font-body text-phosphor text-body-sm uppercase tracking-widest mb-2">Username</p>
-                  <p className="text-label text-phosphor/40 uppercase">{username}</p>
+                  <p className="text-label text-phosphor/55 uppercase">{username}</p>
                 </div>
                 <button
                   onClick={() => setUsername(generateRandomUsername())}
@@ -182,7 +181,7 @@ export default function App() {
               <div className="flex justify-between items-center">
                 <div>
                   <p className="font-body text-danger text-body-sm uppercase tracking-widest mb-2">Clear History</p>
-                  <p className="text-label text-phosphor/40 uppercase">Erase all temporal logs</p>
+                  <p className="text-label text-phosphor/55 uppercase">Erase all temporal logs</p>
                 </div>
                 {!showConfirmErase ? (
                   <button

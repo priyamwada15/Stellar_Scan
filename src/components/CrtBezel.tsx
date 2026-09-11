@@ -7,18 +7,20 @@ import React from 'react';
 //   scale correctly to any rendered size (a short mobile viewport, a tall
 //   scrollable desktop page), instead of being pinned to one fixed pixel box.
 // - SCALED (0-100): the same shape, multiplied by 100, for drawing the
-//   visible rim-glow stroke and the scanline clip inside a
+//   visible rim-glow stroke inside a
 //   `viewBox="0 0 100 100" preserveAspectRatio="none"` SVG.
+//
+// Everything that is NOT the aperture outline (scanlines, grain, rim stroke
+// width and its blur) must render at a genuine CSS-pixel scale: the element
+// this bezel wraps is as tall as the whole scrollable page, so any length
+// expressed in the stretched 0-100 viewBox space would grow with page height.
+// Hence: scanlines are a CSS repeating-linear-gradient (fixed px pitch), the
+// grain is a userSpaceOnUse-tiled pattern in an un-viewBoxed (1 unit = 1px)
+// SVG, and the rim uses a non-scaling stroke plus a CSS blur on the <svg> box.
 const BARREL_PATH_FRACTIONAL =
   'M0.0341 0.0071 Q0.5 -0.0321 0.966 0.0071 Q0.998 0.5 0.966 0.9929 Q0.5 1.0321 0.0341 0.9929 Q0.0023 0.5 0.0341 0.0071 Z';
 const BARREL_PATH_100 =
   'M3.41 0.71 Q50 -3.21 96.6 0.71 Q99.8 50 96.6 99.29 Q50 103.21 3.41 99.29 Q0.23 50 3.41 0.71 Z';
-
-const SCANLINES = Array.from({ length: 67 }, (_, i) => {
-  const y = i * 1.5;
-  const bow = Math.sin((y / 100) * Math.PI) * 1.2;
-  return `M0 ${y} Q50 ${(y - bow * 0.4).toFixed(2)} 100 ${y}`;
-});
 
 export const CrtBezel: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div
@@ -59,23 +61,31 @@ export const CrtBezel: React.FC<{ children: React.ReactNode }> = ({ children }) 
         {/* Sharp, real, interactive layer. */}
         <div className="relative">{children}</div>
 
+        {/* Grain. No viewBox on purpose: 1 SVG user unit === 1 CSS pixel, so
+            `baseFrequency` describes a real ~2px feature size no matter how
+            tall the page is. The noise is generated once into a 300x300
+            userSpaceOnUse pattern tile (seamless via stitchTiles) and tiled,
+            rather than running feTurbulence over the full page area. */}
         <svg
           className="absolute inset-0 pointer-events-none mix-blend-screen"
           width="100%"
           height="100%"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <filter id="crtGrain">
-            <feTurbulence type="fractalNoise" baseFrequency="0.42" numOctaves={2} stitchTiles="stitch" result="n" />
-            <feColorMatrix
-              in="n"
-              type="matrix"
-              values="0 0 0 0 0.75  0 0 0 0 1  0 0 0 0 0.85  0.5 0.5 0.5 0 -0.6"
-            />
-          </filter>
-          <rect width="100" height="100" filter="url(#crtGrain)" opacity="0.10" />
+          <defs>
+            <filter id="crtGrain" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.42" numOctaves={2} stitchTiles="stitch" result="n" />
+              <feColorMatrix
+                in="n"
+                type="matrix"
+                values="0 0 0 0 0.75  0 0 0 0 1  0 0 0 0 0.85  0.5 0.5 0.5 0 -0.6"
+              />
+            </filter>
+            <pattern id="crtGrainTile" patternUnits="userSpaceOnUse" width="300" height="300">
+              <rect width="300" height="300" filter="url(#crtGrain)" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#crtGrainTile)" opacity="0.10" />
         </svg>
 
         <div
@@ -85,34 +95,39 @@ export const CrtBezel: React.FC<{ children: React.ReactNode }> = ({ children }) 
         />
       </div>
 
-      <svg
+      {/* Scanlines: a fixed 3px-pitch / 1px-bar CSS gradient, clipped to the
+          same barrel aperture. The original SVG version bowed each line by a
+          fraction of a viewBox unit, which is invisible at a real 3px pitch —
+          so a flat gradient reads identically and can't drift with page size. */}
+      <div
         className="absolute inset-0 pointer-events-none mix-blend-multiply"
-        width="100%"
-        height="100%"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
+        style={{
+          clipPath: 'url(#crtBarrelClip)',
+          backgroundImage:
+            'repeating-linear-gradient(180deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 1px, transparent 1px, transparent 3px)',
+        }}
         aria-hidden="true"
-      >
-        <g style={{ clipPath: 'url(#crtBarrelClip)' }}>
-          {SCANLINES.map((d, i) => (
-            <path key={i} d={d} stroke="rgba(0,0,0,0.22)" strokeWidth="0.15" fill="none" />
-          ))}
-        </g>
-      </svg>
+      />
+      {/* Rim glow. `vector-effect: non-scaling-stroke` pins the stroke to 2 CSS
+          px despite the non-uniformly stretched viewBox, and the soft halo is a
+          CSS blur on the <svg> box (CSS px) rather than an feGaussianBlur in
+          stretched user units. */}
       <svg
         className="absolute inset-0 pointer-events-none"
         width="100%"
         height="100%"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
+        style={{ filter: 'blur(2px)' }}
         aria-hidden="true"
       >
-        <defs>
-          <filter id="crtRimBlur">
-            <feGaussianBlur stdDeviation="0.4" />
-          </filter>
-        </defs>
-        <path d={BARREL_PATH_100} fill="none" stroke="rgba(46,204,88,0.35)" strokeWidth="0.3" filter="url(#crtRimBlur)" />
+        <path
+          d={BARREL_PATH_100}
+          fill="none"
+          stroke="rgba(46,204,88,0.35)"
+          strokeWidth="2"
+          vectorEffect="non-scaling-stroke"
+        />
       </svg>
     </div>
   </div>

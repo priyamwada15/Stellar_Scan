@@ -3,7 +3,7 @@ import { Waveform } from './Waveform';
 
 export const Header: React.FC<{ username: string; onSettingsClick?: () => void }> = ({ username, onSettingsClick }) => {
   return (
-    <header className="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-void/95 backdrop-blur-sm border-b border-phosphor/20 shadow-[0_0_15px_rgba(0,255,65,0.1)]">
+    <header className="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-void/95 backdrop-blur-sm border-b border-phosphor/20 shadow-[0_0_15px_rgba(46,204,88,0.1)]">
       <div className="flex items-center gap-4">
         <h1 className="font-headline text-title font-bold text-phosphor glow-text tracking-widest uppercase">
           STELLAR SCAN
@@ -39,7 +39,7 @@ export const Footer: React.FC<{ activeTab: string; onTabChange: (tab: string) =>
             className={`font-body text-label tracking-widest uppercase transition-colors px-3 py-1 ${
               isActive
                 ? 'bg-phosphor text-void'
-                : 'text-phosphor/40 hover:text-phosphor/70'
+                : 'text-phosphor/55 hover:text-phosphor/70'
             }`}
           >
             {isActive ? `> ${tab}` : tab}

@@ -46,7 +46,7 @@
   }
 
   .glow-text {
-    text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+    text-shadow: 0 0 8px rgba(46, 204, 88, 0.6);
   }
 
   .terminal-border {
@@ -72,7 +72,7 @@
   }
 
   .btn-disabled {
-    @apply bg-phosphor/20 text-phosphor/40 cursor-not-allowed border-phosphor/10;
+    @apply bg-phosphor/20 text-phosphor/55 cursor-not-allowed border-phosphor/10;
   }
 
   .btn-danger {
@@ -95,7 +95,7 @@
   }
 
   .pixel-grid {
-    background-image: radial-gradient(circle, #00FF41 1px, transparent 1px);
+    background-image: radial-gradient(circle, #2ECC58 1px, transparent 1px);
     background-size: 20px 20px;
   }
 }
@@ -134,9 +134,16 @@
   background-position: center;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-phosphor) var(--color-void-light);
+/* Firefox-only fallback. This MUST stay behind a Firefox feature-detect:
+   Chromium 121+ supports the standard `scrollbar-width`/`scrollbar-color`
+   properties, and per spec ignores an element's ::-webkit-scrollbar-* rules
+   as soon as either is set to a non-`auto` value. Applied to `*` unguarded,
+   it silently replaced the bracket scrollbar above with a thin native one. */
+@supports (-moz-appearance: none) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-phosphor) var(--color-void-light);
+  }
 }
 
 @keyframes flicker {

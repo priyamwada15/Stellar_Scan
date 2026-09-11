@@ -78,7 +78,7 @@ export const LocationSearch: React.FC<{
           <span className="text-phosphor font-bold text-heading">&gt;</span>
           <div className="flex-grow overflow-hidden">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-x-3 text-heading uppercase tracking-tighter">
-              <span className="text-phosphor/40 whitespace-nowrap">SET_TARGET_LOCATION</span>
+              <span className="text-phosphor/55 whitespace-nowrap">SET_TARGET_LOCATION</span>
               {location ? (
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="text-phosphor underline decoration-2 underline-offset-4 md:underline-offset-8 truncate">
@@ -105,7 +105,7 @@ export const LocationSearch: React.FC<{
                 />
               )}
             </div>
-            <div className="mt-3 md:mt-4 text-label text-phosphor/40 font-body tracking-widest">
+            <div className="mt-3 md:mt-4 text-label text-phosphor/55 font-body tracking-widest">
               {location
                 ? `LAT ${location.lat.toFixed(2)} / LON ${location.lon.toFixed(2)} | STATUS: LOCKED`
                 : 'A CITY YOU TYPE, NOTHING DETECTED AUTOMATICALLY | STATUS: AWAITING_INPUT'}
@@ -117,10 +117,10 @@ export const LocationSearch: React.FC<{
       {open && !location && (query.trim().length >= 2) && (
         <div className="absolute left-0 right-0 top-full mt-1 bg-void-dark border border-phosphor/30 z-20 max-h-64 overflow-y-auto">
           {searching && (
-            <div className="p-3 text-label text-phosphor/40 uppercase tracking-widest">Searching_</div>
+            <div className="p-3 text-label text-phosphor/55 uppercase tracking-widest">Searching_</div>
           )}
           {!searching && results.length === 0 && (
-            <div className="p-3 text-label text-phosphor/40 uppercase tracking-widest">No matches found</div>
+            <div className="p-3 text-label text-phosphor/55 uppercase tracking-widest">No matches found</div>
           )}
           {!searching && results.map((r) => (
             <button
@@ -130,7 +130,7 @@ export const LocationSearch: React.FC<{
               className="w-full text-left p-3 hover:bg-phosphor/10 transition-all border-b border-phosphor/10 last:border-b-0"
             >
               <div className="font-body text-body-sm text-phosphor">{r.name}</div>
-              <div className="font-body text-label text-phosphor/40 uppercase">
+              <div className="font-body text-label text-phosphor/55 uppercase">
                 {[r.admin1, r.country].filter(Boolean).join(', ') || 'Unknown region'}
               </div>
             </button>

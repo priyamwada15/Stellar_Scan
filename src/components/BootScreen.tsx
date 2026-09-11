@@ -84,7 +84,7 @@ export const BootScreen: React.FC<{ onComplete: () => void }> = ({ onComplete })
             </div>
             <div className="w-full h-1 bg-void-light relative overflow-hidden">
               <motion.div 
-                className="absolute top-0 left-0 h-full bg-phosphor shadow-[0_0_10px_#00FF41]"
+                className="absolute top-0 left-0 h-full bg-phosphor shadow-[0_0_10px_#2ECC58]"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
               />

@@ -67,7 +67,7 @@ export const ScannerInput: React.FC<{
                     <span className="text-phosphor font-bold text-heading">&gt;</span>
                     <div className="flex-grow overflow-hidden">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-x-3 text-heading uppercase tracking-tighter">
-                        <span className="text-phosphor/40 whitespace-nowrap">SET_TARGET_DATE</span>
+                        <span className="text-phosphor/55 whitespace-nowrap">SET_TARGET_DATE</span>
                         <div className="relative flex items-center min-w-0">
                           <input
                             ref={dateInputRef}
@@ -85,7 +85,7 @@ export const ScannerInput: React.FC<{
                           <span className="w-3 h-6 md:w-4 md:h-8 bg-phosphor cursor-blink ml-1 flex-shrink-0"></span>
                         </div>
                       </div>
-                      <div className="mt-3 md:mt-4 text-label text-phosphor/40 font-body tracking-widest">
+                      <div className="mt-3 md:mt-4 text-label text-phosphor/55 font-body tracking-widest">
                         FORMAT: YYYY.MM.DD | STATUS: {date.length === 10 ? 'READY_FOR_SYNC' : 'AWAITING_INPUT'}
                       </div>
                     </div>
