@@ -25,7 +25,7 @@
 
 @layer base {
   body {
-    @apply bg-void text-phosphor font-body selection:bg-phosphor selection:text-void overflow-x-hidden;
+    @apply bg-void text-phosphor font-body uppercase selection:bg-phosphor selection:text-void overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

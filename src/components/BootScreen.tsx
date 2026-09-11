@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { Meter } from './Meter';
 
 const BOOT_LOGS = [
   "BOOT_SEQUENCE_INITIATED...",
@@ -19,8 +19,18 @@ const BOOT_LOGS = [
 export const BootScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [visibleLogs, setVisibleLogs] = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
+  // Preview aid: visit with `?boot=hold` in the URL to let this screen run
+  // through its animation and then just sit there instead of auto-advancing
+  // — useful for actually looking at it instead of losing it to SCANNER_INPUT
+  // after ~3s. Has no effect without the query param.
+  const hold = new URLSearchParams(window.location.search).get('boot') === 'hold';
 
   useEffect(() => {
+    // Total time to onComplete is 5s: 50 ticks * 84ms = 4200ms to fill the
+    // bar, plus an 800ms pause = 5000ms exactly. The log reveal is scaled by
+    // the same factor (150ms -> 250ms) so all 12 lines still finish well
+    // before the bar does (3000ms vs 4200ms, the same ~72% fraction as
+    // before), leaving room for the AWAITING_USER_HANDSHAKE_ pulse.
     let logIndex = 0;
     const logInterval = setInterval(() => {
       if (logIndex < BOOT_LOGS.length) {
@@ -29,31 +39,33 @@ export const BootScreen: React.FC<{ onComplete: () => void }> = ({ onComplete })
       } else {
         clearInterval(logInterval);
       }
-    }, 150);
+    }, 250);
 
     const progressInterval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(progressInterval);
-          setTimeout(onComplete, 500);
+          if (!hold) setTimeout(onComplete, 800);
           return 100;
         }
         return prev + 2;
       });
-    }, 50);
+    }, 84);
 
     return () => {
       clearInterval(logInterval);
       clearInterval(progressInterval);
     };
-  }, [onComplete]);
+  }, [onComplete, hold]);
 
   return (
     <main className="relative z-10 h-screen w-screen flex flex-col p-8 md:p-16 lg:p-24 overflow-hidden bg-void">
       <header className="mb-12 border-b border-phosphor/20 pb-4 flex justify-between items-end">
         <div>
           <h1 className="font-headline font-bold text-title tracking-[0.2em] glow-text uppercase">SYSTEM STATUS</h1>
-          <p className="font-headline text-label opacity-60 tracking-widest mt-1">KERNEL V8.4.2-ORBITAL</p>
+          <div className="bg-phosphor/10 px-3 py-1 inline-block mt-2">
+            <p className="font-body text-label uppercase tracking-[0.2em] text-phosphor">Authorization: Level 4 Required</p>
+          </div>
         </div>
         <div className="text-right font-body text-label opacity-40">
           <p>LAT: 40.7128° N</p>
@@ -77,27 +89,10 @@ export const BootScreen: React.FC<{ onComplete: () => void }> = ({ onComplete })
       </section>
 
       <footer className="mt-auto pt-8 border-t border-phosphor/20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <span className="font-body font-bold text-heading tracking-widest glow-text">INITIALIZING SESSION...</span>
-            </div>
-            <div className="w-full h-1 bg-void-light relative overflow-hidden">
-              <motion.div 
-                className="absolute top-0 left-0 h-full bg-phosphor shadow-[0_0_10px_#2ECC58]"
-                initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
-              />
-            </div>
-            <div className="flex justify-between font-body text-label tracking-tighter opacity-60">
-              <span>TRANSFER RATE: 1.4 GB/S</span>
-              <span>STATUS: {progress}% COMPLETE</span>
-            </div>
-          </div>
-          <div className="hidden md:flex flex-col items-end space-y-2">
-            <div className="bg-phosphor/10 px-3 py-1">
-              <p className="font-body text-label uppercase tracking-[0.2em] text-phosphor">Authorization: Level 4 Required</p>
-            </div>
+        <div className="w-full">
+          <Meter label="INITIALIZING SESSION..." value={`${progress}%`} percent={progress} />
+          <div className="font-body text-label tracking-tighter opacity-60 mt-2">
+            <span>TRANSFER RATE: 1.4 GB/S</span>
           </div>
         </div>
       </footer>

@@ -99,7 +99,6 @@ export const ScannerInput: React.FC<{
                             onFocus={handleDateFocus}
                             onBlur={() => setDateFocused(false)}
                             className="absolute inset-0 opacity-0 cursor-text w-full z-10"
-                            autoFocus
                           />
                           <span className="text-phosphor underline decoration-2 underline-offset-4 md:underline-offset-8 inline-block truncate">
                             {date}

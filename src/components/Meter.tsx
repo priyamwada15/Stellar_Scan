@@ -15,7 +15,7 @@ export const Meter: React.FC<{
         <div className="w-1.5 self-stretch border-t border-b border-l border-phosphor/25" aria-hidden="true" />
         <div className="flex-1 h-4 bg-void-dark overflow-hidden">
           <div
-            className="h-full"
+            className="h-full transition-[width] duration-150 ease-out"
             style={{
               width: `${clamped}%`,
               opacity: 0.85,

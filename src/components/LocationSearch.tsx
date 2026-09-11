@@ -105,6 +105,7 @@ export const LocationSearch: React.FC<{
                     onBlur={() => setFocused(false)}
                     className="absolute inset-0 opacity-0 cursor-text w-full z-10"
                     autoComplete="off"
+                    autoFocus
                   />
                   <span className="text-phosphor inline-block truncate">{query}</span>
                   <span

@@ -151,9 +151,9 @@ export default function App() {
       {/* Settings Modal */}
       {showSettings && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-          <div className="absolute inset-0 bg-void/80 backdrop-blur-md" onClick={() => setShowSettings(false)}></div>
+          <div className="absolute inset-0" onClick={() => setShowSettings(false)}></div>
           <div className="relative bg-void-light border border-phosphor/30 p-8 max-w-md w-full shadow-[0_0_30px_rgba(46,204,88,0.1)]">
-            <div className="flex justify-between items-center mb-8 border-b border-phosphor/20 pb-4">
+            <div className="flex justify-between items-center mb-8">
               <h2 className="font-headline text-title text-phosphor uppercase tracking-tighter">System Settings</h2>
               <button onClick={() => setShowSettings(false)} className="btn-compact btn-outline px-2 py-1">[X]</button>
             </div>
@@ -175,7 +175,6 @@ export default function App() {
               <div className="flex justify-between items-center">
                 <div>
                   <p className="font-body text-danger text-body-sm uppercase tracking-widest mb-2">Clear History</p>
-                  <p className="text-label text-phosphor/55 uppercase">Erase all temporal logs</p>
                 </div>
                 {!showConfirmErase ? (
                   <button
