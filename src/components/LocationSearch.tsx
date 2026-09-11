@@ -136,7 +136,7 @@ export const LocationSearch: React.FC<{
               onClick={() => selectResult(r)}
               className="w-full text-left p-3 hover:bg-phosphor/10 transition-all border-b border-phosphor/10 last:border-b-0"
             >
-              <div className="font-body text-body-sm text-phosphor">{r.name}</div>
+              <div className="font-body text-body-sm text-phosphor uppercase">{r.name}</div>
               <div className="font-body text-label text-phosphor/55 uppercase">
                 {[r.admin1, r.country].filter(Boolean).join(', ') || 'Unknown region'}
               </div>

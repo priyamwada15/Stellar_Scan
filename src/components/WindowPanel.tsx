@@ -5,7 +5,7 @@ export const WindowPanel: React.FC<{
   className?: string;
   children: React.ReactNode;
 }> = ({ title, className = '', children }) => (
-  <div className={`relative border-[3px] border-double border-phosphor/25 ${className}`}>
+  <div className={`relative border-[2.4px] border-solid border-phosphor/25 ${className}`}>
     <div className="flex items-center justify-between gap-2 px-2 py-1 bg-phosphor/10 border-b border-phosphor/25">
       <span
         aria-hidden="true"
