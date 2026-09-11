@@ -1,6 +1,17 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import * as Astronomy from "astronomy-engine";
+import { createRequire } from "module";
 import db from "../src/constellation-db.json" with { type: "json" };
+
+// astronomy-engine ships both a CJS build (astronomy.js) and an ESM build
+// (esm/astronomy.js), selected via package.json's "exports" require/import
+// conditions. Vercel's Node.js runtime executes this function as CommonJS
+// regardless of the package's own "type": "module", so a normal `import`
+// here resolves to the ESM build (the file present in the deployment) but
+// then gets loaded through Node's CJS loader anyway — which fails on its
+// `export` syntax (ERR unexpected token 'export'). Requiring it explicitly
+// forces the CJS build, which is safe to load either way.
+const require = createRequire(import.meta.url);
+const Astronomy = require("astronomy-engine") as typeof import("astronomy-engine");
 
 export interface ConstellationEntry {
   id: string;
