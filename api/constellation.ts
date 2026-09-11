@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import * as Astronomy from "astronomy-engine";
-import db from "../src/constellation-db.json";
+import db from "../src/constellation-db.json" with { type: "json" };
 
 export interface ConstellationEntry {
   id: string;
