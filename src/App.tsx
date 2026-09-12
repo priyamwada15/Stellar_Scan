@@ -1,40 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { Agentation } from 'agentation';
-import { Header, Footer } from './components/Layout';
+import { Header } from './components/Layout';
 import { CrtBezel } from './components/CrtBezel';
 import { BootScreen } from './components/BootScreen';
 import { ScannerInput } from './components/ScannerInput';
 import { ConstellationDetail } from './components/ConstellationDetail';
-import { Archives } from './components/Archives';
 import { PixelLoader } from './components/PixelLoader';
 import { AppScreen, Constellation, ScanLocation } from './types';
 import { getConstellationData } from './services/geminiService';
 
 export default function App() {
   const [screen, setScreen] = useState<AppScreen>('BOOT');
-  const [activeTab, setActiveTab] = useState('SCANNER');
   const [constellation, setConstellation] = useState<Constellation | null>(null);
   const [scanDate, setScanDate] = useState<string>(() => {
     const now = new Date();
     return `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
   });
   const [scanLocation, setScanLocation] = useState<ScanLocation | null>(null);
-  const [archiveItems, setArchiveItems] = useState<Constellation[]>(() => {
-    const saved = localStorage.getItem('phosphor_history');
-    return saved ? JSON.parse(saved) : [];
-  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [showSettings, setShowSettings] = useState(false);
   const [crtEnabled, setCrtEnabled] = useState(true);
-  const [username, setUsername] = useState(() => {
+  const [username] = useState(() => {
     const saved = localStorage.getItem('phosphor_username');
     if (saved) return saved;
     return generateRandomUsername();
   });
-
-  const [showConfirmErase, setShowConfirmErase] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('phosphor_username', username);
@@ -48,10 +39,6 @@ export default function App() {
     const num = Math.floor(Math.random() * 100).toString().padStart(2, '0');
     return `${adj}_${term}_${num}`.toUpperCase();
   }
-
-  useEffect(() => {
-    localStorage.setItem('phosphor_history', JSON.stringify(archiveItems));
-  }, [archiveItems]);
 
   const handleScan = async (date: string) => {
     if (!scanLocation) return;
@@ -79,11 +66,6 @@ export default function App() {
       ]);
 
       setConstellation(data);
-      setArchiveItems(prev => {
-        const exists = prev.find(item => item.id === data.id);
-        if (exists) return prev;
-        return [data, ...prev].slice(0, 50);
-      });
       setScreen('DETAIL');
     } catch (err: any) {
       console.error(err);
@@ -91,15 +73,6 @@ export default function App() {
       setScreen('SCANNER_INPUT');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleTabChange = (tab: string) => {
-    setActiveTab(tab);
-    if (tab === 'SCANNER') {
-      setScreen('SCANNER_INPUT');
-    } else if (tab === 'ARCHIVES') {
-      setScreen('ARCHIVES');
     }
   };
 
@@ -126,9 +99,7 @@ export default function App() {
           </div>
         );
       case 'DETAIL':
-        return constellation ? <ConstellationDetail data={constellation} scanDate={scanDate} scanLat={scanLocation?.lat} /> : null;
-      case 'ARCHIVES':
-        return <Archives items={archiveItems} onSelect={(c) => { setConstellation(c); setScreen('DETAIL'); }} />;
+        return constellation ? <ConstellationDetail data={constellation} scanDate={scanDate} scanLocation={scanLocation ?? undefined} /> : null;
       default:
         return null;
     }
@@ -140,78 +111,17 @@ export default function App() {
       {import.meta.env.DEV && <Agentation />}
       {/* CrtBezel is a fixed, viewport-covering decorative overlay — it takes
           no children and never wraps the app's real content, so it can't
-          break `position: fixed` descendants (Header/Footer) the way an
+          break `position: fixed` descendants (Header) the way an
           ancestor clip-path/filter would. The real content scrolls under it
           like a genuine screen. */}
       {crtEnabled && <CrtBezel />}
-      {screen !== 'BOOT' && <Header username={username} onSettingsClick={() => setShowSettings(true)} />}
-      {renderScreen()}
-      {screen !== 'BOOT' && <Footer activeTab={activeTab} onTabChange={handleTabChange} />}
-
-      {/* Settings Modal */}
-      {showSettings && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-          <div className="absolute inset-0" onClick={() => setShowSettings(false)}></div>
-          <div className="relative bg-void-light border border-phosphor/30 p-8 max-w-md w-full shadow-[0_0_30px_rgba(46,204,88,0.1)]">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="font-headline text-title text-phosphor uppercase tracking-tighter">System Settings</h2>
-              <button onClick={() => setShowSettings(false)} className="btn-compact btn-outline px-2 py-1">[X]</button>
-            </div>
-
-            <div className="space-y-8">
-              <div className="flex justify-between items-center">
-                <div>
-                  <p className="font-body text-phosphor text-body-sm uppercase tracking-widest mb-2">Username</p>
-                  <p className="text-label text-phosphor/55 uppercase">{username}</p>
-                </div>
-                <button
-                  onClick={() => setUsername(generateRandomUsername())}
-                  className="btn-compact btn-outline w-32 py-2"
-                >
-                  Regenerate
-                </button>
-              </div>
-
-              <div className="flex justify-between items-center">
-                <div>
-                  <p className="font-body text-danger text-body-sm uppercase tracking-widest mb-2">Clear History</p>
-                </div>
-                {!showConfirmErase ? (
-                  <button
-                    onClick={() => setShowConfirmErase(true)}
-                    className="btn-compact btn-danger-outline w-32 py-2"
-                  >
-                    Erase
-                  </button>
-                ) : (
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => {
-                        setArchiveItems([]);
-                        setShowConfirmErase(false);
-                        setShowSettings(false);
-                      }}
-                      className="btn-compact btn-danger px-3 py-2"
-                    >
-                      Confirm
-                    </button>
-                    <button
-                      onClick={() => setShowConfirmErase(false)}
-                      className="btn-compact btn-outline px-3 py-2"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div className="mt-12 pt-4 border-t border-phosphor/10 text-center">
-              <p className="font-body text-label text-phosphor/30 uppercase tracking-[0.2em]">Stellar Scan // V.8.4.2</p>
-            </div>
-          </div>
-        </div>
+      {screen !== 'BOOT' && (
+        <Header
+          username={username}
+          onScanAgain={screen === 'SCANNER_INPUT' ? undefined : () => setScreen('SCANNER_INPUT')}
+        />
       )}
+      {renderScreen()}
     </div>
   );
 }

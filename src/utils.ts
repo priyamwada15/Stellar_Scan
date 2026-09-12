@@ -1,20 +1,15 @@
+import type { Star } from './types';
 
-/**
- * Formats the visibility string from "Visible between latitudes +90° and -65°"
- * to "LAT +90°-LAT -65°"
- */
-export const formatVisibility = (visibility: string): string => {
-  if (!visibility) return 'N/A';
-
-  // Match the pattern "Visible between latitudes [val1] and [val2]"
-  const regex = /Visible between latitudes ([\+\-\d°]+) and ([\+\-\d°]+)/i;
-  const match = visibility.match(regex);
-
-  if (match) {
-    return `LAT ${match[1]}-LAT ${match[2]}`;
+/** The lowest-magnitude (i.e. brightest) star in a constellation's star list, if any have real magnitude data. */
+export const getBrightestStar = (stars: Star[]): Star | null => {
+  let brightest: Star | null = null;
+  for (const star of stars) {
+    if (star.magnitude === undefined) continue;
+    if (brightest === null || brightest.magnitude === undefined || star.magnitude < brightest.magnitude) {
+      brightest = star;
+    }
   }
-
-  return visibility;
+  return brightest;
 };
 
 function parseVisibilityBounds(visibility: string): { north: number; south: number } | null {

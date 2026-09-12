@@ -51,7 +51,7 @@ export const ScannerInput: React.FC<{
   };
 
   return (
-    <main className="pt-24 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen flex flex-col">
+    <main className="pt-24 pb-12 px-6 md:px-12 max-w-7xl mx-auto min-h-screen flex flex-col">
       <div className="mb-8 flex flex-wrap items-center gap-2 opacity-60">
         <span className="font-body text-label uppercase tracking-widest">ROOT</span>
         <span className="font-body text-label">&gt;</span>

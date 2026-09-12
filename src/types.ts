@@ -38,7 +38,7 @@ export interface Constellation {
   cloudCover?: { percent: number; label: string } | null;
 }
 
-export type AppScreen = 'BOOT' | 'SCANNER_INPUT' | 'SCANNING' | 'DETAIL' | 'ARCHIVES';
+export type AppScreen = 'BOOT' | 'SCANNER_INPUT' | 'SCANNING' | 'DETAIL';
 
 export interface ScanLocation {
   name: string;

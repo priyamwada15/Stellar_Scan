@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDialKit } from 'dialkit';
-import { Constellation } from '../types';
+import { Constellation, ScanLocation } from '../types';
 import { ExportCard } from './ExportCard';
 import { TwinklingStars } from './TwinklingStars';
-import { describeVisibility, parseLightYears, voyagerTravelTime } from '../utils';
+import { describeVisibility, getBrightestStar, parseLightYears, voyagerTravelTime } from '../utils';
 import { WindowPanel } from './WindowPanel';
 import { DitherField } from './DitherField';
 import { Definable } from './Definable';
@@ -23,7 +23,8 @@ const METRIC_DEFINITIONS: Record<string, string> = {
 
 const METRIC_LABEL_CLASSES = 'font-body uppercase text-phosphor/55 underline decoration-dotted decoration-phosphor/40 underline-offset-2 hover:bg-phosphor/10';
 
-export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: string; scanLat?: number }> = ({ data, scanDate, scanLat }) => {
+export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: string; scanLocation?: ScanLocation }> = ({ data, scanDate, scanLocation }) => {
+  const scanLat = scanLocation?.lat;
   const [showExport, setShowExport] = useState(false);
   const [selectedStarIndex, setSelectedStarIndex] = useState<number | null>(null);
 
@@ -34,13 +35,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
 
   const selectedStar = selectedStarIndex !== null ? data.stars[selectedStarIndex] : null;
 
-  let brightestStar: Constellation['stars'][number] | null = null;
-  for (const star of data.stars) {
-    if (star.magnitude === undefined) continue;
-    if (brightestStar === null || brightestStar.magnitude === undefined || star.magnitude < brightestStar.magnitude) {
-      brightestStar = star;
-    }
-  }
+  const brightestStar = getBrightestStar(data.stars);
 
   const constellationLightYears = parseLightYears(data.distance);
 
@@ -51,8 +46,8 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
   });
 
   return (
-    <main className="pt-24 pb-32 px-6 max-w-7xl mx-auto">
-      {showExport && <ExportCard data={data} scanDate={currentScanDate} onClose={() => setShowExport(false)} />}
+    <main className="pt-24 pb-12 px-6 max-w-7xl mx-auto">
+      {showExport && <ExportCard data={data} scanDate={currentScanDate} location={scanLocation} onClose={() => setShowExport(false)} />}
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Visualizer column — the outer wrapper stretches to the full row height (matching
@@ -63,7 +58,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
           <div className="flex flex-col gap-6 lg:sticky lg:top-24 lg:items-center">
             <div className="aspect-square bg-void-dark relative overflow-hidden group border border-phosphor/10 lg:w-[min(100%,calc(100vh-12rem-var(--crt-margin,0px)))]">
               <DitherField size={480} cell={8} className="opacity-10" />
-              <TwinklingStars count={70} />
+              <TwinklingStars count={160} minOpacityRange={[0.4, 0.6]} maxOpacityRange={[0.85, 1]} />
               <div className="absolute inset-0 flex items-center justify-center p-4 md:p-12">
                 <div className="relative w-full h-full border border-phosphor/20 p-4 md:p-8">
                   <div className="w-full h-full relative" onClick={() => setSelectedStarIndex(null)}>
@@ -102,7 +97,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
                         style={{ top: `${star.y}%`, left: `${star.x}%`, transform: 'translate(-50%, -50%)' }}
                       >
                         {star.name && (
-                          <span className={`absolute top-4 left-0 text-label font-mono whitespace-nowrap transition-opacity ${selectedStarIndex === i ? 'opacity-100 font-bold' : 'opacity-40'}`}>
+                          <span className="absolute top-4 left-0 text-label font-mono whitespace-nowrap opacity-100">
                             {star.name}
                           </span>
                         )}
@@ -178,7 +173,7 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
                 onClick={() => setShowExport(true)}
                 className="btn btn-outline px-6 py-3 flex items-center justify-center gap-2 flex-shrink-0"
               >
-                Export to Card
+                Export_To_Card
               </button>
             </div>
           </div>

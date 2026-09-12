@@ -2,22 +2,23 @@ import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { useDialKit } from 'dialkit';
 import { toPng } from 'html-to-image';
-import { Constellation } from '../types';
-import { formatVisibility } from '../utils';
+import { Constellation, ScanLocation } from '../types';
+import { getBrightestStar, parseLightYears, voyagerTravelTime } from '../utils';
 import { TwinklingStars } from './TwinklingStars';
 
 interface ExportCardProps {
   data: Constellation;
   scanDate: string;
+  location?: ScanLocation;
   onClose: () => void;
 }
 
-export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose }) => {
+export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, location, onClose }) => {
+  const locationLabel = location ? [location.name, location.country || location.admin1].filter(Boolean).join(', ') : null;
   const cardRef = useRef<HTMLDivElement>(null);
 
   const fontSizes = useDialKit('Card Fonts', {
     title: [32, 10, 48],
-    subtitle: [12, 6, 20],
     sectorTag: [10, 6, 20],
     statLabel: [10, 6, 16],
     statValue: [16, 8, 24],
@@ -44,6 +45,9 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
     pointerY.set(0);
   };
 
+  const constellationLightYears = parseLightYears(data.distance);
+  const brightestStar = getBrightestStar(data.stars);
+
   const handleDownload = async () => {
     if (cardRef.current === null) return;
     try {
@@ -58,8 +62,11 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-void/90 backdrop-blur-sm">
-      <div className="flex flex-col items-center gap-8">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-void/50"
+      onClick={onClose}
+    >
+      <div className="flex flex-col items-center gap-8" onClick={(e) => e.stopPropagation()}>
         {/* The Card */}
         <div
           className="[perspective:800px]"
@@ -80,25 +87,14 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
 
               {/* Card Content */}
               <div className="relative z-10 flex flex-col" style={{ transformStyle: 'preserve-3d' }}>
-                {/* Title bar */}
-                <div className="flex items-center justify-between px-1 pb-2 mb-3 border-b border-phosphor/25">
-                  <span aria-hidden="true" className="w-3 h-3 border border-phosphor/25 flex items-center justify-center text-[8px] leading-none text-phosphor/70">
-                    &#8598;
-                  </span>
-                  <span className="font-body text-label uppercase tracking-widest text-phosphor/70">Export Card</span>
-                  <span aria-hidden="true" className="w-3 h-3 border border-phosphor/25 flex items-center justify-center text-[8px] leading-none text-phosphor/70">
-                    ?
-                  </span>
-                </div>
                 {/* Header */}
                 <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="font-headline font-black text-phosphor glow-text uppercase leading-none" style={{ fontSize: `${fontSizes.title}px` }}>{data.name}</h3>
-                    <p className="font-headline text-phosphor/75 uppercase tracking-widest" style={{ fontSize: `${fontSizes.subtitle}px` }}>{data.latinName}</p>
-                  </div>
-                  <div className="px-2 py-1 border border-phosphor/30 font-body text-phosphor uppercase" style={{ fontSize: `${fontSizes.sectorTag}px` }}>
-                    SECTOR: {data.skySector || 'N/A'}
-                  </div>
+                  <h3 className="font-headline font-black text-phosphor glow-text uppercase leading-none" style={{ fontSize: `${fontSizes.title}px` }}>{data.name}</h3>
+                  {locationLabel && (
+                    <div className="px-2 py-1 border border-phosphor/30 font-body text-phosphor uppercase" style={{ fontSize: `${fontSizes.sectorTag}px` }}>
+                      {locationLabel}
+                    </div>
+                  )}
                 </div>
 
                 {/* Visualizer Area: fixed aspect ratio anchor, independent of surrounding text growth */}
@@ -153,7 +149,13 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
                           key={i}
                           className="absolute bg-phosphor shadow-[0_0_8px_#2ECC58] rounded-full w-1.5 h-1.5"
                           style={{ top: `${star.y}%`, left: `${star.x}%`, transform: 'translate(-50%, -50%)' }}
-                        />
+                        >
+                          {star.name && (
+                            <span className="absolute top-4 left-0 text-label font-mono whitespace-nowrap opacity-100">
+                              {star.name}
+                            </span>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </motion.div>
@@ -167,15 +169,26 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
                   </div>
                   <div className="bg-void-light p-2 border border-phosphor/10">
                     <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Distance</div>
-                    <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>{data.distance}</div>
+                    <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>
+                      {constellationLightYears !== null ? `${constellationLightYears.toLocaleString()} LY` : data.distance}
+                    </div>
+                    {constellationLightYears !== null && (
+                      <div className="text-phosphor/55" style={{ fontSize: `${fontSizes.statLabel}px` }}>
+                        {voyagerTravelTime(constellationLightYears)}
+                      </div>
+                    )}
                   </div>
                   <div className="bg-void-light p-2 border border-phosphor/10">
-                    <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Visibility</div>
-                    <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>{formatVisibility(data.visibility)}</div>
+                    <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Brightest Star</div>
+                    <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>
+                      {brightestStar ? `${brightestStar.name} (${brightestStar.magnitude?.toFixed(2)})` : 'N/A'}
+                    </div>
                   </div>
                   <div className="bg-void-light p-2 border border-phosphor/10">
-                    <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Spectral Class</div>
-                    <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>{data.type}</div>
+                    <div className="text-phosphor/55 uppercase mb-1" style={{ fontSize: `${fontSizes.statLabel}px` }}>Cloud Cover</div>
+                    <div className="text-phosphor font-body" style={{ fontSize: `${fontSizes.statValue}px` }}>
+                      {data.cloudCover ? `${data.cloudCover.percent}% (${data.cloudCover.label})` : 'N/A'}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -194,10 +207,10 @@ export const ExportCard: React.FC<ExportCardProps> = ({ data, scanDate, onClose 
           </button>
           <button
             onClick={handleDownload}
-            className="btn bg-phosphor text-void font-bold hover:scale-105 transition-all px-6 py-2 flex items-center gap-2"
+            className="btn btn-primary px-6 py-2 flex items-center gap-2"
             style={{ fontSize: `${fontSizes.buttonText}px` }}
           >
-            Save Image
+            Save_Card
           </button>
         </div>
       </div>

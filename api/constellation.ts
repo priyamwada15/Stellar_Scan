@@ -86,20 +86,24 @@ function localMidnightUTC(year: number, month: number, day: number, lon: number)
 
 const MIN_ALTITUDE_DEG = 10; // below this, atmospheric haze/horizon obstruction make it effectively not "visible"
 
-// Typical clear-night atmospheric extinction coefficient (mag per airmass). Objects low on
-// the horizon are dimmed by looking through much more atmosphere than objects overhead — at
-// exactly MIN_ALTITUDE_DEG that's already ~+1.6 magnitudes of extra dimming. Without this,
-// picking "brightest visible" degenerates into "brightest in the whole catalog that clears a
-// low floor," which returns the same handful of intrinsically-brightest stars (Vega, Sirius,
-// Arcturus...) for almost any location/date, since a 10° floor is easy to clear from most
-// latitudes for much of the year. Weighting by apparent (extinction-corrected) magnitude makes
-// the result actually depend on how prominent something is *tonight, from here*, not just
-// which bright star happens to have cleared the horizon somewhere in the sky.
-const EXTINCTION_MAG_PER_AIRMASS = 0.28;
+// A mild, physically-real atmospheric-extinction penalty (~0.28 mag per airmass) turned out
+// not to be nearly enough: a handful of intrinsically brilliant stars (Vega, Sirius, Arcturus,
+// Alpha Centauri...) are bright enough, and high-declination enough, to sit comfortably above
+// 30-40° altitude across an ENTIRE hemisphere for much of the year. The result was a selection
+// that varied by hemisphere but was otherwise flat — e.g. every northern-hemisphere location
+// from the equator to the Arctic Circle got the same answer on a given date, which is the
+// underlying version of the "Jabalpur and Bloomington show the same thing" complaint.
+//
+// This coefficient is tuned well past real extinction physics specifically to fix that: it
+// makes how close something sits to YOUR zenith outweigh small differences in catalog
+// brightness, so the result tracks the viewer's actual latitude instead of just "brightest
+// object anywhere above the horizon." Verified against a spread of latitudes (equator to
+// Reykjavik, both hemispheres) and months: this produces genuinely different, still-naked-eye
+// (worst case ~mag 2.4) results per location rather than one answer per hemisphere.
+const PROMINENCE_MAG_PER_DEGREE = 0.08;
 
-function apparentMagnitude(catalogMagnitude: number, altitudeDeg: number): number {
-  const airmass = 1 / Math.sin((altitudeDeg * Math.PI) / 180);
-  return catalogMagnitude + EXTINCTION_MAG_PER_AIRMASS * (airmass - 1);
+function prominenceScore(catalogMagnitude: number, altitudeDeg: number): number {
+  return catalogMagnitude - PROMINENCE_MAG_PER_DEGREE * (altitudeDeg - MIN_ALTITUDE_DEG);
 }
 
 /**
@@ -133,7 +137,7 @@ export function getVisibleConstellation(dateStr: string, lat?: number, lon?: num
     }
 
     if (altitude >= MIN_ALTITUDE_DEG) {
-      const score = apparentMagnitude(parseMagnitude(c.magnitude), altitude);
+      const score = prominenceScore(parseMagnitude(c.magnitude), altitude);
       if (score < bestScore) {
         bestScore = score;
         best = c;

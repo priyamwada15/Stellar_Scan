@@ -1,17 +1,24 @@
 import React, { useMemo } from 'react';
 
-export const TwinklingStars: React.FC<{ count?: number; className?: string }> = ({ count = 50, className = '' }) => {
-  const stars = useMemo(() => (
-    Array.from({ length: count }, () => ({
+export const TwinklingStars: React.FC<{
+  count?: number;
+  className?: string;
+  minOpacityRange?: [number, number];
+  maxOpacityRange?: [number, number];
+}> = ({ count = 50, className = '', minOpacityRange = [0.2, 0.4], maxOpacityRange = [0.65, 1] }) => {
+  const stars = useMemo(() => {
+    const [minLo, minHi] = minOpacityRange;
+    const [maxLo, maxHi] = maxOpacityRange;
+    return Array.from({ length: count }, () => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 2 + 1,
-      minOpacity: Math.random() * 0.2 + 0.2,
-      maxOpacity: Math.random() * 0.35 + 0.65,
+      minOpacity: minLo + Math.random() * (minHi - minLo),
+      maxOpacity: maxLo + Math.random() * (maxHi - maxLo),
       duration: Math.random() * 3 + 2,
       delay: Math.random() * 4,
-    }))
-  ), [count]);
+    }));
+  }, [count, minOpacityRange, maxOpacityRange]);
 
   return (
     <div className={`absolute inset-0 ${className}`}>

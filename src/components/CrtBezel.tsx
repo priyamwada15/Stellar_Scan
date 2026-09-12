@@ -57,7 +57,7 @@ function buildBarrelPath(w: number, h: number, margin: number) {
 // A single, viewport-fixed decorative overlay — no `children` prop. It never
 // wraps the app's real content (that was the source of the CRT-bezel bug
 // class: a `clip-path`/`filter` ancestor breaks `position: fixed`
-// descendants). Header, Footer, and every screen render completely normally
+// descendants). The Header and every screen render completely normally
 // alongside this component, and scroll under it exactly as they did before
 // this component existed.
 export const CrtBezel: React.FC = () => {
@@ -66,7 +66,7 @@ export const CrtBezel: React.FC = () => {
   const barrelPath = buildBarrelPath(w, h, margin);
 
   // Published as a CSS custom property (rather than prop-drilled) so any
-  // fixed chrome that needs to clear the housing — currently Header/Footer —
+  // fixed chrome that needs to clear the housing — currently the Header —
   // can reference it without CrtBezel needing to know who's listening.
   useEffect(() => {
     document.documentElement.style.setProperty('--crt-margin', `${margin}px`);
