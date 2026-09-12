@@ -20,6 +20,8 @@ export interface ConstellationEntry {
   type: string;
   description: string;
   mythology: string;
+  practicalUses?: string;
+  culturalSignificance?: string;
   ra: string;
   dec: string;
   magnitude: string;
@@ -27,7 +29,18 @@ export interface ConstellationEntry {
   visibility: string;
   peakMonth: number;
   peakDay: number;
-  stars: { x: number; y: number; size: string; name?: string }[];
+  stars: {
+    x: number;
+    y: number;
+    size: string;
+    name?: string;
+    magnitude?: number;
+    spectralClass?: string;
+    ra?: string;
+    dec?: string;
+    distance?: number;
+    starType?: string;
+  }[];
   connections: number[][];
   spectralData: { luminosity: string; nebulaDensity: string; signalDrift: string };
   observationWindow: string;
@@ -56,7 +69,7 @@ function parseMagnitude(mag: string): number {
   return Number.isFinite(value) ? value : 99;
 }
 
-function parseTargetDate(dateStr: string): { year: number; month: number; day: number } | null {
+export function parseTargetDate(dateStr: string): { year: number; month: number; day: number } | null {
   const match = dateStr.match(/(\d{4})[.\-/](\d{2})[.\-/](\d{2})/);
   if (!match) return null;
   return { year: parseInt(match[1], 10), month: parseInt(match[2], 10), day: parseInt(match[3], 10) };
@@ -72,6 +85,22 @@ function localMidnightUTC(year: number, month: number, day: number, lon: number)
 }
 
 const MIN_ALTITUDE_DEG = 10; // below this, atmospheric haze/horizon obstruction make it effectively not "visible"
+
+// Typical clear-night atmospheric extinction coefficient (mag per airmass). Objects low on
+// the horizon are dimmed by looking through much more atmosphere than objects overhead — at
+// exactly MIN_ALTITUDE_DEG that's already ~+1.6 magnitudes of extra dimming. Without this,
+// picking "brightest visible" degenerates into "brightest in the whole catalog that clears a
+// low floor," which returns the same handful of intrinsically-brightest stars (Vega, Sirius,
+// Arcturus...) for almost any location/date, since a 10° floor is easy to clear from most
+// latitudes for much of the year. Weighting by apparent (extinction-corrected) magnitude makes
+// the result actually depend on how prominent something is *tonight, from here*, not just
+// which bright star happens to have cleared the horizon somewhere in the sky.
+const EXTINCTION_MAG_PER_AIRMASS = 0.28;
+
+function apparentMagnitude(catalogMagnitude: number, altitudeDeg: number): number {
+  const airmass = 1 / Math.sin((altitudeDeg * Math.PI) / 180);
+  return catalogMagnitude + EXTINCTION_MAG_PER_AIRMASS * (airmass - 1);
+}
 
 /**
  * The real second interpretation of "constellation of the day": for the given date and
@@ -89,7 +118,7 @@ export function getVisibleConstellation(dateStr: string, lat?: number, lon?: num
   const observer = new Astronomy.Observer(lat, lon, 0);
 
   let best: ConstellationEntry | null = null;
-  let bestMagnitude = Infinity;
+  let bestScore = Infinity;
   let highestAltitude: ConstellationEntry = constellations[0];
   let highestAltitudeValue = -Infinity;
 
@@ -104,9 +133,9 @@ export function getVisibleConstellation(dateStr: string, lat?: number, lon?: num
     }
 
     if (altitude >= MIN_ALTITUDE_DEG) {
-      const magnitude = parseMagnitude(c.magnitude);
-      if (magnitude < bestMagnitude) {
-        bestMagnitude = magnitude;
+      const score = apparentMagnitude(parseMagnitude(c.magnitude), altitude);
+      if (score < bestScore) {
+        bestScore = score;
         best = c;
       }
     }
@@ -151,7 +180,50 @@ export function getConstellationByPeakDay(dateStr: string): ConstellationEntry {
   return closest;
 }
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
+function describeCloudCover(percent: number): string {
+  if (percent < 20) return "CLEAR";
+  if (percent < 50) return "PARTLY CLOUDY";
+  if (percent < 80) return "MOSTLY CLOUDY";
+  return "OVERCAST";
+}
+
+// Open-Meteo's forecast endpoint only covers ~16 days ahead, and its archive endpoint
+// only covers the past (with a few days' processing lag). Outside that window there's
+// no real cloud data to show, so the caller gets null and the UI shows "N/A" honestly
+// rather than a fabricated number.
+export async function fetchCloudCover(
+  lat: number,
+  lon: number,
+  year: number,
+  month: number,
+  day: number
+): Promise<{ percent: number; label: string } | null> {
+  const dateStr = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  const daysFromNow = (Date.UTC(year, month - 1, day) - Date.now()) / 86_400_000;
+
+  let base: string;
+  if (daysFromNow >= -1 && daysFromNow <= 15) {
+    base = "https://api.open-meteo.com/v1/forecast";
+  } else if (daysFromNow < -1) {
+    base = "https://archive-api.open-meteo.com/v1/archive";
+  } else {
+    return null; // too far in the future for any real forecast
+  }
+
+  try {
+    const url = `${base}?latitude=${lat}&longitude=${lon}&hourly=cloud_cover&start_date=${dateStr}&end_date=${dateStr}&timezone=auto`;
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const data = (await res.json()) as { hourly?: { cloud_cover?: number[] } };
+    const percent = data.hourly?.cloud_cover?.[0]; // local midnight, matching the "tonight" scan
+    if (typeof percent !== "number") return null;
+    return { percent, label: describeCloudCover(percent) };
+  } catch {
+    return null; // network hiccup or upstream outage — degrade gracefully, don't fail the whole scan
+  }
+}
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -168,5 +240,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const constellation = getVisibleConstellation(date, lat, lon);
-  return res.status(200).json(constellation);
+  const parsed = parseTargetDate(date);
+  const cloudCover = parsed ? await fetchCloudCover(lat, lon, parsed.year, parsed.month, parsed.day) : null;
+
+  return res.status(200).json({ ...constellation, cloudCover });
 }

@@ -126,7 +126,7 @@ export default function App() {
           </div>
         );
       case 'DETAIL':
-        return constellation ? <ConstellationDetail data={constellation} scanDate={scanDate} /> : null;
+        return constellation ? <ConstellationDetail data={constellation} scanDate={scanDate} scanLat={scanLocation?.lat} /> : null;
       case 'ARCHIVES':
         return <Archives items={archiveItems} onSelect={(c) => { setConstellation(c); setScreen('DETAIL'); }} />;
       default:

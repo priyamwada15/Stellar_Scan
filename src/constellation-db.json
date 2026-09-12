@@ -19,49 +19,97 @@
           "x": 15,
           "y": 24,
           "size": "lg",
-          "name": "Betelgeuse"
+          "name": "Betelgeuse",
+          "magnitude": 0.42,
+          "spectralClass": "M2Ia",
+          "ra": "05h 55m",
+          "dec": "+07° 24'",
+          "distance": 548,
+          "starType": "Red supergiant"
         },
         {
           "x": 67,
           "y": 28,
           "size": "lg",
-          "name": "Bellatrix"
+          "name": "Bellatrix",
+          "magnitude": 1.64,
+          "spectralClass": "B2III",
+          "ra": "05h 25m",
+          "dec": "+06° 21'",
+          "distance": 243,
+          "starType": "Blue giant"
         },
         {
           "x": 55,
           "y": 51,
           "size": "md",
-          "name": "Mintaka"
+          "name": "Mintaka",
+          "magnitude": 2.2,
+          "spectralClass": "B0III",
+          "ra": "05h 32m",
+          "dec": "-00° 18'",
+          "distance": 916,
+          "starType": "Blue giant (close binary system)"
         },
         {
           "x": 48,
           "y": 55,
           "size": "md",
-          "name": "Alnilam"
+          "name": "Alnilam",
+          "magnitude": 1.69,
+          "spectralClass": "B0Ia",
+          "ra": "05h 36m",
+          "dec": "-01° 12'",
+          "distance": 1342,
+          "starType": "Blue supergiant"
         },
         {
           "x": 40,
           "y": 57,
           "size": "md",
-          "name": "Alnitak"
+          "name": "Alnitak",
+          "magnitude": 1.88,
+          "spectralClass": "O9.7Ib",
+          "ra": "05h 41m",
+          "dec": "-01° 57'",
+          "distance": 817,
+          "starType": "Blue supergiant (illuminates the nearby Flame Nebula)"
         },
         {
           "x": 85,
           "y": 80,
           "size": "lg",
-          "name": "Rigel"
+          "name": "Rigel",
+          "magnitude": 0.18,
+          "spectralClass": "B8Ia",
+          "ra": "05h 15m",
+          "dec": "-08° 12'",
+          "distance": 773,
+          "starType": "Blue supergiant"
         },
         {
           "x": 28,
           "y": 85,
           "size": "md",
-          "name": "Saiph"
+          "name": "Saiph",
+          "magnitude": 2.07,
+          "spectralClass": "B0.5Ia",
+          "ra": "05h 48m",
+          "dec": "-09° 40'",
+          "distance": 721,
+          "starType": "Blue supergiant"
         },
         {
           "x": 49,
           "y": 15,
           "size": "sm",
-          "name": "Meissa"
+          "name": "Meissa",
+          "magnitude": 3.47,
+          "spectralClass": "O8III",
+          "ra": "05h 35m",
+          "dec": "+09° 56'",
+          "distance": 1055,
+          "starType": "Blue giant"
         }
       ],
       "connections": [
@@ -104,14 +152,16 @@
         "signalDrift": "0.002°/yr"
       },
       "observationWindow": "Nov-Mar",
-      "skySector": "EQUATORIAL-WEST"
+      "skySector": "EQUATORIAL-WEST",
+      "practicalUses": "Because Orion's Belt sits almost exactly on the celestial equator, it rises due east and sets due west from nearly anywhere on Earth, making it a handy way to find true east and west and a widely used seasonal marker for the start of winter in the north.",
+      "culturalSignificance": "Ancient Egyptians linked Orion's Belt to the god Osiris, while many Aboriginal Australian traditions see the same three stars as young men, a canoe, or other figures entirely different from a hunter."
     },
     {
       "id": "taurus",
       "name": "Taurus",
       "latinName": "Taurus",
       "type": "Zodiacal",
-      "description": "The Bull, featuring bright Aldebaran and the Pleiades star cluster. Contains the Crab Nebula supernova remnant.",
+      "description": "The Bull, marked by fiery orange Aldebaran and the sparkling Pleiades cluster nestled at its shoulder.",
       "mythology": "Taurus is Zeus in disguise, transformed into a magnificent white bull to approach Europa. He carried her across the sea to Crete, where she became queen, giving her name to the continent of Europe.",
       "ra": "4h 42m",
       "dec": "+14°",
@@ -125,37 +175,73 @@
           "x": 65,
           "y": 45,
           "size": "lg",
-          "name": "Aldebaran"
+          "name": "Aldebaran",
+          "magnitude": 0.87,
+          "spectralClass": "K5III",
+          "ra": "04h 36m",
+          "dec": "+16° 31'",
+          "distance": 65,
+          "starType": "Orange giant star"
         },
         {
           "x": 18,
           "y": 20,
           "size": "md",
-          "name": "Pleiades"
+          "name": "Pleiades",
+          "magnitude": 1.6,
+          "spectralClass": "Open Cluster",
+          "ra": "03h 47m",
+          "dec": "+24° 11'",
+          "distance": 445,
+          "starType": "Open star cluster of hot young blue stars (the 'Seven Sisters')"
         },
         {
           "x": 45,
           "y": 60,
           "size": "sm",
-          "name": "Hyades"
+          "name": "Hyades",
+          "magnitude": 0.5,
+          "spectralClass": "Open Cluster",
+          "ra": "04h 27m",
+          "dec": "+15° 52'",
+          "distance": 154,
+          "starType": "Open star cluster, one of the nearest to Earth"
         },
         {
           "x": 85,
           "y": 15,
           "size": "md",
-          "name": "Elnath"
+          "name": "Elnath",
+          "magnitude": 1.65,
+          "spectralClass": "B7III",
+          "ra": "05h 26m",
+          "dec": "+28° 36'",
+          "distance": 131,
+          "starType": "Blue-white giant star"
         },
         {
           "x": 90,
           "y": 45,
           "size": "sm",
-          "name": "Zeta Tauri"
+          "name": "Zeta Tauri",
+          "magnitude": 2.97,
+          "spectralClass": "B4III",
+          "ra": "05h 38m",
+          "dec": "+21° 09'",
+          "distance": 417,
+          "starType": "Blue-white giant star"
         },
         {
           "x": 35,
           "y": 45,
           "size": "sm",
-          "name": "Ain"
+          "name": "Ain",
+          "magnitude": 3.53,
+          "spectralClass": "K0III",
+          "ra": "04h 29m",
+          "dec": "+19° 11'",
+          "distance": 155,
+          "starType": "Orange giant star"
         }
       ],
       "connections": [
@@ -182,14 +268,16 @@
         "signalDrift": "0.003°/yr"
       },
       "observationWindow": "Nov-Mar",
-      "skySector": "NORTHERN-EQUATORIAL"
+      "skySector": "NORTHERN-EQUATORIAL",
+      "practicalUses": "The dawn reappearance of the Pleiades each year was widely used by farming and seafaring cultures to time planting, harvest, and the start of the sailing season.",
+      "culturalSignificance": "The Pleiades are called Matariki by the Māori, whose reappearance marks the Māori New Year, and Krittika in Hindu tradition; Japanese know the cluster as Subaru, and Aboriginal Australian traditions across the continent also track its rising as a seasonal calendar."
     },
     {
       "id": "auriga",
       "name": "Auriga",
       "latinName": "Auriga",
       "type": "Northern",
-      "description": "The Charioteer, featuring bright Capella. Contains three notable Messier nebulae.",
+      "description": "The Charioteer, a pentagon of stars anchored by golden Capella, one of the sky's brightest stars.",
       "mythology": "Auriga is Erichthonius, the legendary king of Athens who invented the four-horse chariot. Capella represents the goat Amalthea that suckled the infant Zeus.",
       "ra": "6h 0m",
       "dec": "+42°",
@@ -203,43 +291,85 @@
           "x": 35,
           "y": 25,
           "size": "lg",
-          "name": "Capella"
+          "name": "Capella",
+          "magnitude": 0.08,
+          "spectralClass": "G8III",
+          "ra": "05h 17m",
+          "dec": "+46° 00'",
+          "distance": 42,
+          "starType": "Yellow giant star (actually a close pair of yellow giants)"
         },
         {
           "x": 65,
           "y": 30,
           "size": "md",
-          "name": "Menkalinan"
+          "name": "Menkalinan",
+          "magnitude": 1.9,
+          "spectralClass": "A2V",
+          "ra": "06h 00m",
+          "dec": "+44° 57'",
+          "distance": 82,
+          "starType": "White main-sequence star (eclipsing binary)"
         },
         {
           "x": 68,
           "y": 60,
           "size": "sm",
-          "name": "Mahasim"
+          "name": "Mahasim",
+          "magnitude": 2.62,
+          "spectralClass": "A0p",
+          "ra": "06h 00m",
+          "dec": "+37° 13'",
+          "distance": 173,
+          "starType": "White star with a chemically peculiar, strongly magnetic surface"
         },
         {
           "x": 30,
           "y": 60,
           "size": "md",
-          "name": "Almaaz"
+          "name": "Almaaz",
+          "magnitude": 3.03,
+          "spectralClass": "F0Ia",
+          "ra": "05h 02m",
+          "dec": "+43° 49'",
+          "distance": 2037,
+          "starType": "Yellow-white supergiant, dimmed every 27 years by a huge dark companion disk"
         },
         {
           "x": 25,
           "y": 15,
           "size": "sm",
-          "name": "Haedus I"
+          "name": "Haedus I",
+          "magnitude": 3.69,
+          "spectralClass": "K4II",
+          "ra": "05h 02m",
+          "dec": "+41° 05'",
+          "distance": 787,
+          "starType": "Orange bright giant, an eclipsing binary nicknamed 'the Kid'"
         },
         {
           "x": 15,
           "y": 20,
           "size": "sm",
-          "name": "Haedus II"
+          "name": "Haedus II",
+          "magnitude": 3.18,
+          "spectralClass": "B3V",
+          "ra": "05h 07m",
+          "dec": "+41° 14'",
+          "distance": 219,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 20,
           "y": 30,
           "size": "sm",
-          "name": "Hassaleh"
+          "name": "Hassaleh",
+          "magnitude": 2.69,
+          "spectralClass": "K3II",
+          "ra": "04h 57m",
+          "dec": "+33° 10'",
+          "distance": 512,
+          "starType": "Orange bright giant star"
         }
       ],
       "connections": [
@@ -282,14 +412,16 @@
         "signalDrift": "0.003°/yr"
       },
       "observationWindow": "Nov-Apr",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Capella's brightness and high northern position made it a dependable marker of the winter sky, and its early evening rising was noted as a sign of the changing season.",
+      "culturalSignificance": "Chinese astronomers grouped Auriga's stars into Wǔchē, the 'Five Chariots,' associating them with five legendary emperors and with the harvest of China's staple grain crops."
     },
     {
       "id": "lepus",
       "name": "Lepus",
       "latinName": "Lepus",
       "type": "Southern",
-      "description": "The Hare, crouching beneath Orion. Contains the Crimson Star, one of the reddest stars known.",
+      "description": "The Hare, a small, faint huddle of stars crouching quietly beneath Orion's feet.",
       "mythology": "Lepus is the hare hunted by Orion and his dogs. It was placed beneath Orion's feet to represent the eternal chase across the winter sky.",
       "ra": "5h 33m",
       "dec": "-19°",
@@ -303,37 +435,73 @@
           "x": 35,
           "y": 45,
           "size": "lg",
-          "name": "Arneb"
+          "name": "Arneb",
+          "magnitude": 2.58,
+          "spectralClass": "F0Ib",
+          "ra": "05h 33m",
+          "dec": "-17° 49'",
+          "distance": 1283,
+          "starType": "Yellow-white supergiant"
         },
         {
           "x": 55,
           "y": 50,
           "size": "md",
-          "name": "Nihal"
+          "name": "Nihal",
+          "magnitude": 2.81,
+          "spectralClass": "G5II",
+          "ra": "05h 28m",
+          "dec": "-20° 46'",
+          "distance": 159,
+          "starType": "Yellow bright giant star"
         },
         {
           "x": 60,
           "y": 72,
           "size": "sm",
-          "name": "Epsilon Leporis"
+          "name": "Epsilon Leporis",
+          "magnitude": 3.19,
+          "spectralClass": "K4III",
+          "ra": "05h 05m",
+          "dec": "-22° 22'",
+          "distance": 227,
+          "starType": "Orange giant star"
         },
         {
           "x": 30,
           "y": 70,
           "size": "sm",
-          "name": "Mu Leporis"
+          "name": "Mu Leporis",
+          "magnitude": 3.29,
+          "spectralClass": "B9IV",
+          "ra": "05h 13m",
+          "dec": "-16° 12'",
+          "distance": 184,
+          "starType": "Blue-white subgiant with a chemically peculiar spectrum"
         },
         {
           "x": 25,
           "y": 25,
           "size": "sm",
-          "name": "Kappa Leporis"
+          "name": "Kappa Leporis",
+          "magnitude": 4.36,
+          "spectralClass": "B7V",
+          "ra": "05h 13m",
+          "dec": "-12° 56'",
+          "distance": 559,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 65,
           "y": 25,
           "size": "sm",
-          "name": "Lambda Leporis"
+          "name": "Lambda Leporis",
+          "magnitude": 4.29,
+          "spectralClass": "B0.5IV",
+          "ra": "05h 20m",
+          "dec": "-13° 11'",
+          "distance": 1076,
+          "starType": "Blue subgiant star"
         }
       ],
       "connections": [
@@ -368,14 +536,16 @@
         "signalDrift": "0.004°/yr"
       },
       "observationWindow": "Dec-Feb",
-      "skySector": "SOUTHERN"
+      "skySector": "SOUTHERN",
+      "practicalUses": "Too dim for navigation on its own, Lepus mainly served skywatchers as a marker of the sky region just south of Orion, useful for tracking the same winter season as its much brighter neighbor.",
+      "culturalSignificance": "Lepus carries little documented mythology outside the Greek image of a hare fleeing Orion's hounds, though its position beneath the great hunter made it a recognizable fixture in many naked-eye sky traditions."
     },
     {
       "id": "canis-major",
       "name": "Canis Major",
       "latinName": "Canis Major",
       "type": "Equatorial",
-      "description": "The Greater Dog, home to Sirius, the brightest star in the night sky.",
+      "description": "The Greater Dog, home to Sirius, the brightest star in the entire night sky.",
       "mythology": "Canis Major is one of Orion's hunting dogs. Sirius was sacred to ancient Egyptians as its heliacal rising marked the flooding of the Nile and the start of their new year.",
       "ra": "6h 45m",
       "dec": "-22°",
@@ -389,37 +559,73 @@
           "x": 55,
           "y": 20,
           "size": "lg",
-          "name": "Sirius"
+          "name": "Sirius",
+          "magnitude": -1.46,
+          "spectralClass": "A1V",
+          "ra": "06h 45m",
+          "dec": "-16° 43'",
+          "distance": 8.6,
+          "starType": "White main-sequence star, the brightest star in the night sky, with a white dwarf companion (Sirius B)"
         },
         {
           "x": 45,
           "y": 68,
           "size": "md",
-          "name": "Adhara"
+          "name": "Adhara",
+          "magnitude": 1.5,
+          "spectralClass": "B2II",
+          "ra": "06h 59m",
+          "dec": "-28° 58'",
+          "distance": 431,
+          "starType": "Blue giant star"
         },
         {
           "x": 40,
           "y": 25,
           "size": "md",
-          "name": "Wezen"
+          "name": "Wezen",
+          "magnitude": 1.83,
+          "spectralClass": "F8Ia",
+          "ra": "07h 08m",
+          "dec": "-26° 24'",
+          "distance": 1791,
+          "starType": "Yellow-white supergiant"
         },
         {
           "x": 55,
           "y": 85,
           "size": "sm",
-          "name": "Aludra"
+          "name": "Aludra",
+          "magnitude": 2.45,
+          "spectralClass": "B5Ia",
+          "ra": "07h 24m",
+          "dec": "-29° 18'",
+          "distance": 3196,
+          "starType": "Blue supergiant, one of the most luminous stars known"
         },
         {
           "x": 65,
           "y": 25,
           "size": "sm",
-          "name": "Mirzam"
+          "name": "Mirzam",
+          "magnitude": 1.98,
+          "spectralClass": "B1II",
+          "ra": "06h 23m",
+          "dec": "-17° 57'",
+          "distance": 499,
+          "starType": "Blue giant star"
         },
         {
           "x": 70,
           "y": 25,
           "size": "sm",
-          "name": "Muliphein"
+          "name": "Muliphein",
+          "magnitude": 4.12,
+          "spectralClass": "B8II",
+          "ra": "07h 04m",
+          "dec": "-15° 38'",
+          "distance": 402,
+          "starType": "Blue-white giant star"
         }
       ],
       "connections": [
@@ -450,14 +656,16 @@
         "signalDrift": "0.008°/yr"
       },
       "observationWindow": "Dec-Mar",
-      "skySector": "EQUATORIAL-SOUTH"
+      "skySector": "EQUATORIAL-SOUTH",
+      "practicalUses": "Sirius's first visible rise before dawn each year let ancient Egyptians predict the annual Nile flood, anchoring their calendar so precisely that it effectively defined their civil year.",
+      "culturalSignificance": "Egyptians linked Sirius to the goddess Isis, Chinese astronomers called it the 'Celestial Wolf' (Tiānláng), and the Dogon people of Mali preserved an oral tradition about Sirius that anthropologists have studied for its unusual astronomical detail."
     },
     {
       "id": "canis-minor",
       "name": "Canis Minor",
       "latinName": "Canis Minor",
       "type": "Equatorial",
-      "description": "The Little Dog, with just two prominent stars. Procyon is one of the brightest stars in the sky.",
+      "description": "The Little Dog, a compact pair of stars led by bright Procyon.",
       "mythology": "Canis Minor is Orion's second hunting dog. Procyon means 'before the dog' in Greek, as it rises just before Sirius. In Egyptian mythology both were associated with the flooding of the Nile.",
       "ra": "7h 30m",
       "dec": "+6°",
@@ -471,19 +679,37 @@
           "x": 50,
           "y": 50,
           "size": "lg",
-          "name": "Procyon"
+          "name": "Procyon",
+          "magnitude": 0.34,
+          "spectralClass": "F5IV-V",
+          "ra": "07h 39m",
+          "dec": "+05° 14'",
+          "distance": 11,
+          "starType": "Yellow-white subgiant star with a faint white dwarf companion"
         },
         {
           "x": 65,
           "y": 30,
           "size": "md",
-          "name": "Gomeisa"
+          "name": "Gomeisa",
+          "magnitude": 2.89,
+          "spectralClass": "B8V",
+          "ra": "07h 27m",
+          "dec": "+08° 17'",
+          "distance": 170,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 35,
           "y": 65,
           "size": "sm",
-          "name": "Epsilon CMi"
+          "name": "Epsilon CMi",
+          "magnitude": 4.99,
+          "spectralClass": "G8III",
+          "ra": "07h 26m",
+          "dec": "+09° 17'",
+          "distance": 988,
+          "starType": "Yellow giant star"
         }
       ],
       "connections": [
@@ -502,14 +728,16 @@
         "signalDrift": "0.012°/yr"
       },
       "observationWindow": "Jan-Apr",
-      "skySector": "EQUATORIAL"
+      "skySector": "EQUATORIAL",
+      "practicalUses": "Procyon's name, meaning 'before the dog' in Greek, reflects its old practical role as an early warning that Sirius was about to rise.",
+      "culturalSignificance": "Like Sirius, Procyon was tied by ancient Egyptians to the Nile's flood cycle, making it one of several 'dog stars' watched closely across the ancient Mediterranean world."
     },
     {
       "id": "gemini",
       "name": "Gemini",
       "latinName": "Gemini",
       "type": "Zodiacal",
-      "description": "The Twins, marked by bright stars Castor and Pollux. One of the zodiac constellations rich in deep-sky objects.",
+      "description": "The Twins, marked by the bright paired stars Castor and Pollux sitting side by side.",
       "mythology": "Castor and Pollux were twins, the Dioscuri. Pollux was immortal, son of Zeus, while Castor was mortal. When Castor died, Pollux asked Zeus to share his immortality. Zeus placed them together in the stars, where they remain inseparable.",
       "ra": "7h 0m",
       "dec": "+22°",
@@ -523,43 +751,85 @@
           "x": 32,
           "y": 12,
           "size": "lg",
-          "name": "Castor"
+          "name": "Castor",
+          "magnitude": 1.9,
+          "spectralClass": "A2Vm",
+          "ra": "07h 35m",
+          "dec": "+31° 53'",
+          "distance": 52,
+          "starType": "White main-sequence star (actually a system of six stars)"
         },
         {
           "x": 55,
           "y": 12,
           "size": "lg",
-          "name": "Pollux"
+          "name": "Pollux",
+          "magnitude": 1.16,
+          "spectralClass": "K0III",
+          "ra": "07h 45m",
+          "dec": "+28° 02'",
+          "distance": 34,
+          "starType": "Orange giant star, known to host a giant planet"
         },
         {
           "x": 25,
           "y": 78,
           "size": "md",
-          "name": "Alhena"
+          "name": "Alhena",
+          "magnitude": 1.93,
+          "spectralClass": "A0IV",
+          "ra": "06h 38m",
+          "dec": "+16° 24'",
+          "distance": 105,
+          "starType": "White subgiant star"
         },
         {
           "x": 30,
           "y": 42,
           "size": "md",
-          "name": "Wasat"
+          "name": "Wasat",
+          "magnitude": 3.5,
+          "spectralClass": "F0IV",
+          "ra": "07h 20m",
+          "dec": "+21° 59'",
+          "distance": 59,
+          "starType": "Yellow-white subgiant star"
         },
         {
           "x": 70,
           "y": 55,
           "size": "sm",
-          "name": "Mebsuda"
+          "name": "Mebsuda",
+          "magnitude": 3.06,
+          "spectralClass": "G8Ib",
+          "ra": "06h 44m",
+          "dec": "+25° 08'",
+          "distance": 903,
+          "starType": "Yellow supergiant"
         },
         {
           "x": 58,
           "y": 45,
           "size": "sm",
-          "name": "Mekbuda"
+          "name": "Mekbuda",
+          "magnitude": 4.01,
+          "spectralClass": "G1Ib",
+          "ra": "07h 04m",
+          "dec": "+20° 34'",
+          "distance": 1168,
+          "starType": "Yellow supergiant, a pulsating variable star"
         },
         {
           "x": 55,
           "y": 80,
           "size": "md",
-          "name": "Propus"
+          "name": "Propus",
+          "magnitude": 3.31,
+          "spectralClass": "M3III",
+          "ra": "06h 15m",
+          "dec": "+22° 30'",
+          "distance": 349,
+          "starType": "Red giant star"
         }
       ],
       "connections": [
@@ -594,14 +864,16 @@
         "signalDrift": "0.004°/yr"
       },
       "observationWindow": "Dec-Apr",
-      "skySector": "NORTHERN-EQUATORIAL"
+      "skySector": "NORTHERN-EQUATORIAL",
+      "practicalUses": "The close pairing of Castor and Pollux made them easy reference points for tracking the ecliptic, and their rising was historically used to mark the approach of summer in the northern hemisphere.",
+      "culturalSignificance": "Babylonian astronomers saw these stars as the 'Great Twins,' the gods Meslamtaea and Lugalirra, a tradition older than the Greek Castor and Pollux story; Chinese astronomy places the same region within the Jing (Well) lunar mansion."
     },
     {
       "id": "monoceros",
       "name": "Monoceros",
       "latinName": "Monoceros",
       "type": "Equatorial",
-      "description": "The Unicorn, a faint constellation in the center of the Winter Triangle. Contains the beautiful Rosette Nebula.",
+      "description": "The Unicorn, a faint, sprawling constellation tucked inside the Winter Triangle.",
       "mythology": "Monoceros was introduced by Dutch cartographer Petrus Plancius in 1612, possibly inspired by the unicorn mentioned in the Old Testament. The unicorn was a symbol of purity in medieval European tradition.",
       "ra": "7h 9m",
       "dec": "-3°",
@@ -615,31 +887,61 @@
           "x": 50,
           "y": 28,
           "size": "md",
-          "name": "Beta Monocerotis"
+          "name": "Beta Monocerotis",
+          "magnitude": 4.6,
+          "spectralClass": "B3Ve",
+          "ra": "06h 29m",
+          "dec": "-07° 02'",
+          "distance": 691,
+          "starType": "Blue-white triple star system"
         },
         {
           "x": 30,
           "y": 55,
           "size": "sm",
-          "name": "Alpha Monocerotis"
+          "name": "Alpha Monocerotis",
+          "magnitude": 3.94,
+          "spectralClass": "K0III",
+          "ra": "07h 41m",
+          "dec": "-09° 33'",
+          "distance": 144,
+          "starType": "Orange giant star"
         },
         {
           "x": 70,
           "y": 50,
           "size": "sm",
-          "name": "Gamma Monocerotis"
+          "name": "Gamma Monocerotis",
+          "magnitude": 3.99,
+          "spectralClass": "K3III",
+          "ra": "06h 15m",
+          "dec": "-06° 16'",
+          "distance": 644,
+          "starType": "Orange giant star"
         },
         {
           "x": 50,
           "y": 72,
           "size": "sm",
-          "name": "Delta Monocerotis"
+          "name": "Delta Monocerotis",
+          "magnitude": 4.15,
+          "spectralClass": "A2V",
+          "ra": "07h 12m",
+          "dec": "-00° 30'",
+          "distance": 375,
+          "starType": "White main-sequence star"
         },
         {
           "x": 18,
           "y": 75,
           "size": "sm",
-          "name": "Zeta Monocerotis"
+          "name": "Zeta Monocerotis",
+          "magnitude": 4.36,
+          "spectralClass": "G2Ib",
+          "ra": "08h 09m",
+          "dec": "-02° 59'",
+          "distance": 1852,
+          "starType": "Yellow supergiant"
         }
       ],
       "connections": [
@@ -670,14 +972,16 @@
         "signalDrift": "0.005°/yr"
       },
       "observationWindow": "Jan-Mar",
-      "skySector": "EQUATORIAL"
+      "skySector": "EQUATORIAL",
+      "practicalUses": "Too dim to be useful for navigation or timekeeping, Monoceros mainly serves modern stargazers as rich hunting ground for star clusters and nebulae hidden between brighter, more famous constellations.",
+      "culturalSignificance": "Monoceros was invented by Dutch cartographer Petrus Plancius in the early 1600s, so it carries no ancient mythology; its unicorn imagery drew on medieval European legend rather than any older cultural tradition."
     },
     {
       "id": "cancer",
       "name": "Cancer",
       "latinName": "Cancer",
       "type": "Zodiacal",
-      "description": "The Crab, the faintest zodiac constellation. Home to the Beehive Cluster, one of the nearest open clusters to Earth.",
+      "description": "The Crab, the dimmest constellation of the zodiac, best known for the Beehive star cluster at its center.",
       "mythology": "Hera sent Cancer the Crab to distract Heracles during his battle with the Hydra. The crab pinched his foot but was quickly crushed. As reward for its loyalty, Hera placed it among the stars.",
       "ra": "8h 30m",
       "dec": "+20°",
@@ -691,37 +995,73 @@
           "x": 55,
           "y": 60,
           "size": "md",
-          "name": "Acubens"
+          "name": "Acubens",
+          "magnitude": 4.26,
+          "spectralClass": "A5m",
+          "ra": "08h 58m",
+          "dec": "+11° 51'",
+          "distance": 173,
+          "starType": "White main-sequence star"
         },
         {
           "x": 35,
           "y": 20,
           "size": "sm",
-          "name": "Asellus Borealis"
+          "name": "Asellus Borealis",
+          "magnitude": 4.66,
+          "spectralClass": "A1IV",
+          "ra": "08h 43m",
+          "dec": "+21° 28'",
+          "distance": 181,
+          "starType": "White subgiant star"
         },
         {
           "x": 60,
           "y": 20,
           "size": "sm",
-          "name": "Asellus Australis"
+          "name": "Asellus Australis",
+          "magnitude": 3.94,
+          "spectralClass": "K0III",
+          "ra": "08h 45m",
+          "dec": "+18° 09'",
+          "distance": 136,
+          "starType": "Orange giant star"
         },
         {
           "x": 48,
           "y": 35,
           "size": "md",
-          "name": "Beehive Cluster"
+          "name": "Beehive Cluster",
+          "magnitude": 3.7,
+          "spectralClass": "Open Cluster",
+          "ra": "08h 40m",
+          "dec": "+19° 59'",
+          "distance": 577,
+          "starType": "Open star cluster (Praesepe/M44) with roughly 1,000 member stars"
         },
         {
           "x": 35,
           "y": 75,
           "size": "sm",
-          "name": "Al Tarf"
+          "name": "Al Tarf",
+          "magnitude": 3.53,
+          "spectralClass": "K4III",
+          "ra": "08h 17m",
+          "dec": "+09° 11'",
+          "distance": 290,
+          "starType": "Orange giant star"
         },
         {
           "x": 75,
           "y": 30,
           "size": "sm",
-          "name": "Iota Cancri"
+          "name": "Iota Cancri",
+          "magnitude": 4.03,
+          "spectralClass": "G8III",
+          "ra": "08h 47m",
+          "dec": "+28° 46'",
+          "distance": 298,
+          "starType": "Yellow giant star (colorful double star)"
         }
       ],
       "connections": [
@@ -752,14 +1092,16 @@
         "signalDrift": "0.005°/yr"
       },
       "observationWindow": "Jan-May",
-      "skySector": "NORTHERN-EQUATORIAL"
+      "skySector": "NORTHERN-EQUATORIAL",
+      "practicalUses": "Cancer once marked the point where the Sun reached its highest point in the sky at the summer solstice, which is why that latitude is still called the Tropic of Cancer today.",
+      "culturalSignificance": "Ancient Egyptian sky charts, including the Dendera zodiac, depicted this constellation as a scarab beetle, a sacred symbol of rebirth, rather than as a crab."
     },
     {
       "id": "hydra",
       "name": "Hydra",
       "latinName": "Hydra",
       "type": "Equatorial",
-      "description": "The Water Snake, the largest of all 88 constellations. Alphard is its lone bright star.",
+      "description": "The Water Snake, the longest and largest of all 88 constellations, slithering across a quarter of the sky.",
       "mythology": "Hydra is the many-headed water serpent slain by Heracles as his second labor. For every head cut off, two grew back. Heracles solved this by cauterizing each stump with fire.",
       "ra": "11h 30m",
       "dec": "-14°",
@@ -773,43 +1115,85 @@
           "x": 38,
           "y": 55,
           "size": "lg",
-          "name": "Alphard"
+          "name": "Alphard",
+          "magnitude": 1.99,
+          "spectralClass": "K3III",
+          "ra": "09h 28m",
+          "dec": "-08° 40'",
+          "distance": 177,
+          "starType": "Orange giant star"
         },
         {
           "x": 24,
           "y": 38,
           "size": "sm",
-          "name": "Zeta Hydrae"
+          "name": "Zeta Hydrae",
+          "magnitude": 3.11,
+          "spectralClass": "G8III-IV",
+          "ra": "08h 55m",
+          "dec": "+05° 57'",
+          "distance": 151,
+          "starType": "Yellow giant star"
         },
         {
           "x": 10,
           "y": 30,
           "size": "sm",
-          "name": "Epsilon Hydrae"
+          "name": "Epsilon Hydrae",
+          "magnitude": 3.38,
+          "spectralClass": "G0III-IV",
+          "ra": "08h 47m",
+          "dec": "+06° 25'",
+          "distance": 135,
+          "starType": "Yellow giant star (multiple star system)"
         },
         {
           "x": 68,
           "y": 60,
           "size": "sm",
-          "name": "Gamma Hydrae"
+          "name": "Gamma Hydrae",
+          "magnitude": 2.99,
+          "spectralClass": "G8III",
+          "ra": "13h 19m",
+          "dec": "-23° 10'",
+          "distance": 132,
+          "starType": "Yellow giant star"
         },
         {
           "x": 88,
           "y": 45,
           "size": "sm",
-          "name": "Nu Hydrae"
+          "name": "Nu Hydrae",
+          "magnitude": 3.11,
+          "spectralClass": "K0III",
+          "ra": "10h 50m",
+          "dec": "-16° 12'",
+          "distance": 138,
+          "starType": "Orange giant star"
         },
         {
           "x": 85,
           "y": 42,
           "size": "sm",
-          "name": "Pi Hydrae"
+          "name": "Pi Hydrae",
+          "magnitude": 3.25,
+          "spectralClass": "K2III",
+          "ra": "14h 06m",
+          "dec": "-26° 41'",
+          "distance": 101,
+          "starType": "Orange giant star"
         },
         {
           "x": 16,
           "y": 22,
           "size": "sm",
-          "name": "Delta Hydrae"
+          "name": "Delta Hydrae",
+          "magnitude": 4.14,
+          "spectralClass": "A1Vnn",
+          "ra": "08h 38m",
+          "dec": "+05° 42'",
+          "distance": 179,
+          "starType": "White main-sequence star"
         }
       ],
       "connections": [
@@ -844,14 +1228,16 @@
         "signalDrift": "0.004°/yr"
       },
       "observationWindow": "Feb-Jul",
-      "skySector": "SOUTHERN-EQUATORIAL"
+      "skySector": "SOUTHERN-EQUATORIAL",
+      "practicalUses": "Hydra's great length made it a useful backdrop for tracking the slow progression of the seasons, since different parts of the snake cross the night sky throughout the year.",
+      "culturalSignificance": "Chinese astronomers divided Hydra's long body among several lunar mansions, including Willow (Liǔ) and Star (Xīng), each carrying its own symbolic meaning rather than being read as a single serpent."
     },
     {
       "id": "leo",
       "name": "Leo",
       "latinName": "Leo",
       "type": "Zodiacal",
-      "description": "The Lion, one of the most recognizable zodiac constellations. Features the bright star Regulus and the distinctive sickle asterism.",
+      "description": "The Lion, marked by bright Regulus and a curved row of stars forming its mane, called the Sickle.",
       "mythology": "Leo represents the Nemean Lion, killed by Heracles as his first labor. The lion's hide was impervious to weapons, so Heracles strangled it with bare hands and used its own claws to skin it. Zeus honored its strength by placing it in the stars.",
       "ra": "10h 30m",
       "dec": "+15°",
@@ -865,43 +1251,85 @@
           "x": 35,
           "y": 70,
           "size": "lg",
-          "name": "Regulus"
+          "name": "Regulus",
+          "magnitude": 1.36,
+          "spectralClass": "B7V",
+          "ra": "10h 08m",
+          "dec": "+11° 58'",
+          "distance": 77,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 78,
           "y": 35,
           "size": "lg",
-          "name": "Denebola"
+          "name": "Denebola",
+          "magnitude": 2.14,
+          "spectralClass": "A3V",
+          "ra": "11h 49m",
+          "dec": "+14° 34'",
+          "distance": 36,
+          "starType": "White main-sequence star"
         },
         {
           "x": 32,
           "y": 50,
           "size": "md",
-          "name": "Algieba"
+          "name": "Algieba",
+          "magnitude": 2.37,
+          "spectralClass": "K0III",
+          "ra": "10h 20m",
+          "dec": "+19° 51'",
+          "distance": 126,
+          "starType": "Orange giant star (colorful double star)"
         },
         {
           "x": 25,
           "y": 35,
           "size": "sm",
-          "name": "Adhafera"
+          "name": "Adhafera",
+          "magnitude": 3.43,
+          "spectralClass": "F0III",
+          "ra": "10h 17m",
+          "dec": "+23° 25'",
+          "distance": 260,
+          "starType": "Yellow-white giant star"
         },
         {
           "x": 35,
           "y": 20,
           "size": "sm",
-          "name": "Rasalas"
+          "name": "Rasalas",
+          "magnitude": 3.88,
+          "spectralClass": "K0III",
+          "ra": "09h 53m",
+          "dec": "+26° 00'",
+          "distance": 133,
+          "starType": "Orange giant star"
         },
         {
           "x": 55,
           "y": 45,
           "size": "md",
-          "name": "Zosma"
+          "name": "Zosma",
+          "magnitude": 2.56,
+          "spectralClass": "A4V",
+          "ra": "11h 14m",
+          "dec": "+20° 31'",
+          "distance": 58,
+          "starType": "White main-sequence star"
         },
         {
           "x": 58,
           "y": 60,
           "size": "sm",
-          "name": "Chertan"
+          "name": "Chertan",
+          "magnitude": 3.33,
+          "spectralClass": "A2V",
+          "ra": "11h 14m",
+          "dec": "+15° 26'",
+          "distance": 178,
+          "starType": "White main-sequence star"
         }
       ],
       "connections": [
@@ -940,14 +1368,16 @@
         "signalDrift": "0.006°/yr"
       },
       "observationWindow": "Feb-Jun",
-      "skySector": "NORTHERN-EQUATORIAL"
+      "skySector": "NORTHERN-EQUATORIAL",
+      "practicalUses": "Leo's appearance high in spring skies made it a seasonal marker for planting time in several farming cultures of the Mediterranean and Near East.",
+      "culturalSignificance": "Babylonian astronomers already recognized this pattern as a great lion, UR.GU.LA, centuries before the Greeks, and Egyptian tradition linked the lion to the sun's strength during the hot season when the Nile began to flood."
     },
     {
       "id": "ursa-major",
       "name": "Ursa Major",
       "latinName": "Ursa Major",
       "type": "Northern",
-      "description": "The Great Bear, home to the Big Dipper. One of the most recognized constellations, circumpolar at mid-latitudes.",
+      "description": "The Great Bear, home to the Big Dipper, one of the most familiar star patterns in the sky.",
       "mythology": "Zeus fell in love with the nymph Callisto and Hera transformed her into a bear in jealousy. When her son Arcas nearly killed her while hunting, Zeus placed them both in the stars. Hera convinced Poseidon never to let them sink below the horizon, which is why they are circumpolar.",
       "ra": "11h 0m",
       "dec": "+55°",
@@ -961,55 +1391,109 @@
           "x": 25,
           "y": 25,
           "size": "md",
-          "name": "Dubhe"
+          "name": "Dubhe",
+          "magnitude": 1.79,
+          "spectralClass": "K0III",
+          "ra": "11h 04m",
+          "dec": "+61° 45'",
+          "distance": 124,
+          "starType": "Orange giant star"
         },
         {
           "x": 25,
           "y": 45,
           "size": "md",
-          "name": "Merak"
+          "name": "Merak",
+          "magnitude": 2.37,
+          "spectralClass": "A1V",
+          "ra": "11h 02m",
+          "dec": "+56° 23'",
+          "distance": 79,
+          "starType": "White main-sequence star"
         },
         {
           "x": 48,
           "y": 48,
           "size": "md",
-          "name": "Phecda"
+          "name": "Phecda",
+          "magnitude": 2.44,
+          "spectralClass": "A0V",
+          "ra": "11h 54m",
+          "dec": "+53° 42'",
+          "distance": 84,
+          "starType": "White main-sequence star"
         },
         {
           "x": 48,
           "y": 28,
           "size": "md",
-          "name": "Megrez"
+          "name": "Megrez",
+          "magnitude": 3.31,
+          "spectralClass": "A3V",
+          "ra": "12h 15m",
+          "dec": "+57° 02'",
+          "distance": 81,
+          "starType": "White main-sequence star, the faintest of the Big Dipper's stars"
         },
         {
           "x": 65,
           "y": 25,
           "size": "lg",
-          "name": "Alioth"
+          "name": "Alioth",
+          "magnitude": 1.77,
+          "spectralClass": "A0p",
+          "ra": "12h 54m",
+          "dec": "+55° 58'",
+          "distance": 81,
+          "starType": "White star with a peculiar, strongly magnetic surface"
         },
         {
           "x": 82,
           "y": 20,
           "size": "md",
-          "name": "Mizar"
+          "name": "Mizar",
+          "magnitude": 2.23,
+          "spectralClass": "A2V",
+          "ra": "13h 24m",
+          "dec": "+54° 56'",
+          "distance": 83,
+          "starType": "White main-sequence star, forms a famous naked-eye double with Alcor"
         },
         {
           "x": 95,
           "y": 15,
           "size": "md",
-          "name": "Alkaid"
+          "name": "Alkaid",
+          "magnitude": 1.86,
+          "spectralClass": "B3V",
+          "ra": "13h 48m",
+          "dec": "+49° 19'",
+          "distance": 101,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 15,
           "y": 65,
           "size": "sm",
-          "name": "Talitha"
+          "name": "Talitha",
+          "magnitude": 3.14,
+          "spectralClass": "A7IV",
+          "ra": "08h 59m",
+          "dec": "+48° 03'",
+          "distance": 48,
+          "starType": "White subgiant star"
         },
         {
           "x": 35,
           "y": 75,
           "size": "sm",
-          "name": "Tania Australis"
+          "name": "Tania Australis",
+          "magnitude": 3.06,
+          "spectralClass": "M0III",
+          "ra": "10h 22m",
+          "dec": "+41° 30'",
+          "distance": 249,
+          "starType": "Red giant star"
         }
       ],
       "connections": [
@@ -1060,14 +1544,16 @@
         "signalDrift": "0.001°/yr"
       },
       "observationWindow": "Year-round",
-      "skySector": "NORTHERN-CIRCUMPOLAR"
+      "skySector": "NORTHERN-CIRCUMPOLAR",
+      "practicalUses": "The two 'pointer stars' at the front of the Dipper's bowl line up almost exactly with Polaris, making this constellation the most common way for northern-hemisphere skywatchers to find true north.",
+      "culturalSignificance": "Chinese astronomers called it Běidǒu, the Northern Dipper, using its handle's rotation through the seasons as a natural calendar; many Native American traditions saw the bowl as a bear pursued by hunters represented in the handle stars, while Hindu tradition names its seven stars the Saptarshi, the Seven Sages."
     },
     {
       "id": "corvus",
       "name": "Corvus",
       "latinName": "Corvus",
       "type": "Southern",
-      "description": "The Crow, a small but distinctive quadrilateral near Virgo. Contains the interacting Antennae Galaxies.",
+      "description": "The Crow, a small, neat quadrilateral of stars perched beside Virgo.",
       "mythology": "Apollo sent a crow to fetch water. The crow was distracted by a fig tree and returned late with a water snake as excuse. Apollo placed all three in the sky, the crow forever unable to drink from the nearby cup.",
       "ra": "12h 15m",
       "dec": "-18°",
@@ -1081,31 +1567,61 @@
           "x": 30,
           "y": 25,
           "size": "md",
-          "name": "Alchiba"
+          "name": "Alchiba",
+          "magnitude": 4.02,
+          "spectralClass": "F0IV/V",
+          "ra": "12h 08m",
+          "dec": "-24° 44'",
+          "distance": 48,
+          "starType": "Yellow-white subgiant star"
         },
         {
           "x": 65,
           "y": 20,
           "size": "lg",
-          "name": "Gienah"
+          "name": "Gienah",
+          "magnitude": 2.58,
+          "spectralClass": "B8III",
+          "ra": "12h 16m",
+          "dec": "-17° 33'",
+          "distance": 165,
+          "starType": "Blue-white giant star"
         },
         {
           "x": 70,
           "y": 55,
           "size": "md",
-          "name": "Delta Corvi"
+          "name": "Delta Corvi",
+          "magnitude": 2.94,
+          "spectralClass": "B9.5V",
+          "ra": "12h 30m",
+          "dec": "-16° 31'",
+          "distance": 88,
+          "starType": "White main-sequence star"
         },
         {
           "x": 28,
           "y": 58,
           "size": "md",
-          "name": "Algorab"
+          "name": "Algorab",
+          "magnitude": 2.94,
+          "spectralClass": "B9.5V",
+          "ra": "12h 30m",
+          "dec": "-16° 31'",
+          "distance": 88,
+          "starType": "White main-sequence star (same star as Delta Corvi)"
         },
         {
           "x": 48,
           "y": 72,
           "size": "sm",
-          "name": "Epsilon Corvi"
+          "name": "Epsilon Corvi",
+          "magnitude": 3.02,
+          "spectralClass": "K2III",
+          "ra": "12h 10m",
+          "dec": "-22° 37'",
+          "distance": 303,
+          "starType": "Orange giant star"
         }
       ],
       "connections": [
@@ -1140,14 +1656,16 @@
         "signalDrift": "0.005°/yr"
       },
       "observationWindow": "Mar-Jun",
-      "skySector": "SOUTHERN"
+      "skySector": "SOUTHERN",
+      "practicalUses": "Its compact, easily traced shape made Corvus a useful minor waypoint for skywatchers navigating the region between the much larger constellations Virgo and Hydra.",
+      "culturalSignificance": "Chinese astronomers folded Corvus into Zhěn, the Chariot, one of the 28 lunar mansions used to track the Moon's monthly path across the sky."
     },
     {
       "id": "virgo",
       "name": "Virgo",
       "latinName": "Virgo",
       "type": "Zodiacal",
-      "description": "The Maiden, the largest zodiac constellation. Spica is its brightest star. Contains the Virgo Cluster of galaxies.",
+      "description": "The Maiden, the largest constellation of the zodiac, holding an ear of wheat marked by the star Spica.",
       "mythology": "Virgo is Demeter, goddess of the harvest, or her daughter Persephone. When Persephone descends to the underworld each autumn, Demeter's grief causes winter. Spica, held in the maiden's hand, represents a sheaf of wheat.",
       "ra": "13h 30m",
       "dec": "-4°",
@@ -1161,43 +1679,85 @@
           "x": 55,
           "y": 85,
           "size": "lg",
-          "name": "Spica"
+          "name": "Spica",
+          "magnitude": 0.98,
+          "spectralClass": "B1V",
+          "ra": "13h 25m",
+          "dec": "-11° 10'",
+          "distance": 262,
+          "starType": "Blue giant star (close binary)"
         },
         {
           "x": 48,
           "y": 55,
           "size": "md",
-          "name": "Porrima"
+          "name": "Porrima",
+          "magnitude": 2.74,
+          "spectralClass": "F0V",
+          "ra": "12h 42m",
+          "dec": "-01° 27'",
+          "distance": 39,
+          "starType": "White main-sequence star (binary pair)"
         },
         {
           "x": 20,
           "y": 15,
           "size": "md",
-          "name": "Vindemiatrix"
+          "name": "Vindemiatrix",
+          "magnitude": 2.85,
+          "spectralClass": "G8III",
+          "ra": "13h 02m",
+          "dec": "+10° 58'",
+          "distance": 102,
+          "starType": "Yellow giant star"
         },
         {
           "x": 60,
           "y": 25,
           "size": "sm",
-          "name": "Auva"
+          "name": "Auva",
+          "magnitude": 3.39,
+          "spectralClass": "M3III",
+          "ra": "12h 56m",
+          "dec": "+03° 24'",
+          "distance": 202,
+          "starType": "Red giant star"
         },
         {
           "x": 68,
           "y": 45,
           "size": "sm",
-          "name": "Heze"
+          "name": "Heze",
+          "magnitude": 3.38,
+          "spectralClass": "A3V",
+          "ra": "13h 35m",
+          "dec": "-00° 36'",
+          "distance": 73,
+          "starType": "White main-sequence star"
         },
         {
           "x": 30,
           "y": 35,
           "size": "sm",
-          "name": "Zaniah"
+          "name": "Zaniah",
+          "magnitude": 3.89,
+          "spectralClass": "A2IV",
+          "ra": "12h 20m",
+          "dec": "-00° 40'",
+          "distance": 250,
+          "starType": "White subgiant star"
         },
         {
           "x": 78,
           "y": 65,
           "size": "sm",
-          "name": "Syrma"
+          "name": "Syrma",
+          "magnitude": 4.07,
+          "spectralClass": "F7III",
+          "ra": "14h 16m",
+          "dec": "-06° 00'",
+          "distance": 70,
+          "starType": "Yellow-white giant star"
         }
       ],
       "connections": [
@@ -1236,14 +1796,16 @@
         "signalDrift": "0.003°/yr"
       },
       "observationWindow": "Mar-Jul",
-      "skySector": "EQUATORIAL"
+      "skySector": "EQUATORIAL",
+      "practicalUses": "Virgo's appearance was tied to harvest time in many farming societies, and the wheat-sheaf imagery around Spica made it a natural seasonal marker for the grain harvest.",
+      "culturalSignificance": "Babylonian astronomers pictured this region as 'the Furrow,' associated with the grain goddess Shala, a farming symbolism that closely parallels the Greek image of a harvest maiden; Chinese astronomy splits the same stars among several lunar mansions."
     },
     {
       "id": "centaurus",
       "name": "Centaurus",
       "latinName": "Centaurus",
       "type": "Southern",
-      "description": "The Centaur, containing Alpha Centauri, the nearest star system to the Sun. Omega Centauri is the finest globular cluster in the sky.",
+      "description": "The Centaur, a large southern constellation containing Alpha Centauri, our closest neighboring star system.",
       "mythology": "Centaurus is Chiron, the wisest of the centaurs and tutor to Achilles. Accidentally wounded by Heracles's poisoned arrow, he suffered eternally as an immortal until Zeus granted him release among the stars.",
       "ra": "13h 0m",
       "dec": "-47°",
@@ -1257,43 +1819,85 @@
           "x": 80,
           "y": 75,
           "size": "lg",
-          "name": "Alpha Centauri"
+          "name": "Alpha Centauri",
+          "magnitude": -0.01,
+          "spectralClass": "G2V",
+          "ra": "14h 40m",
+          "dec": "-60° 50'",
+          "distance": 4.36,
+          "starType": "Yellow main-sequence star (Sun-like), part of the nearest star system to the Sun"
         },
         {
           "x": 65,
           "y": 68,
           "size": "lg",
-          "name": "Hadar"
+          "name": "Hadar",
+          "magnitude": 0.61,
+          "spectralClass": "B1III",
+          "ra": "14h 04m",
+          "dec": "-60° 22'",
+          "distance": 525,
+          "starType": "Blue giant star"
         },
         {
           "x": 35,
           "y": 25,
           "size": "md",
-          "name": "Menkent"
+          "name": "Menkent",
+          "magnitude": 2.06,
+          "spectralClass": "K0III",
+          "ra": "14h 07m",
+          "dec": "-36° 22'",
+          "distance": 61,
+          "starType": "Orange giant star"
         },
         {
           "x": 25,
           "y": 15,
           "size": "md",
-          "name": "Muhlifain"
+          "name": "Muhlifain",
+          "magnitude": 2.2,
+          "spectralClass": "A1IV",
+          "ra": "12h 42m",
+          "dec": "-48° 58'",
+          "distance": 130,
+          "starType": "White subgiant star"
         },
         {
           "x": 45,
           "y": 40,
           "size": "sm",
-          "name": "Epsilon Centauri"
+          "name": "Epsilon Centauri",
+          "magnitude": 2.29,
+          "spectralClass": "B1III",
+          "ra": "13h 40m",
+          "dec": "-53° 28'",
+          "distance": 376,
+          "starType": "Blue giant star"
         },
         {
           "x": 60,
           "y": 85,
           "size": "sm",
-          "name": "Eta Centauri"
+          "name": "Eta Centauri",
+          "magnitude": 2.33,
+          "spectralClass": "B1V",
+          "ra": "14h 36m",
+          "dec": "-42° 09'",
+          "distance": 308,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 55,
           "y": 55,
           "size": "sm",
-          "name": "Zeta Centauri"
+          "name": "Zeta Centauri",
+          "magnitude": 2.55,
+          "spectralClass": "B2.5IV",
+          "ra": "13h 56m",
+          "dec": "-47° 17'",
+          "distance": 384,
+          "starType": "Blue-white subgiant star"
         }
       ],
       "connections": [
@@ -1328,14 +1932,16 @@
         "signalDrift": "0.020°/yr"
       },
       "observationWindow": "Mar-Aug",
-      "skySector": "SOUTHERN"
+      "skySector": "SOUTHERN",
+      "practicalUses": "Alpha and Beta Centauri, known as 'the Pointers,' have long been used by southern-hemisphere navigators to locate the Southern Cross and, from it, the south celestial pole.",
+      "culturalSignificance": "Many Aboriginal Australian traditions weave the Pointer stars into a larger sky-story involving the nearby dark 'Emu in the Sky,' reading the dark dust lanes of the Milky Way alongside the bright stars."
     },
     {
       "id": "crux",
       "name": "Crux",
       "latinName": "Crux",
       "type": "Southern",
-      "description": "The Southern Cross, the smallest constellation and one of the most distinctive. Acrux points toward the south celestial pole.",
+      "description": "The Southern Cross, the smallest constellation in the sky but one of the most instantly recognizable.",
       "mythology": "Crux was known to ancient Greeks but sank below the European horizon over millennia. Portuguese explorers rediscovered it in the 15th century and saw it as a divine cross guiding their voyages into the southern seas.",
       "ra": "12h 30m",
       "dec": "-60°",
@@ -1349,31 +1955,61 @@
           "x": 50,
           "y": 85,
           "size": "lg",
-          "name": "Acrux"
+          "name": "Acrux",
+          "magnitude": 1.4,
+          "spectralClass": "B0.5IV",
+          "ra": "12h 27m",
+          "dec": "-63° 06'",
+          "distance": 321,
+          "starType": "Blue subgiant star (multiple star system)"
         },
         {
           "x": 50,
           "y": 15,
           "size": "lg",
-          "name": "Gacrux"
+          "name": "Gacrux",
+          "magnitude": 1.6,
+          "spectralClass": "M4III",
+          "ra": "12h 31m",
+          "dec": "-57° 07'",
+          "distance": 88,
+          "starType": "Red giant star"
         },
         {
           "x": 15,
           "y": 50,
           "size": "md",
-          "name": "Delta Crucis"
+          "name": "Delta Crucis",
+          "magnitude": 2.79,
+          "spectralClass": "B2IV",
+          "ra": "12h 15m",
+          "dec": "-58° 45'",
+          "distance": 364,
+          "starType": "Blue-white subgiant star"
         },
         {
           "x": 85,
           "y": 50,
           "size": "lg",
-          "name": "Mimosa"
+          "name": "Mimosa",
+          "magnitude": 1.25,
+          "spectralClass": "B0.5III",
+          "ra": "12h 48m",
+          "dec": "-59° 41'",
+          "distance": 352,
+          "starType": "Blue giant star"
         },
         {
           "x": 65,
           "y": 62,
           "size": "sm",
-          "name": "Epsilon Crucis"
+          "name": "Epsilon Crucis",
+          "magnitude": 3.59,
+          "spectralClass": "K3III",
+          "ra": "12h 21m",
+          "dec": "-60° 24'",
+          "distance": 228,
+          "starType": "Orange giant star"
         }
       ],
       "connections": [
@@ -1396,14 +2032,16 @@
         "signalDrift": "0.003°/yr"
       },
       "observationWindow": "Feb-Aug",
-      "skySector": "SOUTHERN-CIRCUMPOLAR"
+      "skySector": "SOUTHERN-CIRCUMPOLAR",
+      "practicalUses": "Crux's long axis points almost directly toward the south celestial pole, making it the primary tool navigators and travelers in the southern hemisphere have used for centuries to find true south.",
+      "culturalSignificance": "It appears on the national flags of Australia, New Zealand, Brazil, and other southern nations; Aboriginal Australian traditions incorporate it into the 'Emu in the Sky' dark constellation, and Māori tradition knows it as Te Punga, the anchor of a great canoe."
     },
     {
       "id": "bootes",
       "name": "Boötes",
       "latinName": "Boötes",
       "type": "Northern",
-      "description": "The Herdsman. Arcturus is its alpha star, the brightest in the northern hemisphere.",
+      "description": "The Herdsman, a kite-shaped constellation led by Arcturus, the brightest star of the northern sky.",
       "mythology": "Boötes is Arcas driving the Great Bear around the pole, or Icarius, an Athenian farmer taught winemaking by Dionysus. When shepherds who drank his wine thought they were poisoned and killed him, Dionysus placed him among the stars.",
       "ra": "14h 42m",
       "dec": "+27°",
@@ -1417,49 +2055,97 @@
           "x": 50,
           "y": 88,
           "size": "lg",
-          "name": "Arcturus"
+          "name": "Arcturus",
+          "magnitude": -0.05,
+          "spectralClass": "K2III",
+          "ra": "14h 16m",
+          "dec": "+19° 11'",
+          "distance": 37,
+          "starType": "Orange giant star"
         },
         {
           "x": 68,
           "y": 50,
           "size": "md",
-          "name": "Izar"
+          "name": "Izar",
+          "magnitude": 2.37,
+          "spectralClass": "K0III",
+          "ra": "14h 45m",
+          "dec": "+27° 04'",
+          "distance": 236,
+          "starType": "Orange giant star (colorful double star)"
         },
         {
           "x": 32,
           "y": 50,
           "size": "md",
-          "name": "Eta Bootis"
+          "name": "Eta Bootis",
+          "magnitude": 2.68,
+          "spectralClass": "G0IV",
+          "ra": "13h 55m",
+          "dec": "+18° 24'",
+          "distance": 37,
+          "starType": "Yellow-white subgiant star"
         },
         {
           "x": 42,
           "y": 28,
           "size": "sm",
-          "name": "Seginus"
+          "name": "Seginus",
+          "magnitude": 3.04,
+          "spectralClass": "A7III",
+          "ra": "14h 32m",
+          "dec": "+38° 18'",
+          "distance": 85,
+          "starType": "White giant star"
         },
         {
           "x": 58,
           "y": 28,
           "size": "sm",
-          "name": "Delta Bootis"
+          "name": "Delta Bootis",
+          "magnitude": 3.46,
+          "spectralClass": "G8III",
+          "ra": "15h 16m",
+          "dec": "+33° 19'",
+          "distance": 117,
+          "starType": "Yellow giant star"
         },
         {
           "x": 50,
           "y": 15,
           "size": "sm",
-          "name": "Nekkar"
+          "name": "Nekkar",
+          "magnitude": 3.49,
+          "spectralClass": "G8III",
+          "ra": "15h 02m",
+          "dec": "+40° 23'",
+          "distance": 219,
+          "starType": "Yellow giant star"
         },
         {
           "x": 62,
           "y": 72,
           "size": "sm",
-          "name": "Zeta Bootis"
+          "name": "Zeta Bootis",
+          "magnitude": 3.78,
+          "spectralClass": "A3IV",
+          "ra": "14h 41m",
+          "dec": "+13° 44'",
+          "distance": 180,
+          "starType": "White subgiant star (close binary)"
         },
         {
           "x": 38,
           "y": 72,
           "size": "sm",
-          "name": "Rho Bootis"
+          "name": "Rho Bootis",
+          "magnitude": 3.57,
+          "spectralClass": "K3III",
+          "ra": "14h 32m",
+          "dec": "+30° 22'",
+          "distance": 149,
+          "starType": "Orange giant star"
         }
       ],
       "connections": [
@@ -1502,14 +2188,16 @@
         "signalDrift": "0.008°/yr"
       },
       "observationWindow": "Mar-Aug",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Arcturus's brightness and position made it a reliable marker for the arrival of spring, and the saying 'follow the arc to Arcturus' has long helped skywatchers star-hop from the Big Dipper's handle.",
+      "culturalSignificance": "Arabic astronomers named Arcturus 'Al Simak al-Rāmiḥ,' the lofty lance-bearer, one of two prominent stars they called 'the raised ones' (the other being Spica in Virgo), a naming tradition that fed directly into medieval European star catalogs."
     },
     {
       "id": "libra",
       "name": "Libra",
       "latinName": "Libra",
       "type": "Zodiacal",
-      "description": "The Scales, the only zodiac constellation representing an inanimate object. Originally part of Scorpius.",
+      "description": "The Scales, the only zodiac constellation to represent an object rather than a person or animal.",
       "mythology": "Libra represents the scales of justice held by Astraea, goddess of justice associated with Virgo. The star names Zubenelgenubi and Zubeneschamali are Arabic for 'southern claw' and 'northern claw', remnants of when they belonged to Scorpius.",
       "ra": "15h 15m",
       "dec": "-15°",
@@ -1523,31 +2211,61 @@
           "x": 25,
           "y": 30,
           "size": "md",
-          "name": "Zubenelgenubi"
+          "name": "Zubenelgenubi",
+          "magnitude": 2.75,
+          "spectralClass": "A3IV",
+          "ra": "14h 51m",
+          "dec": "-16° 02'",
+          "distance": 77,
+          "starType": "White subgiant star (multiple star system)"
         },
         {
           "x": 75,
           "y": 30,
           "size": "md",
-          "name": "Zubeneschamali"
+          "name": "Zubeneschamali",
+          "magnitude": 2.61,
+          "spectralClass": "B8V",
+          "ra": "15h 17m",
+          "dec": "-09° 23'",
+          "distance": 160,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 45,
           "y": 65,
           "size": "sm",
-          "name": "Zubenelakrab"
+          "name": "Zubenelakrab",
+          "magnitude": 3.6,
+          "spectralClass": "K3III",
+          "ra": "15h 37m",
+          "dec": "-28° 08'",
+          "distance": 224,
+          "starType": "Orange giant star (historically confused with a neighboring star of nearly the same name)"
         },
         {
           "x": 60,
           "y": 60,
           "size": "sm",
-          "name": "Brachium"
+          "name": "Brachium",
+          "magnitude": 3.25,
+          "spectralClass": "M3III",
+          "ra": "15h 04m",
+          "dec": "-25° 17'",
+          "distance": 292,
+          "starType": "Red giant star"
         },
         {
           "x": 25,
           "y": 60,
           "size": "sm",
-          "name": "Zubenelhakrabi"
+          "name": "Zubenelhakrabi",
+          "magnitude": 3.91,
+          "spectralClass": "K0III",
+          "ra": "15h 36m",
+          "dec": "-14° 47'",
+          "distance": 152,
+          "starType": "Orange giant star, known to host two planets"
         }
       ],
       "connections": [
@@ -1578,14 +2296,16 @@
         "signalDrift": "0.007°/yr"
       },
       "observationWindow": "Apr-Aug",
-      "skySector": "SOUTHERN-EQUATORIAL"
+      "skySector": "SOUTHERN-EQUATORIAL",
+      "practicalUses": "When the Sun passed through this part of the sky in antiquity, day and night were of equal length, and the scales came to symbolize that seasonal balance at the autumnal equinox.",
+      "culturalSignificance": "Babylonian astronomers already called this pattern the 'Scales' (zibānītu) roughly 2,000 years before the Greeks adopted the same image, associating it with the sun god Shamash as patron of truth and justice."
     },
     {
       "id": "corona-borealis",
       "name": "Corona Borealis",
       "latinName": "Corona Borealis",
       "type": "Northern",
-      "description": "The Northern Crown, a distinctive semicircle of stars. Alphecca is its brightest star.",
+      "description": "The Northern Crown, a small, graceful semicircle of stars anchored by bright Alphecca.",
       "mythology": "Corona Borealis is the crown of Ariadne, who helped Theseus slay the Minotaur. Abandoned by Theseus, she was found by Dionysus who made her his wife. At their wedding he gave her a golden crown, which Zeus placed among the stars.",
       "ra": "15h 50m",
       "dec": "+30°",
@@ -1599,43 +2319,85 @@
           "x": 65,
           "y": 15,
           "size": "lg",
-          "name": "Alphecca"
+          "name": "Alphecca",
+          "magnitude": 2.22,
+          "spectralClass": "A0V",
+          "ra": "15h 35m",
+          "dec": "+26° 43'",
+          "distance": 75,
+          "starType": "White main-sequence star (eclipsing binary)"
         },
         {
           "x": 88,
           "y": 48,
           "size": "sm",
-          "name": "Theta CrB"
+          "name": "Theta CrB",
+          "magnitude": 4.14,
+          "spectralClass": "B6Vnn",
+          "ra": "15h 33m",
+          "dec": "+31° 22'",
+          "distance": 311,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 77,
           "y": 28,
           "size": "sm",
-          "name": "Beta CrB"
+          "name": "Beta CrB",
+          "magnitude": 3.66,
+          "spectralClass": "F0p",
+          "ra": "15h 28m",
+          "dec": "+29° 06'",
+          "distance": 114,
+          "starType": "Yellow-white star with a peculiar magnetic spectrum"
         },
         {
           "x": 54,
           "y": 12,
           "size": "sm",
-          "name": "Gamma CrB"
+          "name": "Gamma CrB",
+          "magnitude": 3.81,
+          "spectralClass": "A1Vs",
+          "ra": "15h 43m",
+          "dec": "+26° 18'",
+          "distance": 145,
+          "starType": "White main-sequence star"
         },
         {
           "x": 41,
           "y": 20,
           "size": "sm",
-          "name": "Delta CrB"
+          "name": "Delta CrB",
+          "magnitude": 4.59,
+          "spectralClass": "G5III-IV",
+          "ra": "15h 50m",
+          "dec": "+26° 04'",
+          "distance": 165,
+          "starType": "Yellow giant star"
         },
         {
           "x": 15,
           "y": 55,
           "size": "sm",
-          "name": "Eta CrB"
+          "name": "Eta CrB",
+          "magnitude": 4.99,
+          "spectralClass": "G2V",
+          "ra": "15h 23m",
+          "dec": "+30° 17'",
+          "distance": 61,
+          "starType": "Yellow main-sequence star (Sun-like binary pair)"
         },
         {
           "x": 28,
           "y": 35,
           "size": "sm",
-          "name": "Epsilon CrB"
+          "name": "Epsilon CrB",
+          "magnitude": 4.14,
+          "spectralClass": "K3III",
+          "ra": "15h 58m",
+          "dec": "+26° 53'",
+          "distance": 230,
+          "starType": "Orange giant star"
         }
       ],
       "connections": [
@@ -1670,14 +2432,16 @@
         "signalDrift": "0.007°/yr"
       },
       "observationWindow": "Apr-Sep",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Too faint and small for practical navigation, Corona Borealis mainly served skywatchers as a memorable landmark for orienting themselves between the larger constellations Boötes and Hercules nearby.",
+      "culturalSignificance": "The Shawnee told of it as the 'Celestial Sisters,' star maidens who descended in a basket to dance in a circle on Earth, while Chinese astronomers saw the same stars as Guànsuǒ, a coiled rope representing a prison."
     },
     {
       "id": "ursa-minor",
       "name": "Ursa Minor",
       "latinName": "Ursa Minor",
       "type": "Northern",
-      "description": "The Little Bear, containing Polaris, the North Star. Circumpolar and always visible from the northern hemisphere.",
+      "description": "The Little Bear, home to Polaris, the star that currently marks true north.",
       "mythology": "Ursa Minor is Arcas, the son of Callisto, placed in the sky by Zeus alongside his mother. Polaris at the tip of its tail has guided navigators for millennia. Ancient Greeks called it Cynosura, the guiding star.",
       "ra": "15h 0m",
       "dec": "+75°",
@@ -1691,43 +2455,85 @@
           "x": 50,
           "y": 10,
           "size": "lg",
-          "name": "Polaris"
+          "name": "Polaris",
+          "magnitude": 1.97,
+          "spectralClass": "F7Ib",
+          "ra": "02h 32m",
+          "dec": "+89° 16'",
+          "distance": 431,
+          "starType": "Yellow-white supergiant, today's North Star (a pulsating Cepheid variable)"
         },
         {
           "x": 55,
           "y": 28,
           "size": "sm",
-          "name": "Yildun"
+          "name": "Yildun",
+          "magnitude": 4.35,
+          "spectralClass": "A1Vn",
+          "ra": "17h 32m",
+          "dec": "+86° 35'",
+          "distance": 183,
+          "starType": "White main-sequence star"
         },
         {
           "x": 58,
           "y": 45,
           "size": "sm",
-          "name": "Epsilon UMi"
+          "name": "Epsilon UMi",
+          "magnitude": 4.21,
+          "spectralClass": "G5III",
+          "ra": "16h 46m",
+          "dec": "+82° 02'",
+          "distance": 346,
+          "starType": "Yellow giant star (eclipsing binary)"
         },
         {
           "x": 62,
           "y": 60,
           "size": "sm",
-          "name": "Zeta UMi"
+          "name": "Zeta UMi",
+          "magnitude": 4.29,
+          "spectralClass": "A3Vn",
+          "ra": "15h 44m",
+          "dec": "+77° 48'",
+          "distance": 376,
+          "starType": "White main-sequence star"
         },
         {
           "x": 48,
           "y": 65,
           "size": "md",
-          "name": "Eta UMi"
+          "name": "Eta UMi",
+          "magnitude": 4.95,
+          "spectralClass": "F5V",
+          "ra": "16h 18m",
+          "dec": "+75° 45'",
+          "distance": 97,
+          "starType": "Yellow-white main-sequence star"
         },
         {
           "x": 35,
           "y": 78,
           "size": "md",
-          "name": "Kochab"
+          "name": "Kochab",
+          "magnitude": 2.07,
+          "spectralClass": "K4III",
+          "ra": "14h 51m",
+          "dec": "+74° 09'",
+          "distance": 126,
+          "starType": "Orange giant star, an ancient pole star"
         },
         {
           "x": 45,
           "y": 85,
           "size": "md",
-          "name": "Pherkad"
+          "name": "Pherkad",
+          "magnitude": 3.04,
+          "spectralClass": "A3II-III",
+          "ra": "15h 21m",
+          "dec": "+71° 50'",
+          "distance": 480,
+          "starType": "White bright giant star"
         }
       ],
       "connections": [
@@ -1766,14 +2572,16 @@
         "signalDrift": "0.000°/yr"
       },
       "observationWindow": "Year-round",
-      "skySector": "NORTHERN-CIRCUMPOLAR"
+      "skySector": "NORTHERN-CIRCUMPOLAR",
+      "practicalUses": "Because Polaris sits almost directly above Earth's rotational axis, it barely moves in the sky, making it the most important star in the northern hemisphere for judging latitude and finding direction.",
+      "culturalSignificance": "Chinese astronomy placed the celestial pole near the seat of the emperor in the Ziwei enclosure, and Polynesian navigators knew Polaris as Hōkūpaʻa, the 'fixed star,' using its height above the horizon to judge how far north or south they had sailed."
     },
     {
       "id": "hercules",
       "name": "Hercules",
       "latinName": "Hercules",
       "type": "Northern",
-      "description": "The Kneeler, the fifth largest constellation. Home to M13, the finest globular cluster in the northern sky.",
+      "description": "The Kneeler, a large but faint constellation home to the Hercules Cluster, one of the finest star clusters visible from the north.",
       "mythology": "Heracles was the greatest Greek hero, son of Zeus. Hera drove him mad and he killed his family. As penance the Oracle assigned him twelve labors. He completed them all, earning immortality and a place among the stars.",
       "ra": "17h 0m",
       "dec": "+28°",
@@ -1787,49 +2595,97 @@
           "x": 45,
           "y": 35,
           "size": "lg",
-          "name": "Kornephoros"
+          "name": "Kornephoros",
+          "magnitude": 2.78,
+          "spectralClass": "G8III",
+          "ra": "16h 30m",
+          "dec": "+21° 29'",
+          "distance": 148,
+          "starType": "Yellow giant star"
         },
         {
           "x": 60,
           "y": 32,
           "size": "md",
-          "name": "Zeta Herculis"
+          "name": "Zeta Herculis",
+          "magnitude": 2.81,
+          "spectralClass": "F9IV",
+          "ra": "16h 41m",
+          "dec": "+31° 36'",
+          "distance": 35,
+          "starType": "Yellow-white subgiant star"
         },
         {
           "x": 62,
           "y": 50,
           "size": "md",
-          "name": "Pi Herculis"
+          "name": "Pi Herculis",
+          "magnitude": 3.16,
+          "spectralClass": "K3II",
+          "ra": "17h 15m",
+          "dec": "+36° 49'",
+          "distance": 367,
+          "starType": "Orange bright giant star"
         },
         {
           "x": 43,
           "y": 50,
           "size": "sm",
-          "name": "Eta Herculis"
+          "name": "Eta Herculis",
+          "magnitude": 3.48,
+          "spectralClass": "G7III",
+          "ra": "16h 43m",
+          "dec": "+38° 55'",
+          "distance": 112,
+          "starType": "Yellow giant star"
         },
         {
           "x": 30,
           "y": 20,
           "size": "sm",
-          "name": "Sigma Herculis"
+          "name": "Sigma Herculis",
+          "magnitude": 4.2,
+          "spectralClass": "B9V",
+          "ra": "16h 34m",
+          "dec": "+42° 26'",
+          "distance": 302,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 75,
           "y": 20,
           "size": "sm",
-          "name": "Delta Herculis"
+          "name": "Delta Herculis",
+          "magnitude": 3.12,
+          "spectralClass": "A3IV",
+          "ra": "17h 15m",
+          "dec": "+24° 50'",
+          "distance": 78,
+          "starType": "White subgiant star"
         },
         {
           "x": 35,
           "y": 68,
           "size": "sm",
-          "name": "Alpha Herculis"
+          "name": "Alpha Herculis",
+          "magnitude": 3.31,
+          "spectralClass": "M5II",
+          "ra": "17h 15m",
+          "dec": "+14° 23'",
+          "distance": 382,
+          "starType": "Red giant star (a huge pulsating variable, one of the largest stars visible to the naked eye)"
         },
         {
           "x": 70,
           "y": 68,
           "size": "sm",
-          "name": "Lambda Herculis"
+          "name": "Lambda Herculis",
+          "magnitude": 4.41,
+          "spectralClass": "K3III",
+          "ra": "17h 31m",
+          "dec": "+26° 07'",
+          "distance": 367,
+          "starType": "Orange giant star"
         }
       ],
       "connections": [
@@ -1872,14 +2728,16 @@
         "signalDrift": "0.006°/yr"
       },
       "observationWindow": "May-Oct",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Hercules is too faint to have served as a major navigational marker, but its position between brighter neighbors made it a useful reference point for locating the globular cluster M13 with a telescope.",
+      "culturalSignificance": "The kneeling-figure pattern predates the Greek hero legend attached to it; an earlier Babylonian tradition associated the same stars with a kneeling or struggling figure before it was identified with Heracles."
     },
     {
       "id": "ophiuchus",
       "name": "Ophiuchus",
       "latinName": "Ophiuchus",
       "type": "Equatorial",
-      "description": "The Serpent Bearer, the 13th ecliptic constellation. Contains more globular clusters than any other constellation.",
+      "description": "The Serpent Bearer, a large constellation straddling the zodiac and wrestling the neighboring constellation Serpens.",
       "mythology": "Ophiuchus is Asclepius, god of medicine, so skilled he could resurrect the dead. Hades was alarmed and Zeus struck him down. Apollo convinced Zeus to honor him among the stars. His image with a serpent became the basis for the caduceus, symbol of medicine.",
       "ra": "17h 23m",
       "dec": "-7°",
@@ -1893,43 +2751,85 @@
           "x": 55,
           "y": 12,
           "size": "lg",
-          "name": "Rasalhague"
+          "name": "Rasalhague",
+          "magnitude": 2.08,
+          "spectralClass": "A5III",
+          "ra": "17h 35m",
+          "dec": "+12° 34'",
+          "distance": 47,
+          "starType": "White giant star"
         },
         {
           "x": 30,
           "y": 32,
           "size": "md",
-          "name": "Cebalrai"
+          "name": "Cebalrai",
+          "magnitude": 2.76,
+          "spectralClass": "K2III",
+          "ra": "17h 43m",
+          "dec": "+04° 34'",
+          "distance": 82,
+          "starType": "Orange giant star"
         },
         {
           "x": 75,
           "y": 32,
           "size": "md",
-          "name": "Yed Prior"
+          "name": "Yed Prior",
+          "magnitude": 2.73,
+          "spectralClass": "M1III",
+          "ra": "16h 14m",
+          "dec": "-03° 42'",
+          "distance": 170,
+          "starType": "Red giant star"
         },
         {
           "x": 32,
           "y": 55,
           "size": "sm",
-          "name": "Yed Posterior"
+          "name": "Yed Posterior",
+          "magnitude": 3.23,
+          "spectralClass": "G8III",
+          "ra": "16h 18m",
+          "dec": "-04° 42'",
+          "distance": 107,
+          "starType": "Yellow giant star"
         },
         {
           "x": 72,
           "y": 58,
           "size": "sm",
-          "name": "Eta Ophiuchi"
+          "name": "Eta Ophiuchi",
+          "magnitude": 2.43,
+          "spectralClass": "A2.5V",
+          "ra": "17h 10m",
+          "dec": "-15° 44'",
+          "distance": 84,
+          "starType": "White main-sequence star"
         },
         {
           "x": 45,
           "y": 85,
           "size": "sm",
-          "name": "Zeta Ophiuchi"
+          "name": "Zeta Ophiuchi",
+          "magnitude": 2.54,
+          "spectralClass": "O9.5V",
+          "ra": "16h 37m",
+          "dec": "-10° 34'",
+          "distance": 458,
+          "starType": "Blue main-sequence star, a massive runaway star"
         },
         {
           "x": 78,
           "y": 90,
           "size": "sm",
-          "name": "Theta Ophiuchi"
+          "name": "Theta Ophiuchi",
+          "magnitude": 3.27,
+          "spectralClass": "B2IV",
+          "ra": "17h 22m",
+          "dec": "-25° 00'",
+          "distance": 563,
+          "starType": "Blue subgiant star"
         }
       ],
       "connections": [
@@ -1968,14 +2868,16 @@
         "signalDrift": "0.003°/yr"
       },
       "observationWindow": "Jun-Aug",
-      "skySector": "EQUATORIAL"
+      "skySector": "EQUATORIAL",
+      "practicalUses": "Because the Sun actually passes through Ophiuchus every year, astronomers tracking the ecliptic closely have long had to account for it even though it was never counted among the traditional twelve zodiac signs.",
+      "culturalSignificance": "Some historians believe Babylonian astronomers recognized an earlier serpent-holding figure in this region, linked to the god Nirah, though the connection is unconfirmed; the Greeks later mapped the same stars onto the serpent-holding healer Asclepius."
     },
     {
       "id": "scorpius",
       "name": "Scorpius",
       "latinName": "Scorpius",
       "type": "Zodiacal",
-      "description": "The Scorpion, one of the most dramatic constellations. Features the red supergiant Antares at its heart.",
+      "description": "The Scorpion, one of the most vivid constellations in the sky, with the fiery red star Antares glowing at its heart.",
       "mythology": "Scorpius is the scorpion sent by Gaia to kill Orion. Zeus placed both in the sky on opposite sides, so when Scorpius rises in the east, Orion flees below the western horizon. Antares means 'rival of Mars' and glows with a deep reddish hue.",
       "ra": "16h 53m",
       "dec": "-30°",
@@ -1989,49 +2891,97 @@
           "x": 48,
           "y": 35,
           "size": "lg",
-          "name": "Antares"
+          "name": "Antares",
+          "magnitude": 0.91,
+          "spectralClass": "M1.5Iab",
+          "ra": "16h 29m",
+          "dec": "-26° 26'",
+          "distance": 553,
+          "starType": "Red supergiant, one of the largest known stars"
         },
         {
           "x": 30,
           "y": 18,
           "size": "md",
-          "name": "Graffias"
+          "name": "Graffias",
+          "magnitude": 2.62,
+          "spectralClass": "B0.5V",
+          "ra": "16h 05m",
+          "dec": "-19° 48'",
+          "distance": 530,
+          "starType": "Blue main-sequence star (multiple star system)"
         },
         {
           "x": 45,
           "y": 10,
           "size": "md",
-          "name": "Dschubba"
+          "name": "Dschubba",
+          "magnitude": 2.29,
+          "spectralClass": "B0.2IV",
+          "ra": "16h 00m",
+          "dec": "-22° 37'",
+          "distance": 401,
+          "starType": "Blue subgiant star (variable, emission-line star)"
         },
         {
           "x": 52,
           "y": 50,
           "size": "md",
-          "name": "Sigma Scorpii"
+          "name": "Sigma Scorpii",
+          "magnitude": 2.88,
+          "spectralClass": "B1III",
+          "ra": "16h 21m",
+          "dec": "-25° 36'",
+          "distance": 734,
+          "starType": "Blue giant star"
         },
         {
           "x": 58,
           "y": 65,
           "size": "sm",
-          "name": "Sargas"
+          "name": "Sargas",
+          "magnitude": 1.86,
+          "spectralClass": "F1II",
+          "ra": "17h 37m",
+          "dec": "-43° 00'",
+          "distance": 272,
+          "starType": "Yellow-white bright giant star"
         },
         {
           "x": 68,
           "y": 78,
           "size": "sm",
-          "name": "Shaula"
+          "name": "Shaula",
+          "magnitude": 1.62,
+          "spectralClass": "B2IV",
+          "ra": "17h 34m",
+          "dec": "-37° 06'",
+          "distance": 703,
+          "starType": "Blue subgiant star with a hidden neutron-star companion"
         },
         {
           "x": 80,
           "y": 70,
           "size": "sm",
-          "name": "Lesath"
+          "name": "Lesath",
+          "magnitude": 2.7,
+          "spectralClass": "B2IV",
+          "ra": "17h 31m",
+          "dec": "-37° 18'",
+          "distance": 518,
+          "starType": "Blue subgiant star"
         },
         {
           "x": 52,
           "y": 22,
           "size": "sm",
-          "name": "Alniyat"
+          "name": "Alniyat",
+          "magnitude": 2.88,
+          "spectralClass": "B1III",
+          "ra": "16h 21m",
+          "dec": "-25° 36'",
+          "distance": 430,
+          "starType": "Blue main-sequence star"
         }
       ],
       "connections": [
@@ -2070,14 +3020,16 @@
         "signalDrift": "0.001°/yr"
       },
       "observationWindow": "May-Sep",
-      "skySector": "SOUTHERN"
+      "skySector": "SOUTHERN",
+      "practicalUses": "Scorpius's curling tail rises low in southern skies during summer evenings, and its appearance has long served as a seasonal marker heralding the warm months in the northern hemisphere.",
+      "culturalSignificance": "Hawaiian navigators saw the same curved shape as Maui's fishhook, Ka Makau Nui o Maui, used in legend to pull the islands up from the sea, while Chinese astronomy places these same stars in the tail of the Azure Dragon of the East."
     },
     {
       "id": "lyra",
       "name": "Lyra",
       "latinName": "Lyra",
       "type": "Northern",
-      "description": "The Lyre, small but brilliant. Vega is the fifth brightest star and future north pole star. Contains the Ring Nebula.",
+      "description": "The Lyre, a small but brilliant constellation marked by blue-white Vega, one of the brightest stars in the sky.",
       "mythology": "Lyra is the lyre of Orpheus, the greatest musician in Greek mythology. His music moved even Hades to allow his dead wife Eurydice to return. After his death, Zeus placed his lyre in the sky still singing.",
       "ra": "18h 50m",
       "dec": "+36°",
@@ -2091,37 +3043,73 @@
           "x": 50,
           "y": 10,
           "size": "lg",
-          "name": "Vega"
+          "name": "Vega",
+          "magnitude": 0.03,
+          "spectralClass": "A0V",
+          "ra": "18h 37m",
+          "dec": "+38° 47'",
+          "distance": 25,
+          "starType": "White main-sequence star, one of the most closely studied stars after the Sun"
         },
         {
           "x": 42,
           "y": 50,
           "size": "md",
-          "name": "Sheliak"
+          "name": "Sheliak",
+          "magnitude": 3.52,
+          "spectralClass": "A8V",
+          "ra": "18h 50m",
+          "dec": "+33° 22'",
+          "distance": 881,
+          "starType": "White main-sequence star (eclipsing binary, the prototype of its class)"
         },
         {
           "x": 55,
           "y": 72,
           "size": "md",
-          "name": "Sulafat"
+          "name": "Sulafat",
+          "magnitude": 3.25,
+          "spectralClass": "B9III",
+          "ra": "18h 59m",
+          "dec": "+32° 41'",
+          "distance": 634,
+          "starType": "Blue-white giant star"
         },
         {
           "x": 70,
           "y": 55,
           "size": "sm",
-          "name": "Delta Lyrae"
+          "name": "Delta Lyrae",
+          "magnitude": 4.22,
+          "spectralClass": "M4II",
+          "ra": "18h 55m",
+          "dec": "+36° 54'",
+          "distance": 898,
+          "starType": "Red giant star (part of a wide double star)"
         },
         {
           "x": 62,
           "y": 28,
           "size": "sm",
-          "name": "Zeta Lyrae"
+          "name": "Zeta Lyrae",
+          "magnitude": 4.34,
+          "spectralClass": "Am",
+          "ra": "18h 45m",
+          "dec": "+37° 36'",
+          "distance": 154,
+          "starType": "White main-sequence star (chemically peculiar, close double)"
         },
         {
           "x": 32,
           "y": 20,
           "size": "sm",
-          "name": "Epsilon Lyrae"
+          "name": "Epsilon Lyrae",
+          "magnitude": 4.67,
+          "spectralClass": "F1V",
+          "ra": "18h 44m",
+          "dec": "+39° 40'",
+          "distance": 162,
+          "starType": "Yellow-white main-sequence star, part of the famous 'Double Double'"
         }
       ],
       "connections": [
@@ -2160,14 +3148,16 @@
         "signalDrift": "0.005°/yr"
       },
       "observationWindow": "Jun-Nov",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Vega's brightness and steady position made it a key reference star for ancient astronomers, and because of Earth's slow axial wobble it will become the north pole star again in roughly 12,000 years.",
+      "culturalSignificance": "In Chinese tradition Vega is Zhīnǚ, the Weaver Girl, separated from her lover Niúláng (the star Altair) by the Milky Way and reunited only once a year, a legend still celebrated today at the Qixi Festival."
     },
     {
       "id": "sagittarius",
       "name": "Sagittarius",
       "latinName": "Sagittarius",
       "type": "Zodiacal",
-      "description": "The Archer, pointing toward the center of the Milky Way. Contains more Messier objects than any other constellation.",
+      "description": "The Archer, a centaur aiming his bow toward the dense heart of the Milky Way.",
       "mythology": "Sagittarius is a centaur drawing a bow aimed at Scorpius. His arrow points directly at Antares, the heart of the scorpion. The direction he aims also points toward the galactic center, the densest region of the Milky Way.",
       "ra": "19h 0m",
       "dec": "-29°",
@@ -2181,49 +3171,97 @@
           "x": 35,
           "y": 68,
           "size": "lg",
-          "name": "Kaus Australis"
+          "name": "Kaus Australis",
+          "magnitude": 1.85,
+          "spectralClass": "B9IV",
+          "ra": "18h 24m",
+          "dec": "-34° 23'",
+          "distance": 143,
+          "starType": "Blue-white subgiant star"
         },
         {
           "x": 65,
           "y": 35,
           "size": "md",
-          "name": "Nunki"
+          "name": "Nunki",
+          "magnitude": 2.05,
+          "spectralClass": "B2.5V",
+          "ra": "18h 55m",
+          "dec": "-26° 18'",
+          "distance": 225,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 68,
           "y": 58,
           "size": "md",
-          "name": "Ascella"
+          "name": "Ascella",
+          "magnitude": 2.6,
+          "spectralClass": "A3IV",
+          "ra": "19h 03m",
+          "dec": "-29° 53'",
+          "distance": 89,
+          "starType": "White subgiant star (binary pair)"
         },
         {
           "x": 32,
           "y": 45,
           "size": "md",
-          "name": "Kaus Media"
+          "name": "Kaus Media",
+          "magnitude": 2.72,
+          "spectralClass": "K3III",
+          "ra": "18h 21m",
+          "dec": "-29° 50'",
+          "distance": 306,
+          "starType": "Orange giant star"
         },
         {
           "x": 32,
           "y": 25,
           "size": "sm",
-          "name": "Kaus Borealis"
+          "name": "Kaus Borealis",
+          "magnitude": 2.82,
+          "spectralClass": "K1III",
+          "ra": "18h 28m",
+          "dec": "-25° 25'",
+          "distance": 77,
+          "starType": "Orange giant star"
         },
         {
           "x": 58,
           "y": 70,
           "size": "sm",
-          "name": "Phi Sagittarii"
+          "name": "Phi Sagittarii",
+          "magnitude": 3.17,
+          "spectralClass": "B8.5III",
+          "ra": "18h 46m",
+          "dec": "-26° 59'",
+          "distance": 231,
+          "starType": "Blue-white giant star"
         },
         {
           "x": 10,
           "y": 50,
           "size": "sm",
-          "name": "Alnasl"
+          "name": "Alnasl",
+          "magnitude": 2.98,
+          "spectralClass": "K0III",
+          "ra": "18h 06m",
+          "dec": "-30° 25'",
+          "distance": 96,
+          "starType": "Orange giant star"
         },
         {
           "x": 72,
           "y": 48,
           "size": "sm",
-          "name": "Tau Sagittarii"
+          "name": "Tau Sagittarii",
+          "magnitude": 3.32,
+          "spectralClass": "K1III",
+          "ra": "19h 07m",
+          "dec": "-27° 40'",
+          "distance": 120,
+          "starType": "Orange giant star"
         }
       ],
       "connections": [
@@ -2266,14 +3304,16 @@
         "signalDrift": "0.004°/yr"
       },
       "observationWindow": "Jun-Oct",
-      "skySector": "SOUTHERN"
+      "skySector": "SOUTHERN",
+      "practicalUses": "Because Sagittarius points toward the galactic center, it has long guided skywatchers to the richest, brightest part of the Milky Way, and its position along the zodiac marked the winter solstice in antiquity.",
+      "culturalSignificance": "Babylonian astronomers already pictured this region as Pabilsag, a warrior god often shown carrying a bow, centuries before the Greek centaur-archer image took shape."
     },
     {
       "id": "aquila",
       "name": "Aquila",
       "latinName": "Aquila",
       "type": "Equatorial",
-      "description": "The Eagle, straddling the celestial equator. Altair is one of the closest bright stars to Earth and a Summer Triangle vertex.",
+      "description": "The Eagle, a compact constellation marked by bright Altair, one corner of the Summer Triangle.",
       "mythology": "Aquila is the eagle of Zeus, who carried his thunderbolts. It also carried the young Ganymede to Olympus to become cupbearer to the gods. The eagle's position straddling the Milky Way represents its eternal flight.",
       "ra": "19h 40m",
       "dec": "+3°",
@@ -2287,43 +3327,85 @@
           "x": 50,
           "y": 50,
           "size": "lg",
-          "name": "Altair"
+          "name": "Altair",
+          "magnitude": 0.76,
+          "spectralClass": "A7IV-V",
+          "ra": "19h 51m",
+          "dec": "+08° 52'",
+          "distance": 17,
+          "starType": "White main-sequence star, one of the fastest-spinning bright stars known"
         },
         {
           "x": 38,
           "y": 42,
           "size": "md",
-          "name": "Tarazed"
+          "name": "Tarazed",
+          "magnitude": 2.72,
+          "spectralClass": "K3II",
+          "ra": "19h 46m",
+          "dec": "+10° 37'",
+          "distance": 460,
+          "starType": "Orange bright giant star"
         },
         {
           "x": 62,
           "y": 32,
           "size": "md",
-          "name": "Alshain"
+          "name": "Alshain",
+          "magnitude": 3.71,
+          "spectralClass": "G8IV",
+          "ra": "19h 55m",
+          "dec": "+06° 24'",
+          "distance": 45,
+          "starType": "Yellow subgiant star"
         },
         {
           "x": 38,
           "y": 68,
           "size": "sm",
-          "name": "Delta Aquilae"
+          "name": "Delta Aquilae",
+          "magnitude": 3.36,
+          "spectralClass": "F0IV",
+          "ra": "19h 25m",
+          "dec": "+03° 07'",
+          "distance": 50,
+          "starType": "Yellow-white subgiant star"
         },
         {
           "x": 28,
           "y": 82,
           "size": "sm",
-          "name": "Zeta Aquilae"
+          "name": "Zeta Aquilae",
+          "magnitude": 2.99,
+          "spectralClass": "A0Vn",
+          "ra": "19h 05m",
+          "dec": "+13° 52'",
+          "distance": 83,
+          "starType": "White main-sequence star"
         },
         {
           "x": 75,
           "y": 15,
           "size": "sm",
-          "name": "Lambda Aquilae"
+          "name": "Lambda Aquilae",
+          "magnitude": 3.43,
+          "spectralClass": "B9Vn",
+          "ra": "19h 06m",
+          "dec": "-04° 53'",
+          "distance": 125,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 18,
           "y": 92,
           "size": "sm",
-          "name": "Eta Aquilae"
+          "name": "Eta Aquilae",
+          "magnitude": 3.87,
+          "spectralClass": "F6Ib",
+          "ra": "19h 52m",
+          "dec": "+01° 00'",
+          "distance": 1173,
+          "starType": "Yellow-white supergiant, a pulsating Cepheid variable"
         }
       ],
       "connections": [
@@ -2358,14 +3440,16 @@
         "signalDrift": "0.009°/yr"
       },
       "observationWindow": "Jul-Nov",
-      "skySector": "EQUATORIAL"
+      "skySector": "EQUATORIAL",
+      "practicalUses": "Altair's brightness and position near the celestial equator made it a dependable marker for late-summer nights across cultures in both hemispheres.",
+      "culturalSignificance": "In Chinese and Japanese tradition Altair is the cowherd star, Niúláng or Hikoboshi, separated from his weaver-girl love across the Milky Way and reunited once a year, the same star-crossed legend celebrated in China's Qixi and Japan's Tanabata festivals."
     },
     {
       "id": "cygnus",
       "name": "Cygnus",
       "latinName": "Cygnus",
       "type": "Northern",
-      "description": "The Swan, featuring the Northern Cross. Deneb is one of the most luminous stars known.",
+      "description": "The Swan, flying down the Milky Way with its wings outstretched, also known as the Northern Cross.",
       "mythology": "Cygnus is Zeus in swan form, who seduced Leda, producing Castor and Pollux and Helen of Troy. Others identify it with Orpheus transformed into a swan after death, placed near his lyre in the sky.",
       "ra": "20h 30m",
       "dec": "+42°",
@@ -2379,43 +3463,85 @@
           "x": 50,
           "y": 10,
           "size": "lg",
-          "name": "Deneb"
+          "name": "Deneb",
+          "magnitude": 1.25,
+          "spectralClass": "A2Ia",
+          "ra": "20h 41m",
+          "dec": "+45° 17'",
+          "distance": 2615,
+          "starType": "Blue-white supergiant, one of the most luminous stars known"
         },
         {
           "x": 50,
           "y": 40,
           "size": "md",
-          "name": "Sadr"
+          "name": "Sadr",
+          "magnitude": 2.23,
+          "spectralClass": "F8Ib",
+          "ra": "20h 22m",
+          "dec": "+40° 15'",
+          "distance": 1523,
+          "starType": "Yellow-white supergiant, embedded in nebulosity"
         },
         {
           "x": 50,
           "y": 85,
           "size": "lg",
-          "name": "Albireo"
+          "name": "Albireo",
+          "magnitude": 3.05,
+          "spectralClass": "K3II",
+          "ra": "19h 31m",
+          "dec": "+27° 58'",
+          "distance": 385,
+          "starType": "Orange bright giant star, forms a famous colorful double with a blue companion"
         },
         {
           "x": 20,
           "y": 40,
           "size": "md",
-          "name": "Gienah"
+          "name": "Gienah",
+          "magnitude": 2.48,
+          "spectralClass": "K0III",
+          "ra": "20h 46m",
+          "dec": "+33° 58'",
+          "distance": 72,
+          "starType": "Orange giant star"
         },
         {
           "x": 80,
           "y": 40,
           "size": "md",
-          "name": "Delta Cygni"
+          "name": "Delta Cygni",
+          "magnitude": 2.86,
+          "spectralClass": "B9.5III",
+          "ra": "19h 45m",
+          "dec": "+45° 08'",
+          "distance": 171,
+          "starType": "Blue-white giant star"
         },
         {
           "x": 10,
           "y": 60,
           "size": "sm",
-          "name": "Zeta Cygni"
+          "name": "Zeta Cygni",
+          "magnitude": 3.21,
+          "spectralClass": "G8II",
+          "ra": "21h 13m",
+          "dec": "+30° 14'",
+          "distance": 151,
+          "starType": "Yellow bright giant star"
         },
         {
           "x": 90,
           "y": 60,
           "size": "sm",
-          "name": "Epsilon Cygni"
+          "name": "Epsilon Cygni",
+          "magnitude": 2.48,
+          "spectralClass": "K0III",
+          "ra": "20h 46m",
+          "dec": "+33° 58'",
+          "distance": 72,
+          "starType": "Orange giant star (same star as Gienah)"
         }
       ],
       "connections": [
@@ -2450,14 +3576,16 @@
         "signalDrift": "0.001°/yr"
       },
       "observationWindow": "Jun-Dec",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Cygnus's position deep in the summer Milky Way made it a natural guide to the galaxy's bright star clouds, and its lead star Deneb serves as another anchor of the Summer Triangle.",
+      "culturalSignificance": "Arabic astronomers named several of its stars, including Deneb (from 'dhanab,' meaning tail), preserving and transmitting older star knowledge that still shapes the constellation's names today."
     },
     {
       "id": "delphinus",
       "name": "Delphinus",
       "latinName": "Delphinus",
       "type": "Northern",
-      "description": "The Dolphin, a small but charming constellation with a distinctive diamond shape called Job's Coffin.",
+      "description": "The Dolphin, a small, charming diamond of stars sometimes called Job's Coffin.",
       "mythology": "Delphinus is the dolphin that persuaded Amphitrite to marry Poseidon, who rewarded it with a place in the stars. In another version it rescued the poet Arion from drowning sailors, carrying him safely to shore on its back.",
       "ra": "20h 42m",
       "dec": "+13°",
@@ -2471,31 +3599,61 @@
           "x": 55,
           "y": 25,
           "size": "md",
-          "name": "Sualocin"
+          "name": "Sualocin",
+          "magnitude": 3.77,
+          "spectralClass": "B9V",
+          "ra": "20h 40m",
+          "dec": "+15° 55'",
+          "distance": 241,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 68,
           "y": 40,
           "size": "md",
-          "name": "Rotanev"
+          "name": "Rotanev",
+          "magnitude": 3.64,
+          "spectralClass": "F5IV",
+          "ra": "20h 38m",
+          "dec": "+14° 36'",
+          "distance": 97,
+          "starType": "Yellow-white subgiant star"
         },
         {
           "x": 35,
           "y": 70,
           "size": "sm",
-          "name": "Epsilon Delphini"
+          "name": "Epsilon Delphini",
+          "magnitude": 4.03,
+          "spectralClass": "B6III",
+          "ra": "20h 33m",
+          "dec": "+11° 18'",
+          "distance": 359,
+          "starType": "Blue-white giant star"
         },
         {
           "x": 45,
           "y": 45,
           "size": "sm",
-          "name": "Delta Delphini"
+          "name": "Delta Delphini",
+          "magnitude": 4.43,
+          "spectralClass": "A7III",
+          "ra": "20h 43m",
+          "dec": "+15° 04'",
+          "distance": 203,
+          "starType": "White giant star"
         },
         {
           "x": 55,
           "y": 55,
           "size": "sm",
-          "name": "Gamma Delphini"
+          "name": "Gamma Delphini",
+          "magnitude": 5.15,
+          "spectralClass": "A2Ia",
+          "ra": "20h 47m",
+          "dec": "+16° 07'",
+          "distance": 101,
+          "starType": "White and orange double star, a popular small-telescope target"
         }
       ],
       "connections": [
@@ -2526,14 +3684,16 @@
         "signalDrift": "0.006°/yr"
       },
       "observationWindow": "Jul-Nov",
-      "skySector": "NORTHERN-EQUATORIAL"
+      "skySector": "NORTHERN-EQUATORIAL",
+      "practicalUses": "Too small and faint for major navigational use, Delphinus mostly served as a delightful landmark for skywatchers scanning the rich star fields of the summer Milky Way.",
+      "culturalSignificance": "Its two brightest stars carry the unusual names Sualocin and Rotanev, a 19th-century astronomer's joke spelling 'Nicolaus Venator' backwards, a reminder that even recent human whimsy has left its mark on ancient star patterns."
     },
     {
       "id": "capricornus",
       "name": "Capricornus",
       "latinName": "Capricornus",
       "type": "Zodiacal",
-      "description": "The Sea Goat, an ancient zodiac constellation with the head of a goat and tail of a fish.",
+      "description": "The Sea Goat, an ancient zodiac constellation with the head of a goat and the tail of a fish.",
       "mythology": "Capricornus is Pan, who transformed into a goat-fish to escape the monster Typhon by leaping into the Nile. Zeus commemorated the clever escape by placing Pan in the sky.",
       "ra": "21h 0m",
       "dec": "-20°",
@@ -2547,43 +3707,85 @@
           "x": 15,
           "y": 28,
           "size": "md",
-          "name": "Algedi"
+          "name": "Algedi",
+          "magnitude": 3.58,
+          "spectralClass": "G6III",
+          "ra": "20h 18m",
+          "dec": "-12° 33'",
+          "distance": 109,
+          "starType": "Yellow giant star (naked-eye double star)"
         },
         {
           "x": 20,
           "y": 40,
           "size": "md",
-          "name": "Dabih"
+          "name": "Dabih",
+          "magnitude": 3.05,
+          "spectralClass": "A5n",
+          "ra": "20h 21m",
+          "dec": "-14° 47'",
+          "distance": 328,
+          "starType": "White giant star (multiple star system)"
         },
         {
           "x": 82,
           "y": 38,
           "size": "sm",
-          "name": "Nashira"
+          "name": "Nashira",
+          "magnitude": 3.69,
+          "spectralClass": "A7III",
+          "ra": "21h 40m",
+          "dec": "-16° 40'",
+          "distance": 139,
+          "starType": "White giant star"
         },
         {
           "x": 88,
           "y": 26,
           "size": "md",
-          "name": "Deneb Algedi"
+          "name": "Deneb Algedi",
+          "magnitude": 2.85,
+          "spectralClass": "A5m",
+          "ra": "21h 47m",
+          "dec": "-16° 08'",
+          "distance": 39,
+          "starType": "White main-sequence star"
         },
         {
           "x": 68,
           "y": 62,
           "size": "sm",
-          "name": "Omega Capricorni"
+          "name": "Omega Capricorni",
+          "magnitude": 4.12,
+          "spectralClass": "K4III",
+          "ra": "20h 52m",
+          "dec": "-26° 55'",
+          "distance": 628,
+          "starType": "Orange giant star"
         },
         {
           "x": 50,
           "y": 72,
           "size": "sm",
-          "name": "Zeta Capricorni"
+          "name": "Zeta Capricorni",
+          "magnitude": 3.77,
+          "spectralClass": "G4Ib",
+          "ra": "21h 27m",
+          "dec": "-22° 25'",
+          "distance": 398,
+          "starType": "Yellow supergiant"
         },
         {
           "x": 30,
           "y": 60,
           "size": "sm",
-          "name": "Psi Capricorni"
+          "name": "Psi Capricorni",
+          "magnitude": 4.13,
+          "spectralClass": "F5V",
+          "ra": "20h 46m",
+          "dec": "-25° 16'",
+          "distance": 48,
+          "starType": "Yellow-white main-sequence star"
         }
       ],
       "connections": [
@@ -2622,14 +3824,16 @@
         "signalDrift": "0.009°/yr"
       },
       "observationWindow": "Jul-Nov",
-      "skySector": "SOUTHERN-EQUATORIAL"
+      "skySector": "SOUTHERN-EQUATORIAL",
+      "practicalUses": "In antiquity Capricornus marked the winter solstice, the point where the Sun reached its lowest point in the sky, which is why that latitude is still called the Tropic of Capricorn today.",
+      "culturalSignificance": "The goat-fish image is far older than Greek mythology; Babylonian astronomers already depicted this same hybrid creature, called Suḫurmašu, as a symbol of the god Ea, more than 3,000 years ago."
     },
     {
       "id": "pegasus",
       "name": "Pegasus",
       "latinName": "Pegasus",
       "type": "Northern",
-      "description": "The Winged Horse, featuring the Great Square of Pegasus. One of the largest constellations.",
+      "description": "The Winged Horse, best known for the Great Square, four stars that mark its body.",
       "mythology": "Pegasus sprang from Medusa's neck when Perseus beheaded her, fathered by Poseidon. Tamed by Bellerophon, they slew the Chimaera together. When Bellerophon tried to ride Pegasus to Olympus, Zeus sent a gadfly that threw him off, but placed the horse in the stars.",
       "ra": "22h 40m",
       "dec": "+20°",
@@ -2643,43 +3847,85 @@
           "x": 70,
           "y": 25,
           "size": "lg",
-          "name": "Markab"
+          "name": "Markab",
+          "magnitude": 2.49,
+          "spectralClass": "B9.5III",
+          "ra": "23h 05m",
+          "dec": "+15° 12'",
+          "distance": 140,
+          "starType": "Blue-white giant star"
         },
         {
           "x": 30,
           "y": 20,
           "size": "lg",
-          "name": "Scheat"
+          "name": "Scheat",
+          "magnitude": 2.44,
+          "spectralClass": "M2III",
+          "ra": "23h 04m",
+          "dec": "+28° 05'",
+          "distance": 199,
+          "starType": "Red giant star, an irregular variable"
         },
         {
           "x": 30,
           "y": 65,
           "size": "lg",
-          "name": "Algenib"
+          "name": "Algenib",
+          "magnitude": 2.83,
+          "spectralClass": "B2IV",
+          "ra": "00h 13m",
+          "dec": "+15° 11'",
+          "distance": 333,
+          "starType": "Blue-white subgiant star"
         },
         {
           "x": 72,
           "y": 65,
           "size": "lg",
-          "name": "Sirrah"
+          "name": "Sirrah",
+          "magnitude": 2.07,
+          "spectralClass": "B9p",
+          "ra": "00h 08m",
+          "dec": "+29° 05'",
+          "distance": 97,
+          "starType": "Blue-white main-sequence star, shared between Pegasus and Andromeda"
         },
         {
           "x": 15,
           "y": 10,
           "size": "md",
-          "name": "Matar"
+          "name": "Matar",
+          "magnitude": 2.93,
+          "spectralClass": "G2III",
+          "ra": "22h 43m",
+          "dec": "+30° 13'",
+          "distance": 215,
+          "starType": "Yellow giant star"
         },
         {
           "x": 85,
           "y": 10,
           "size": "md",
-          "name": "Homam"
+          "name": "Homam",
+          "magnitude": 3.41,
+          "spectralClass": "B8.5V",
+          "ra": "22h 41m",
+          "dec": "+10° 50'",
+          "distance": 208,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 95,
           "y": 5,
           "size": "lg",
-          "name": "Enif"
+          "name": "Enif",
+          "magnitude": 2.38,
+          "spectralClass": "K2Ib",
+          "ra": "21h 44m",
+          "dec": "+09° 53'",
+          "distance": 672,
+          "starType": "Orange supergiant"
         }
       ],
       "connections": [
@@ -2718,14 +3964,16 @@
         "signalDrift": "0.003°/yr"
       },
       "observationWindow": "Aug-Jan",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "The Great Square's large, easily traced shape made it a dependable seasonal marker for the arrival of autumn in the northern hemisphere.",
+      "culturalSignificance": "One corner star of the Great Square, Sirrah, is shared with the neighboring constellation Andromeda, a reminder that constellation boundaries are a human bookkeeping convention rather than a fixed feature of the stars themselves."
     },
     {
       "id": "aquarius",
       "name": "Aquarius",
       "latinName": "Aquarius",
       "type": "Zodiacal",
-      "description": "The Water Bearer, one of the oldest constellations. Contains the Helix Nebula, the nearest planetary nebula to Earth.",
+      "description": "The Water Bearer, one of the oldest constellations, shown pouring water from a jar.",
       "mythology": "Aquarius is Ganymede, the beautiful Trojan youth Zeus abducted as an eagle to serve as cupbearer to the gods. Some identify the figure with Deucalion, who survived the great flood, the water he pours representing the deluge.",
       "ra": "22h 20m",
       "dec": "-10°",
@@ -2739,43 +3987,85 @@
           "x": 35,
           "y": 20,
           "size": "lg",
-          "name": "Sadalsuud"
+          "name": "Sadalsuud",
+          "magnitude": 2.9,
+          "spectralClass": "G0Ib",
+          "ra": "21h 32m",
+          "dec": "-05° 34'",
+          "distance": 612,
+          "starType": "Yellow supergiant"
         },
         {
           "x": 55,
           "y": 18,
           "size": "md",
-          "name": "Sadalmelik"
+          "name": "Sadalmelik",
+          "magnitude": 2.95,
+          "spectralClass": "G2Ib",
+          "ra": "22h 06m",
+          "dec": "-00° 19'",
+          "distance": 758,
+          "starType": "Yellow supergiant"
         },
         {
           "x": 52,
           "y": 42,
           "size": "sm",
-          "name": "Sadachbia"
+          "name": "Sadachbia",
+          "magnitude": 3.86,
+          "spectralClass": "A0V",
+          "ra": "22h 22m",
+          "dec": "-01° 23'",
+          "distance": 158,
+          "starType": "White main-sequence star (multiple star system)"
         },
         {
           "x": 48,
           "y": 68,
           "size": "sm",
-          "name": "Skat"
+          "name": "Skat",
+          "magnitude": 3.27,
+          "spectralClass": "A3V",
+          "ra": "22h 55m",
+          "dec": "-15° 49'",
+          "distance": 159,
+          "starType": "White main-sequence star"
         },
         {
           "x": 65,
           "y": 50,
           "size": "sm",
-          "name": "Eta Aquarii"
+          "name": "Eta Aquarii",
+          "magnitude": 4.04,
+          "spectralClass": "B9IV-Vn",
+          "ra": "22h 35m",
+          "dec": "-00° 07'",
+          "distance": 183,
+          "starType": "Blue-white subgiant star"
         },
         {
           "x": 62,
           "y": 32,
           "size": "sm",
-          "name": "Ancha"
+          "name": "Ancha",
+          "magnitude": 4.17,
+          "spectralClass": "G8III-IV",
+          "ra": "22h 17m",
+          "dec": "-07° 47'",
+          "distance": 191,
+          "starType": "Yellow giant star"
         },
         {
           "x": 38,
           "y": 78,
           "size": "sm",
-          "name": "Albali"
+          "name": "Albali",
+          "magnitude": 3.78,
+          "spectralClass": "A1V",
+          "ra": "20h 48m",
+          "dec": "-09° 30'",
+          "distance": 229,
+          "starType": "White main-sequence star"
         }
       ],
       "connections": [
@@ -2810,14 +4100,16 @@
         "signalDrift": "0.005°/yr"
       },
       "observationWindow": "Aug-Dec",
-      "skySector": "EQUATORIAL"
+      "skySector": "EQUATORIAL",
+      "practicalUses": "Aquarius marks the point in the zodiac the Sun will occupy at the March equinox in coming centuries as Earth's axis slowly precesses, the origin of the popular idea of a coming 'Age of Aquarius.'",
+      "culturalSignificance": "Ancient Egyptians linked this constellation to Hapi, the god of the Nile's annual flood, pouring the life-giving waters that fertilized the land each year."
     },
     {
       "id": "piscis-austrinus",
       "name": "Piscis Austrinus",
       "latinName": "Piscis Austrinus",
       "type": "Southern",
-      "description": "The Southern Fish, home to Fomalhaut, one of the brightest stars with a confirmed debris disk.",
+      "description": "The Southern Fish, home to bright Fomalhaut, sometimes called the 'Loneliest Star' for its isolated spot in a dim patch of sky.",
       "mythology": "Piscis Austrinus is the large fish that drinks the water poured by Aquarius. Fomalhaut was one of the four Royal Stars of ancient Persia, serving as guardian of the southern sky.",
       "ra": "22h 10m",
       "dec": "-33°",
@@ -2831,37 +4123,73 @@
           "x": 20,
           "y": 50,
           "size": "lg",
-          "name": "Fomalhaut"
+          "name": "Fomalhaut",
+          "magnitude": 1.17,
+          "spectralClass": "A3V",
+          "ra": "22h 58m",
+          "dec": "-29° 37'",
+          "distance": 25,
+          "starType": "White main-sequence star, surrounded by a debris disk with an orbiting planet"
         },
         {
           "x": 35,
           "y": 30,
           "size": "sm",
-          "name": "Epsilon PsA"
+          "name": "Epsilon PsA",
+          "magnitude": 4.18,
+          "spectralClass": "B8V",
+          "ra": "22h 41m",
+          "dec": "-27° 03'",
+          "distance": 744,
+          "starType": "Blue-white main-sequence star"
         },
         {
           "x": 55,
           "y": 25,
           "size": "sm",
-          "name": "Delta PsA"
+          "name": "Delta PsA",
+          "magnitude": 4.2,
+          "spectralClass": "G8III",
+          "ra": "22h 56m",
+          "dec": "-32° 32'",
+          "distance": 170,
+          "starType": "Yellow giant star"
         },
         {
           "x": 35,
           "y": 68,
           "size": "sm",
-          "name": "Mu PsA"
+          "name": "Mu PsA",
+          "magnitude": 4.5,
+          "spectralClass": "A2V",
+          "ra": "22h 08m",
+          "dec": "-32° 59'",
+          "distance": 130,
+          "starType": "White main-sequence star"
         },
         {
           "x": 70,
           "y": 60,
           "size": "sm",
-          "name": "Beta PsA"
+          "name": "Beta PsA",
+          "magnitude": 4.29,
+          "spectralClass": "A1V",
+          "ra": "22h 32m",
+          "dec": "-32° 21'",
+          "distance": 148,
+          "starType": "White main-sequence star"
         },
         {
           "x": 85,
           "y": 45,
           "size": "sm",
-          "name": "Gamma PsA"
+          "name": "Gamma PsA",
+          "magnitude": 4.46,
+          "spectralClass": "A0III",
+          "ra": "22h 53m",
+          "dec": "-32° 53'",
+          "distance": 222,
+          "starType": "White giant star"
         }
       ],
       "connections": [
@@ -2896,14 +4224,16 @@
         "signalDrift": "0.011°/yr"
       },
       "observationWindow": "Aug-Nov",
-      "skySector": "SOUTHERN"
+      "skySector": "SOUTHERN",
+      "practicalUses": "Fomalhaut's isolation and brightness made it easy to identify even under poor sky conditions, and ancient Persian astronomers counted it among the sky's four 'Royal Stars,' used as one of the guardian markers of the sky.",
+      "culturalSignificance": "As one of the four Persian Royal Stars, Fomalhaut was believed to watch over the southern sky, a role paired with three other bright stars said to guard the north, east, and west."
     },
     {
       "id": "pisces",
       "name": "Pisces",
       "latinName": "Pisces",
       "type": "Zodiacal",
-      "description": "The Fish, a large but faint zodiac constellation. The vernal equinox currently lies within Pisces.",
+      "description": "The Fish, a large, faint zodiac constellation showing two fish tied together by a cord.",
       "mythology": "Pisces is Aphrodite and Eros transformed into fish to escape the monster Typhon, tied together by a cord. The cord is represented by the star Al Rischa. They swim in opposite directions, reflecting the tension of their escape.",
       "ra": "1h 0m",
       "dec": "+15°",
@@ -2917,43 +4247,85 @@
           "x": 50,
           "y": 50,
           "size": "md",
-          "name": "Al Rischa"
+          "name": "Al Rischa",
+          "magnitude": 4.33,
+          "spectralClass": "A0p",
+          "ra": "02h 02m",
+          "dec": "+02° 46'",
+          "distance": 139,
+          "starType": "White star (close binary marking the traditional knot of the two fish's cords)"
         },
         {
           "x": 20,
           "y": 30,
           "size": "sm",
-          "name": "Eta Piscium"
+          "name": "Eta Piscium",
+          "magnitude": 3.62,
+          "spectralClass": "G8III",
+          "ra": "01h 31m",
+          "dec": "+15° 21'",
+          "distance": 294,
+          "starType": "Yellow giant star"
         },
         {
           "x": 65,
           "y": 25,
           "size": "sm",
-          "name": "Omega Piscium"
+          "name": "Omega Piscium",
+          "magnitude": 4.03,
+          "spectralClass": "F4IV",
+          "ra": "23h 59m",
+          "dec": "+06° 52'",
+          "distance": 106,
+          "starType": "Yellow-white subgiant star"
         },
         {
           "x": 80,
           "y": 35,
           "size": "sm",
-          "name": "Iota Piscium"
+          "name": "Iota Piscium",
+          "magnitude": 4.13,
+          "spectralClass": "F7V",
+          "ra": "23h 40m",
+          "dec": "+05° 38'",
+          "distance": 45,
+          "starType": "Yellow-white main-sequence star"
         },
         {
           "x": 10,
           "y": 55,
           "size": "sm",
-          "name": "Gamma Piscium"
+          "name": "Gamma Piscium",
+          "magnitude": 3.7,
+          "spectralClass": "G7III",
+          "ra": "23h 17m",
+          "dec": "+03° 17'",
+          "distance": 131,
+          "starType": "Yellow giant star"
         },
         {
           "x": 85,
           "y": 55,
           "size": "sm",
-          "name": "Fumalsamakah"
+          "name": "Fumalsamakah",
+          "magnitude": 4.48,
+          "spectralClass": "B6Ve",
+          "ra": "23h 04m",
+          "dec": "+03° 49'",
+          "distance": 492,
+          "starType": "Blue-white star with a gaseous disk (a Be star)"
         },
         {
           "x": 55,
           "y": 75,
           "size": "sm",
-          "name": "Tau Piscium"
+          "name": "Tau Piscium",
+          "magnitude": 4.51,
+          "spectralClass": "K0III-IV",
+          "ra": "01h 12m",
+          "dec": "+30° 05'",
+          "distance": 162,
+          "starType": "Orange giant star"
         }
       ],
       "connections": [
@@ -2988,14 +4360,16 @@
         "signalDrift": "0.006°/yr"
       },
       "observationWindow": "Sep-Jan",
-      "skySector": "NORTHERN-EQUATORIAL"
+      "skySector": "NORTHERN-EQUATORIAL",
+      "practicalUses": "Pisces currently contains the point where the Sun crosses the celestial equator each spring, making it the technical home of the vernal equinox used in calendar calculations.",
+      "culturalSignificance": "Babylonian astronomers already depicted two connected fish in roughly this part of the sky, a symbol later folded into the Greek myth of Aphrodite and Eros fleeing the monster Typhon."
     },
     {
       "id": "andromeda",
       "name": "Andromeda",
       "latinName": "Andromeda",
       "type": "Northern",
-      "description": "The Princess, home to the Andromeda Galaxy, the most distant object visible to the naked eye at 2.5 million light-years.",
+      "description": "The Princess, home to the Andromeda Galaxy, the most distant object visible to the naked eye.",
       "mythology": "Andromeda was chained to a rock as sacrifice to the sea monster Cetus to appease Poseidon, angered by her mother Cassiopeia's vanity. Perseus rescued her using Medusa's severed head to turn the monster to stone. They married and were placed in the stars together.",
       "ra": "1h 0m",
       "dec": "+40°",
@@ -3009,37 +4383,73 @@
           "x": 15,
           "y": 20,
           "size": "lg",
-          "name": "Sirrah"
+          "name": "Sirrah",
+          "magnitude": 2.07,
+          "spectralClass": "B9p",
+          "ra": "00h 08m",
+          "dec": "+29° 05'",
+          "distance": 97,
+          "starType": "Blue-white main-sequence star, shared between Andromeda and Pegasus"
         },
         {
           "x": 50,
           "y": 48,
           "size": "lg",
-          "name": "Mirach"
+          "name": "Mirach",
+          "magnitude": 2.07,
+          "spectralClass": "M0III",
+          "ra": "01h 10m",
+          "dec": "+35° 37'",
+          "distance": 199,
+          "starType": "Red giant star"
         },
         {
           "x": 85,
           "y": 42,
           "size": "md",
-          "name": "Almach"
+          "name": "Almach",
+          "magnitude": 2.1,
+          "spectralClass": "K3II",
+          "ra": "02h 04m",
+          "dec": "+42° 20'",
+          "distance": 355,
+          "starType": "Orange bright giant star with a striking blue companion"
         },
         {
           "x": 32,
           "y": 35,
           "size": "sm",
-          "name": "Delta Andromedae"
+          "name": "Delta Andromedae",
+          "magnitude": 3.27,
+          "spectralClass": "K3III",
+          "ra": "00h 39m",
+          "dec": "+30° 52'",
+          "distance": 101,
+          "starType": "Orange giant star"
         },
         {
           "x": 60,
           "y": 30,
           "size": "sm",
-          "name": "Mu Andromedae"
+          "name": "Mu Andromedae",
+          "magnitude": 3.86,
+          "spectralClass": "A5V",
+          "ra": "00h 57m",
+          "dec": "+38° 30'",
+          "distance": 136,
+          "starType": "White main-sequence star"
         },
         {
           "x": 68,
           "y": 55,
           "size": "sm",
-          "name": "Upsilon Andromedae"
+          "name": "Upsilon Andromedae",
+          "magnitude": 4.1,
+          "spectralClass": "F8V",
+          "ra": "01h 37m",
+          "dec": "+41° 24'",
+          "distance": 44,
+          "starType": "Yellow-white main-sequence star, host to a multi-planet system"
         }
       ],
       "connections": [
@@ -3070,14 +4480,16 @@
         "signalDrift": "0.004°/yr"
       },
       "observationWindow": "Sep-Feb",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Andromeda's stars form a recognizable chain extending from the Great Square of Pegasus, helping skywatchers star-hop toward the faint smudge of the Andromeda Galaxy on dark nights.",
+      "culturalSignificance": "Chinese astronomers folded these stars into Kuí, the 'Legs' mansion, whose much older Neolithic name was Tiānshǐ, the 'Celestial Pig' — an asterism linked to wisdom and scholarship, entirely unrelated to the Greek myth of the chained princess."
     },
     {
       "id": "cassiopeia",
       "name": "Cassiopeia",
       "latinName": "Cassiopeia",
       "type": "Northern",
-      "description": "The Queen, a distinctive W-shape circumpolar constellation. Site of a famous 1572 supernova.",
+      "description": "The Queen, a distinctive W-shaped constellation that never sets for observers in the far north.",
       "mythology": "Cassiopeia was the vain queen of Ethiopia who boasted she was more beautiful than the sea nymphs. Poseidon, furious, sent the sea monster Cetus to ravage the coast, and Andromeda had to be sacrificed until Perseus rescued her.",
       "ra": "1h 0m",
       "dec": "+62°",
@@ -3091,31 +4503,61 @@
           "x": 15,
           "y": 45,
           "size": "md",
-          "name": "Caph"
+          "name": "Caph",
+          "magnitude": 2.28,
+          "spectralClass": "F2III-IV",
+          "ra": "00h 09m",
+          "dec": "+59° 09'",
+          "distance": 54,
+          "starType": "Yellow-white subgiant star"
         },
         {
           "x": 32,
           "y": 25,
           "size": "lg",
-          "name": "Schedar"
+          "name": "Schedar",
+          "magnitude": 2.24,
+          "spectralClass": "K0II-III",
+          "ra": "00h 41m",
+          "dec": "+56° 32'",
+          "distance": 228,
+          "starType": "Orange giant star"
         },
         {
           "x": 50,
           "y": 50,
           "size": "md",
-          "name": "Gamma Cassiopeiae"
+          "name": "Gamma Cassiopeiae",
+          "magnitude": 2.47,
+          "spectralClass": "B0IV",
+          "ra": "00h 57m",
+          "dec": "+60° 43'",
+          "distance": 613,
+          "starType": "Blue subgiant star, an unpredictable eruptive variable"
         },
         {
           "x": 68,
           "y": 20,
           "size": "md",
-          "name": "Ruchbah"
+          "name": "Ruchbah",
+          "magnitude": 2.68,
+          "spectralClass": "A5V",
+          "ra": "01h 26m",
+          "dec": "+60° 14'",
+          "distance": 99,
+          "starType": "White main-sequence star"
         },
         {
           "x": 85,
           "y": 42,
           "size": "md",
-          "name": "Segin"
+          "name": "Segin",
+          "magnitude": 3.35,
+          "spectralClass": "B2p",
+          "ra": "01h 54m",
+          "dec": "+63° 40'",
+          "distance": 442,
+          "starType": "Blue giant star"
         }
       ],
       "connections": [
@@ -3142,14 +4584,16 @@
         "signalDrift": "0.002°/yr"
       },
       "observationWindow": "Year-round",
-      "skySector": "NORTHERN-CIRCUMPOLAR"
+      "skySector": "NORTHERN-CIRCUMPOLAR",
+      "practicalUses": "Being circumpolar and easy to recognize, Cassiopeia's W (or M, depending on the season) shape has long served as a reliable direction-finder, sitting roughly opposite the Big Dipper across Polaris.",
+      "culturalSignificance": "Chinese astronomers grouped several of these stars into Wángliáng, named for a legendary charioteer, a very different figure from the vain queen of Greek myth."
     },
     {
       "id": "perseus",
       "name": "Perseus",
       "latinName": "Perseus",
       "type": "Northern",
-      "description": "The Hero, featuring the variable star Algol and the famous Double Cluster.",
+      "description": "The Hero, home to the eclipsing variable star Algol and the dazzling Double Cluster.",
       "mythology": "Perseus was the son of Zeus, tasked with slaying Medusa whose gaze turned men to stone. Armed with a mirrored shield, he beheaded her, then used her head to turn the sea monster Cetus to stone and rescue Andromeda.",
       "ra": "3h 30m",
       "dec": "+45°",
@@ -3163,43 +4607,85 @@
           "x": 55,
           "y": 30,
           "size": "lg",
-          "name": "Mirfak"
+          "name": "Mirfak",
+          "magnitude": 1.79,
+          "spectralClass": "F5Ib",
+          "ra": "03h 24m",
+          "dec": "+49° 52'",
+          "distance": 592,
+          "starType": "Yellow-white supergiant"
         },
         {
           "x": 35,
           "y": 55,
           "size": "md",
-          "name": "Algol"
+          "name": "Algol",
+          "magnitude": 2.09,
+          "spectralClass": "B8V",
+          "ra": "03h 08m",
+          "dec": "+40° 57'",
+          "distance": 93,
+          "starType": "Blue-white main-sequence star, the famous 'Demon Star' eclipsing binary"
         },
         {
           "x": 75,
           "y": 45,
           "size": "sm",
-          "name": "Zeta Persei"
+          "name": "Zeta Persei",
+          "magnitude": 2.84,
+          "spectralClass": "B1Ib",
+          "ra": "03h 54m",
+          "dec": "+31° 53'",
+          "distance": 982,
+          "starType": "Blue supergiant"
         },
         {
           "x": 85,
           "y": 30,
           "size": "sm",
-          "name": "Epsilon Persei"
+          "name": "Epsilon Persei",
+          "magnitude": 2.9,
+          "spectralClass": "B0.5V",
+          "ra": "03h 58m",
+          "dec": "+40° 01'",
+          "distance": 538,
+          "starType": "Blue main-sequence star"
         },
         {
           "x": 35,
           "y": 20,
           "size": "sm",
-          "name": "Gamma Persei"
+          "name": "Gamma Persei",
+          "magnitude": 2.91,
+          "spectralClass": "G8III",
+          "ra": "03h 05m",
+          "dec": "+53° 30'",
+          "distance": 256,
+          "starType": "Yellow giant star"
         },
         {
           "x": 30,
           "y": 75,
           "size": "sm",
-          "name": "Gorgonea Tertia"
+          "name": "Gorgonea Tertia",
+          "magnitude": 3.32,
+          "spectralClass": "M3III",
+          "ra": "03h 05m",
+          "dec": "+38° 50'",
+          "distance": 325,
+          "starType": "Red giant star (same star as Rho Persei, a semi-regular variable)"
         },
         {
           "x": 15,
           "y": 68,
           "size": "sm",
-          "name": "Rho Persei"
+          "name": "Rho Persei",
+          "magnitude": 3.32,
+          "spectralClass": "M3III",
+          "ra": "03h 05m",
+          "dec": "+38° 50'",
+          "distance": 325,
+          "starType": "Red giant star (same star as Gorgonea Tertia, a semi-regular variable)"
         }
       ],
       "connections": [
@@ -3234,14 +4720,16 @@
         "signalDrift": "0.004°/yr"
       },
       "observationWindow": "Oct-Mar",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Algol's regular dimming every three days made it a natural subject for tracking and timekeeping once early astronomers noticed the pattern, long before the physical cause — an eclipsing binary star — was understood.",
+      "culturalSignificance": "Arabic astronomers named the star Algol 'Ra's al-Ghūl,' the demon's head, likely reacting to its eerie, unexplained dimming, while Chinese astronomers placed it within Dàlíng, the Mausoleum asterism — two traditions independently marking the star as ominous."
     },
     {
       "id": "aries",
       "name": "Aries",
       "latinName": "Aries",
       "type": "Zodiacal",
-      "description": "The Ram, historically important as the vernal equinox was located here 2,000 years ago.",
+      "description": "The Ram, historically important as the vernal equinox point lay here roughly 2,000 years ago.",
       "mythology": "Aries is the ram with the golden fleece sent by Hermes to rescue Phrixus and Helle. Only Phrixus survived; he sacrificed the ram and hung its golden fleece in a sacred grove, the prize later sought by Jason and the Argonauts.",
       "ra": "2h 40m",
       "dec": "+20°",
@@ -3255,31 +4743,61 @@
           "x": 60,
           "y": 30,
           "size": "lg",
-          "name": "Hamal"
+          "name": "Hamal",
+          "magnitude": 2.01,
+          "spectralClass": "K2III",
+          "ra": "02h 07m",
+          "dec": "+23° 28'",
+          "distance": 66,
+          "starType": "Orange giant star"
         },
         {
           "x": 40,
           "y": 35,
           "size": "md",
-          "name": "Sheratan"
+          "name": "Sheratan",
+          "magnitude": 2.64,
+          "spectralClass": "A5V",
+          "ra": "01h 55m",
+          "dec": "+20° 48'",
+          "distance": 60,
+          "starType": "White main-sequence star"
         },
         {
           "x": 28,
           "y": 42,
           "size": "sm",
-          "name": "Mesarthim"
+          "name": "Mesarthim",
+          "magnitude": 4.62,
+          "spectralClass": "A0V",
+          "ra": "01h 54m",
+          "dec": "+19° 18'",
+          "distance": 164,
+          "starType": "White main-sequence star (fine naked-eye double)"
         },
         {
           "x": 85,
           "y": 70,
           "size": "sm",
-          "name": "Botein"
+          "name": "Botein",
+          "magnitude": 4.35,
+          "spectralClass": "K2III",
+          "ra": "03h 12m",
+          "dec": "+19° 44'",
+          "distance": 168,
+          "starType": "Orange giant star"
         },
         {
           "x": 75,
           "y": 50,
           "size": "sm",
-          "name": "41 Arietis"
+          "name": "41 Arietis",
+          "magnitude": 3.61,
+          "spectralClass": "B8Vn",
+          "ra": "02h 50m",
+          "dec": "+27° 16'",
+          "distance": 159,
+          "starType": "Blue-white main-sequence star"
         }
       ],
       "connections": [
@@ -3306,14 +4824,16 @@
         "signalDrift": "0.007°/yr"
       },
       "observationWindow": "Oct-Feb",
-      "skySector": "NORTHERN"
+      "skySector": "NORTHERN",
+      "practicalUses": "Because the Sun's position at the March equinox once fell within Aries, the constellation gave its name to the 'First Point of Aries,' a reference still used in astronomy and navigation even though precession has since shifted that point into Pisces.",
+      "culturalSignificance": "The ram held deep religious significance in ancient Egypt, associated with the god Amun, while Babylonian astronomers recognized an earlier version of this constellation as a hired farmhand, MULLÚ.ḪUN.GÁ, before the ram imagery took hold."
     },
     {
       "id": "eridanus",
       "name": "Eridanus",
       "latinName": "Eridanus",
       "type": "Southern",
-      "description": "The River, the sixth largest constellation. Winds from near Orion to Achernar near the south celestial pole.",
+      "description": "The River, a long, winding constellation flowing from near Orion down to bright Achernar in the far south.",
       "mythology": "Eridanus is the celestial river into which Phaethon fell after losing control of the Sun chariot. Zeus struck Phaethon with a thunderbolt to stop the Earth from burning, and he fell blazing into the river.",
       "ra": "3h 15m",
       "dec": "-29°",
@@ -3327,43 +4847,85 @@
           "x": 55,
           "y": 88,
           "size": "lg",
-          "name": "Achernar"
+          "name": "Achernar",
+          "magnitude": 0.45,
+          "spectralClass": "B3Vp",
+          "ra": "01h 38m",
+          "dec": "-57° 14'",
+          "distance": 144,
+          "starType": "Blue main-sequence star, one of the flattest (fastest-spinning) stars known"
         },
         {
           "x": 45,
           "y": 68,
           "size": "md",
-          "name": "Acamar"
+          "name": "Acamar",
+          "magnitude": 2.88,
+          "spectralClass": "A4III",
+          "ra": "02h 58m",
+          "dec": "-40° 18'",
+          "distance": 161,
+          "starType": "White giant star"
         },
         {
           "x": 58,
           "y": 52,
           "size": "sm",
-          "name": "Zaurak"
+          "name": "Zaurak",
+          "magnitude": 2.97,
+          "spectralClass": "M1III",
+          "ra": "03h 58m",
+          "dec": "-13° 30'",
+          "distance": 192,
+          "starType": "Red giant star"
         },
         {
           "x": 40,
           "y": 38,
           "size": "sm",
-          "name": "Epsilon Eridani"
+          "name": "Epsilon Eridani",
+          "magnitude": 3.72,
+          "spectralClass": "K2V",
+          "ra": "03h 33m",
+          "dec": "-09° 27'",
+          "distance": 10,
+          "starType": "Orange main-sequence star (Sun-like), one of the nearest stars known to host planets"
         },
         {
           "x": 50,
           "y": 22,
           "size": "sm",
-          "name": "Delta Eridani"
+          "name": "Delta Eridani",
+          "magnitude": 3.52,
+          "spectralClass": "K0IV",
+          "ra": "03h 43m",
+          "dec": "-09° 46'",
+          "distance": 29,
+          "starType": "Orange subgiant star"
         },
         {
           "x": 30,
           "y": 12,
           "size": "sm",
-          "name": "Eta Eridani"
+          "name": "Eta Eridani",
+          "magnitude": 3.89,
+          "spectralClass": "K1III-IV",
+          "ra": "02h 56m",
+          "dec": "-08° 54'",
+          "distance": 133,
+          "starType": "Orange giant star"
         },
         {
           "x": 68,
           "y": 15,
           "size": "sm",
-          "name": "Ran"
+          "name": "Ran",
+          "magnitude": 3.72,
+          "spectralClass": "K2V",
+          "ra": "03h 33m",
+          "dec": "-09° 27'",
+          "distance": 10,
+          "starType": "Orange main-sequence star (same star as Epsilon Eridani)"
         }
       ],
       "connections": [
@@ -3398,7 +4960,9 @@
         "signalDrift": "0.005°/yr"
       },
       "observationWindow": "Oct-Feb",
-      "skySector": "SOUTHERN"
+      "skySector": "SOUTHERN",
+      "practicalUses": "Eridanus's great length made it a marker of how far south the sky extended, since Achernar at its southern end was only visible to observers who traveled far enough south to see it clear the horizon.",
+      "culturalSignificance": "Achernar's name comes from the Arabic 'ākhir an-nahr,' meaning 'end of the river,' reflecting how Arabic astronomers preserved and extended the Greek conception of a celestial river."
     }
   ]
 }

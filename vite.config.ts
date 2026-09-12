@@ -7,7 +7,7 @@ import { apiDevPlugin } from './dev-api-plugin';
 export default defineConfig({
   plugins: [react(), tailwindcss(), apiDevPlugin()],
   server: {
-    port: 3000,
+    port: Number(process.env.PORT) || 5173,
     host: '0.0.0.0'
   },
   build: {

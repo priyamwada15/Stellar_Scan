@@ -21,8 +21,10 @@ export const LocationSearch: React.FC<{
   const [searching, setSearching] = useState(false);
   const [open, setOpen] = useState(false);
   const [focused, setFocused] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const listboxId = 'location-search-listbox';
 
   useEffect(() => {
     if (query.trim().length < 2) {
@@ -44,6 +46,10 @@ export const LocationSearch: React.FC<{
     }, 350);
     return () => clearTimeout(handle);
   }, [query]);
+
+  useEffect(() => {
+    setActiveIndex(-1);
+  }, [results]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -99,10 +105,34 @@ export const LocationSearch: React.FC<{
                   <input
                     ref={inputRef}
                     type="text"
+                    role="combobox"
+                    aria-expanded={open && results.length > 0}
+                    aria-controls={listboxId}
+                    aria-autocomplete="list"
+                    aria-activedescendant={activeIndex >= 0 ? `${listboxId}-option-${activeIndex}` : undefined}
                     value={query}
                     onChange={(e) => { setQuery(e.target.value.toUpperCase()); setOpen(true); }}
                     onFocus={() => { setOpen(true); setFocused(true); }}
                     onBlur={() => setFocused(false)}
+                    onKeyDown={(e) => {
+                      if (!open || results.length === 0) return;
+                      if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        setActiveIndex((i) => (i + 1) % results.length);
+                      } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        setActiveIndex((i) => (i <= 0 ? results.length - 1 : i - 1));
+                      } else if (e.key === 'Enter') {
+                        if (activeIndex >= 0) {
+                          e.preventDefault();
+                          selectResult(results[activeIndex]);
+                        }
+                      } else if (e.key === 'Escape') {
+                        e.preventDefault();
+                        setOpen(false);
+                        setActiveIndex(-1);
+                      }
+                    }}
                     className="absolute inset-0 opacity-0 cursor-text w-full z-10"
                     autoComplete="off"
                     autoFocus
@@ -122,19 +152,30 @@ export const LocationSearch: React.FC<{
       </div>
 
       {open && !location && (query.trim().length >= 2) && (
-        <div className="absolute left-0 right-0 top-full mt-1 bg-void-dark border border-phosphor/30 z-20 max-h-64 overflow-y-auto">
+        <div
+          id={listboxId}
+          role="listbox"
+          aria-label="Location results"
+          className="absolute left-0 right-0 top-full mt-1 bg-void-dark border border-phosphor/30 z-20 max-h-64 overflow-y-auto"
+        >
           {searching && (
             <div className="p-3 text-label text-phosphor/55 uppercase tracking-widest">Searching_</div>
           )}
           {!searching && results.length === 0 && (
             <div className="p-3 text-label text-phosphor/55 uppercase tracking-widest">No matches found</div>
           )}
-          {!searching && results.map((r) => (
+          {!searching && results.map((r, i) => (
             <button
               key={r.id}
+              id={`${listboxId}-option-${i}`}
+              role="option"
+              aria-selected={activeIndex === i}
               type="button"
               onClick={() => selectResult(r)}
-              className="w-full text-left p-3 hover:bg-phosphor/10 transition-all border-b border-phosphor/10 last:border-b-0"
+              onMouseEnter={() => setActiveIndex(i)}
+              className={`w-full text-left p-3 transition-all border-b border-phosphor/10 last:border-b-0 ${
+                activeIndex === i ? 'bg-phosphor/10' : 'hover:bg-phosphor/10'
+              }`}
             >
               <div className="font-body text-body-sm text-phosphor uppercase">{r.name}</div>
               <div className="font-body text-label text-phosphor/55 uppercase">

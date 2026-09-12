@@ -1,5 +1,5 @@
 import type { Plugin } from 'vite';
-import { getVisibleConstellation } from './api/constellation';
+import { getVisibleConstellation, parseTargetDate, fetchCloudCover } from './api/constellation';
 
 /**
  * api/constellation.ts is a Vercel serverless function — Vercel's routing only exists
@@ -32,7 +32,7 @@ export function apiDevPlugin(): Plugin {
 
         let body = '';
         req.on('data', (chunk) => { body += chunk; });
-        req.on('end', () => {
+        req.on('end', async () => {
           try {
             const parsed = body ? JSON.parse(body) : {};
             const { date, lat, lon } = parsed;
@@ -47,8 +47,12 @@ export function apiDevPlugin(): Plugin {
               return;
             }
             const constellation = getVisibleConstellation(date, lat, lon);
+            const targetDate = parseTargetDate(date);
+            const cloudCover = targetDate
+              ? await fetchCloudCover(lat, lon, targetDate.year, targetDate.month, targetDate.day)
+              : null;
             res.statusCode = 200;
-            res.end(JSON.stringify(constellation));
+            res.end(JSON.stringify({ ...constellation, cloudCover }));
           } catch {
             res.statusCode = 400;
             res.end(JSON.stringify({ error: 'INVALID_REQUEST: malformed JSON body.' }));

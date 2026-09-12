@@ -1,12 +1,29 @@
 import React, { useState } from 'react';
+import { useDialKit } from 'dialkit';
 import { Constellation } from '../types';
 import { ExportCard } from './ExportCard';
 import { TwinklingStars } from './TwinklingStars';
-import { formatVisibility } from '../utils';
+import { describeVisibility, parseLightYears, voyagerTravelTime } from '../utils';
 import { WindowPanel } from './WindowPanel';
 import { DitherField } from './DitherField';
+import { Definable } from './Definable';
 
-export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: string }> = ({ data, scanDate }) => {
+const CLASSIFICATION_DEFINITIONS: Record<string, string> = {
+  Equatorial: 'Straddles the celestial equator, making it visible from most places on Earth.',
+  Zodiacal: "Lies along the ecliptic — the sun's apparent yearly path — one of the twelve zodiac constellations.",
+  Northern: "Sits in the sky's northern half, closer to the North Celestial Pole.",
+  Southern: "Sits in the sky's southern half, closer to the South Celestial Pole.",
+};
+
+const METRIC_DEFINITIONS: Record<string, string> = {
+  'Luminosity Index': 'How many times more light the brightest star gives off than the Sun (L☉ = one solar luminosity).',
+  'Nebula Density': "An estimate of how much interstellar gas and dust surrounds this region of sky.",
+  'Signal Drift': "The star pattern's apparent position, changing by this many degrees per year due to real motion through space (proper motion).",
+};
+
+const METRIC_LABEL_CLASSES = 'font-body uppercase text-phosphor/55 underline decoration-dotted decoration-phosphor/40 underline-offset-2 hover:bg-phosphor/10';
+
+export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: string; scanLat?: number }> = ({ data, scanDate, scanLat }) => {
   const [showExport, setShowExport] = useState(false);
   const [selectedStarIndex, setSelectedStarIndex] = useState<number | null>(null);
 
@@ -15,19 +32,23 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
     return `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
   })();
 
-  const starToRA = (x: number) => {
-    const hours = Math.floor((x / 100) * 24);
-    const minutes = Math.floor(((x / 100) * 24 % 1) * 60);
-    return `${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m`;
-  };
-
-  const starToDec = (y: number) => {
-    const degrees = Math.floor((y / 100) * 180 - 90);
-    const minutes = Math.floor((Math.abs((y / 100) * 180 - 90) % 1) * 60);
-    return `${degrees > 0 ? '+' : ''}${degrees}° ${minutes}'`;
-  };
-
   const selectedStar = selectedStarIndex !== null ? data.stars[selectedStarIndex] : null;
+
+  let brightestStar: Constellation['stars'][number] | null = null;
+  for (const star of data.stars) {
+    if (star.magnitude === undefined) continue;
+    if (brightestStar === null || brightestStar.magnitude === undefined || star.magnitude < brightestStar.magnitude) {
+      brightestStar = star;
+    }
+  }
+
+  const constellationLightYears = parseLightYears(data.distance);
+
+  const panelFonts = useDialKit('Panel Fonts', {
+    title: [12, 6, 20],
+    label: [12, 6, 16],
+    value: [12, 8, 20],
+  });
 
   return (
     <main className="pt-24 pb-32 px-6 max-w-7xl mx-auto">
@@ -92,33 +113,42 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
                   {/* Star Data Overlay */}
                   {selectedStar && (
                     <div className="absolute top-4 right-4 w-52 z-20 animate-in fade-in slide-in-from-right-4 duration-300">
-                      <WindowPanel title="Star Data" className="bg-void-dark/90 backdrop-blur-sm">
-                        <button
-                          onClick={() => setSelectedStarIndex(null)}
-                          className="absolute top-1 right-8 text-phosphor hover:text-white font-body text-label font-bold"
-                          aria-label="Close star data"
-                        >
-                          [X]
-                        </button>
+                      <WindowPanel
+                        title="Star Data"
+                        className="bg-void-dark/90 backdrop-blur-sm"
+                        onClose={() => setSelectedStarIndex(null)}
+                        titleFontSize={panelFonts.title}
+                      >
                         <div className="space-y-2">
                           <div>
-                            <div className="text-label uppercase text-phosphor/55">Designation</div>
-                            <div className="text-body-sm text-phosphor font-body">{selectedStar.name || `STAR_${data.name.slice(0,3)}_${selectedStarIndex}`}</div>
+                            <div className="uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Designation</div>
+                            <div className="text-phosphor font-body" style={{ fontSize: panelFonts.value }}>{selectedStar.name || `STAR_${data.name.slice(0,3)}_${selectedStarIndex}`}</div>
                           </div>
                           <div className="grid grid-cols-2 gap-2">
                             <div>
-                              <div className="text-label uppercase text-phosphor/55">Magnitude</div>
-                              <div className="text-body-sm text-phosphor font-body">{(Math.random() * 5 + 1).toFixed(2)}</div>
+                              <div className="uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Magnitude</div>
+                              <div className="text-phosphor font-body" style={{ fontSize: panelFonts.value }}>
+                                {selectedStar.magnitude !== undefined ? selectedStar.magnitude.toFixed(2) : 'N/A'}
+                              </div>
                             </div>
                             <div>
-                              <div className="text-label uppercase text-phosphor/55">Class</div>
-                              <div className="text-body-sm text-phosphor font-body">{['O', 'B', 'A', 'F', 'G', 'K', 'M'][selectedStarIndex % 7]}</div>
+                              <div className="uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Class</div>
+                              <div className="text-phosphor font-body" style={{ fontSize: panelFonts.value }}>{selectedStar.spectralClass || 'N/A'}</div>
                             </div>
                           </div>
-                          <div>
-                            <div className="text-label uppercase text-phosphor/55">Coordinates</div>
-                            <div className="text-label text-phosphor font-mono">RA: {starToRA(selectedStar.x)} / DEC: {starToDec(selectedStar.y)}</div>
-                          </div>
+                          {selectedStar.starType && (
+                            <div>
+                              <div className="uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Star Type</div>
+                              <div className="text-phosphor font-body" style={{ fontSize: panelFonts.value }}>{selectedStar.starType}</div>
+                            </div>
+                          )}
+                          {selectedStar.distance !== undefined && (
+                            <div>
+                              <div className="uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Distance</div>
+                              <div className="text-phosphor font-body" style={{ fontSize: panelFonts.value }}>{selectedStar.distance.toLocaleString()} LY</div>
+                              <div className="text-phosphor/55" style={{ fontSize: panelFonts.label }}>{voyagerTravelTime(selectedStar.distance)} by spacecraft</div>
+                            </div>
+                          )}
                         </div>
                       </WindowPanel>
                     </div>
@@ -155,59 +185,121 @@ export const ConstellationDetail: React.FC<{ data: Constellation; scanDate?: str
 
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
-              <div className="font-body text-label text-phosphor/55 uppercase mb-1 md:mb-2">Distance (LY)</div>
-              <div className="font-body text-heading text-phosphor">{data.distance}</div>
+              <div className="font-body text-label text-phosphor/55 uppercase mb-1 md:mb-2">Distance</div>
+              <div className="font-body text-heading text-phosphor">
+                {constellationLightYears !== null ? `${constellationLightYears.toLocaleString()} LY` : data.distance}
+              </div>
+              {constellationLightYears !== null && (
+                <div className="font-body text-label text-phosphor/55 mt-1">
+                  {voyagerTravelTime(constellationLightYears)} by spacecraft
+                </div>
+              )}
             </div>
             <div className="bg-void-light p-3 md:p-4 border border-phosphor/10">
-              <div className="font-body text-label text-phosphor/55 uppercase mb-1 md:mb-2">Observation Window</div>
-              <div className="font-body text-heading text-phosphor">{data.observationWindow}</div>
+              <div className="font-body text-label text-phosphor/55 uppercase mb-1 md:mb-2">Cloud Cover Tonight</div>
+              <div className="font-body text-heading text-phosphor">
+                {data.cloudCover ? `${data.cloudCover.percent}%` : 'N/A'}
+              </div>
+              {data.cloudCover && (
+                <div className="font-body text-label text-phosphor/55 mt-1">{data.cloudCover.label}</div>
+              )}
+              {!data.cloudCover && (
+                <div className="font-body text-label text-phosphor/55 mt-1">Outside forecast range</div>
+              )}
             </div>
           </div>
 
           <div className="flex flex-col gap-6">
-            <WindowPanel title="Astronomical Profile">
+            <WindowPanel title="Astronomical Profile" titleFontSize={panelFonts.title}>
               <p className="font-body text-body-sm text-phosphor/75 leading-relaxed mb-6">
                 {data.description}
               </p>
 
               <div className="space-y-3">
                 <div className="flex justify-between items-end gap-2">
-                  <span className="font-body text-label uppercase text-phosphor/55">Classification</span>
-                  <span className="font-body text-body-sm text-phosphor">{data.type}</span>
+                  <span className="font-body uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Classification</span>
+                  <Definable
+                    label={data.type}
+                    definition={CLASSIFICATION_DEFINITIONS[data.type] || data.type}
+                    style={{ fontSize: panelFonts.value }}
+                  />
                 </div>
                 <div className="flex justify-between items-end gap-2">
-                  <span className="font-body text-label uppercase text-phosphor/55">Visibility Range</span>
-                  <span className="font-body text-body-sm text-phosphor">{formatVisibility(data.visibility)}</span>
+                  <span className="font-body uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Visibility</span>
+                  <span className="font-body text-phosphor text-right" style={{ fontSize: panelFonts.value }}>{describeVisibility(data.visibility, scanLat)}</span>
                 </div>
                 <div className="flex justify-between items-end gap-2">
-                  <span className="font-body text-label uppercase text-phosphor/55">Stellar Count</span>
-                  <span className="font-body text-body-sm text-phosphor">{data.stars.length} Main Stars</span>
+                  <span className="font-body uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Best Seen</span>
+                  <span className="font-body text-phosphor" style={{ fontSize: panelFonts.value }}>{data.observationWindow}</span>
                 </div>
+                <div className="flex justify-between items-end gap-2">
+                  <span className="font-body uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Stellar Count</span>
+                  <span className="font-body text-phosphor" style={{ fontSize: panelFonts.value }}>{data.stars.length} Main Stars</span>
+                </div>
+                {brightestStar && (
+                  <div className="flex justify-between items-end gap-2">
+                    <span className="font-body uppercase text-phosphor/55" style={{ fontSize: panelFonts.label }}>Brightest Star</span>
+                    <span className="font-body text-phosphor" style={{ fontSize: panelFonts.value }}>
+                      {brightestStar.name} (mag {brightestStar.magnitude?.toFixed(2)})
+                    </span>
+                  </div>
+                )}
               </div>
             </WindowPanel>
 
-            <WindowPanel title="Observation Metrics">
+            <WindowPanel title="Observation Metrics" titleFontSize={panelFonts.title}>
               <div className="space-y-3">
                 <div className="flex justify-between items-end gap-2">
-                  <span className="font-body text-label uppercase text-phosphor/55">Luminosity index</span>
-                  <span className="font-body text-body-sm text-phosphor">{data.spectralData.luminosity}</span>
+                  <Definable
+                    label="Luminosity Index"
+                    definition={METRIC_DEFINITIONS['Luminosity Index']}
+                    className={METRIC_LABEL_CLASSES}
+                    style={{ fontSize: panelFonts.label }}
+                  />
+                  <span className="font-body text-phosphor" style={{ fontSize: panelFonts.value }}>{data.spectralData.luminosity}</span>
                 </div>
                 <div className="flex justify-between items-end gap-2">
-                  <span className="font-body text-label uppercase text-phosphor/55">Nebula Density</span>
-                  <span className="font-body text-body-sm text-phosphor">{data.spectralData.nebulaDensity}</span>
+                  <Definable
+                    label="Nebula Density"
+                    definition={METRIC_DEFINITIONS['Nebula Density']}
+                    className={METRIC_LABEL_CLASSES}
+                    style={{ fontSize: panelFonts.label }}
+                  />
+                  <span className="font-body text-phosphor" style={{ fontSize: panelFonts.value }}>{data.spectralData.nebulaDensity}</span>
                 </div>
                 <div className="flex justify-between items-end gap-2">
-                  <span className="font-body text-label uppercase text-phosphor/55">Signal Drift</span>
-                  <span className="font-body text-body-sm text-phosphor">{data.spectralData.signalDrift}</span>
+                  <Definable
+                    label="Signal Drift"
+                    definition={METRIC_DEFINITIONS['Signal Drift']}
+                    className={METRIC_LABEL_CLASSES}
+                    style={{ fontSize: panelFonts.label }}
+                  />
+                  <span className="font-body text-phosphor" style={{ fontSize: panelFonts.value }}>{data.spectralData.signalDrift}</span>
                 </div>
               </div>
             </WindowPanel>
 
-            <WindowPanel title="Mythological Origin">
+            <WindowPanel title="Mythological Origin" titleFontSize={panelFonts.title}>
               <p className="font-body text-body-sm text-phosphor/75 leading-relaxed">
                 {data.mythology}
               </p>
             </WindowPanel>
+
+            {data.practicalUses && (
+              <WindowPanel title="Practical Uses" titleFontSize={panelFonts.title}>
+                <p className="font-body text-body-sm text-phosphor/75 leading-relaxed">
+                  {data.practicalUses}
+                </p>
+              </WindowPanel>
+            )}
+
+            {data.culturalSignificance && (
+              <WindowPanel title="Cultural Significance" titleFontSize={panelFonts.title}>
+                <p className="font-body text-body-sm text-phosphor/75 leading-relaxed">
+                  {data.culturalSignificance}
+                </p>
+              </WindowPanel>
+            )}
           </div>
         </div>
       </div>
